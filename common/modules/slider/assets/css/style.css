@@ -1,0 +1,40 @@
+.jssora051 {display:block;position:absolute;cursor:pointer;}
+.jssora051 .a {fill:none;stroke:#fff;stroke-width:360;stroke-miterlimit:10;}
+.jssora051:hover {opacity:.8;}
+.jssora051.jssora051dn {opacity:.5;}
+.jssora051.jssora051ds {opacity:.3;pointer-events:none;}
+.slider{margin-bottom:20px;}
+.slider_image { 
+	position: relative; 
+	width: 100%; /* for IE 6 */
+}
+
+.slider_image h1 { 
+	position: absolute; 
+	top: 50px; 
+	left: 0; 
+	width: 100%; 
+	font: 100 126px/1.2em 'Roboto',sans-serif;
+	color:#ffffff;
+	white-space: normal;
+	text-align: center;
+	z-index: 3;
+}
+.slider_image p 
+{ 
+	position: absolute; 
+	top: 200px; 
+	left: 0; 
+	width: 100%; 
+	display: inline-block;
+	font: 400 36px/1.2em 'Roboto',sans-serif;
+	color: #ffffff;
+	margin: 0px;
+	padding: 0 0 21px;
+	white-space: normal;
+	text-align: center;
+	z-index: 3;
+}
+span.line {
+  display: inline-block;
+}

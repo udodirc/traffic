@@ -1,0 +1,78 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+use yii\base\Model;
+use yii\data\ActiveDataProvider;
+use common\models\Menu;
+
+/**
+ * MenuSearch represents the model behind the search form about `app\models\Menu`.
+ */
+class MenuSearch extends Menu
+{
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['id', 'parent_id'], 'integer'],
+            [['name', 'url'], 'safe'],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function scenarios()
+    {
+        // bypass scenarios() implementation in the parent class
+        return Model::scenarios();
+    }
+
+    /**
+     * Creates data provider instance with search query applied
+     *
+     * @param array $params
+     *
+     * @return ActiveDataProvider
+     */
+    public function search($params)
+    {
+        $query = Menu::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+		
+		$parent_id = '';
+		
+		if(isset($params['MenuSearch']['parent_menu'])  && $params['MenuSearch']['parent_menu'] != '')
+		{
+			$menu = new Menu();
+			$parent_id = $menu->getMenuDataByName($params['MenuSearch']['parent_menu']);
+		}
+		
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'parent_id' => $parent_id,
+        ]);
+
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'url', $this->url]);
+           
+        $query->orderBy('id DESC, category_id, parent_id, controller_id');
+
+        return $dataProvider;
+    }
+}

@@ -1,0 +1,66 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.main-wrapper
+{
+	min-height: 100%;
+}
+
+footer 
+{
+    height: 50px;
+}
+
+.container.form-section 
+{
+	width:800px;
+	overflow: hidden;
+    margin: 160px auto;
+}
+
+.container.wrap 
+{
+	width:100%;
+	overflow: hidden;
+	margin: 20px 0;
+}
+
+.container.wrap.top 
+{
+	margin: 100px 0 20px 0;
+}
+
+article
+{
+	border-image: none;
+	border-bottom-style: solid;
+    border-bottom-color: #e7eaec;
+    border-bottom-width: 1px;
+    margin-bottom: 20px;
+}
+
+.pretext
+{
+	margin:40px 0;
+}
+
+.align-center
+{
+	text-align:center;
+}
+
+.last-register 
+{
+    font-size: 20px;
+    letter-spacing: -1px;
+    font-weight: 600;
+    text-transform: uppercase;
+}

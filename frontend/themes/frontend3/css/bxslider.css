@@ -1,0 +1,101 @@
+.bx-wrapper{
+    position: relative;
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+.bx-wrapper .bx-pager{
+    position: absolute;
+    bottom: -30px;
+    z-index: 99;
+
+    width: 100%;
+
+    text-align: center;
+}
+
+.bx-wrapper .bx-pager .bx-pager-item{
+    display: inline-block;
+}
+.bx-wrapper .bx-pager.bx-default-pager a{
+    display: block;
+
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+
+    text-indent: -9999px;
+
+    border-radius: 50%;
+    outline: 0;
+    background: #666;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active{
+    background: #000;
+}
+
+
+.bx-wrapper .bx-controls-direction a{
+    position: absolute;
+    top: 50%;
+    z-index: 99;
+
+    width: 24px;
+    height: 105px;
+    margin-top: -53px;
+
+    text-indent: -9999px;
+
+    outline: 0;
+    background: #fbbd00;
+    transition: background-color 0.2s linear;
+}
+.reviews .bx-wrapper .bx-controls-direction a{
+    height: 45px;
+    margin-top: -4px;
+}
+.object_info .bx-wrapper .bx-controls-direction a{
+    height: 45px;
+    margin-top: -4px;
+}
+
+.bx-wrapper .bx-controls-direction a:after{
+    display: block;
+    width: 7px;
+    height: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    content: '';
+    background: url(../images/carousel_arrows.png) 0 0 no-repeat;
+}
+
+.bx-wrapper .bx-controls-direction a.bx-prev{
+    left: -24px;
+}
+.bx-wrapper .bx-controls-direction a.bx-next{
+    right: -24px;
+}
+
+.bx-wrapper .bx-controls-direction a.bx-prev:after{ background-position: 0 0; }
+.bx-wrapper .bx-controls-direction a.bx-next:after{ background-position: -7px 0; }
+
+.bx-wrapper .bx-controls-direction a:hover{ background-color: #4d4d4d; }
+.bx-wrapper .bx-controls-direction a.bx-prev:hover:after{ background-position: 0 -10px; }
+.bx-wrapper .bx-controls-direction a.bx-next:hover:after{ background-position: -7px -10px; }
+
+.object_info .bx-wrapper .bx-controls-direction a.bx-prev{ left: 0; }
+.object_info .bx-wrapper .bx-controls-direction a.bx-next{ right: 0; }
+
+
+.bx-wrapper .bx-controls-auto,
+.bx-wrapper .bx-caption{
+    display: none;
+}

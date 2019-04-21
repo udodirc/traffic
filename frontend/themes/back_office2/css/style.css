@@ -1,0 +1,259 @@
+.help-block:(:empty)
+{
+	width:90%;
+}
+
+.help-block:not(:empty) 
+{
+    width:90%;
+	border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #ffffff inset;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    background: -moz-linear-gradient(center top , rgba(255, 227, 222, 1) 1%, rgba(252, 202, 193, 1) 72%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #e18b7c;
+    color: #571212;
+    font-size: 14px;
+    line-height: 30px;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+input[name="UsersSearch[id]"]
+{
+    max-width: 50px;
+}
+
+input[name="UsersSearch[username]"]
+{
+    max-width: 150px;
+}
+
+input[name="UsersSearch[email]"]
+{
+    max-width: 120px;
+}
+
+input[name="UsersSearch[status_name]"]
+{
+    max-width: 60px;
+}
+
+input[name="UsersSearch[group_name]"]
+{
+    max-width: 60px;
+}
+
+input[name="UsersSearch[created_at]"]
+{
+    max-width: 90px;
+}
+
+input[name="MenuSearch[id]"]
+{
+    max-width: 50px;
+}
+
+input[name="AdminMenuSearch[id]"]
+{
+    max-width: 50px;
+}
+
+input[name="PermissionsSearch[id]"]
+{
+    max-width: 30px;
+}
+
+input[name="PermissionsSearch[group]"]
+{
+    max-width: 150px;
+}
+
+input[name="PaginationSearch[menu_id]"]
+{
+    max-width: 400px;
+}
+
+input[name="PaginationSearch[value]"]
+{
+    max-width: 200px;
+}
+
+input[name="MenuSearch[url]"]
+{
+    max-width: 150px;
+}
+
+input[name="MenuSearch[name]"]
+{
+    max-width: 150px;
+}
+
+input[name="ContentSearch[id]"]
+{
+    max-width: 50px;
+}
+
+.image_wrap
+{
+	display:inline-block; 
+	vertical-align:top;
+}
+
+.image_block
+{
+	float:left;
+}
+
+#projects-form .image_container img 
+{
+    height: 273px;
+}
+
+.image_delete
+{
+	text-align:right;
+	margin-bottom: 3px;
+}
+
+.image_delete a 
+{
+    display: block;
+    height: 16px;
+    position: relative;
+}
+
+.icon_delete
+{
+	background: url("../_layout/images/icons/icon-delete.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 16px;
+}
+
+.icon_delete_banner
+{
+	background: url("../_layout/images/icons/icon-delete.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 16px;
+    width: 16px;
+}
+
+.icon_edit
+{
+	background: url("../_layout/images/icons/icon-edit.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 16px;
+    width: 16px;
+}
+
+.gallery_row
+{
+	overflow:hidden;
+}
+
+.banner_block
+{
+	float:left;
+	width:150px;
+	margin:0 10px 10px 0;
+}
+
+.action_block
+{
+	width:100%;
+	height: 16px;
+	margin-bottom: 5px;
+	overflow:hidden;
+}
+
+.items 
+{
+	margin-bottom: 20px;
+}
+
+.items .item:first-child 
+{
+	margin-left: 0;
+}
+
+.items .item 
+{
+	position: relative;
+	display: inline-block;
+	margin: 0 0 10px 2px;
+}
+
+.items .item .mask 
+{
+	position: absolute;
+	width: calc(100% - 4px);
+	height: 60px;
+	left: 2px;
+	bottom: 4px;
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.items .item img 
+{
+	border: 2px solid #d9dada;
+}
+
+.action_block img 
+{
+	border: 0 !important;
+}
+
+.items .item .mask h3 
+{
+	font-size: 12px;
+	font-weight: 700;
+	text-align: center;
+	margin: 0 auto;
+	vertical-align: middle;
+	color: #000;
+}
+
+.glyphicon-status-inactive:before 
+{
+	content: "\e134";
+}
+
+.glyphicon-status-active:before 
+{
+	content: "\e133";
+}
+
+.container, .works
+{
+	width:100%; 
+	overflow:hidden; 
+	margin-bottom:20px;
+}
+
+.item_add
+{
+	float:right;
+}
+
+.item a 
+{
+    border: 2px solid #000;
+    color: #000;
+    display: inline-block;
+    font-size: 20px;
+    margin: 0 10px 10px 0;
+    padding: 10px 20px;
+    transition: all 0.3s ease 0s;
+}
+
+.item_block
+{
+	float:left;
+}
+
+.item_actions
+{
+	padding-right: 10px;
+}

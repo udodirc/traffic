@@ -1,0 +1,61 @@
+// Core variables and mixins
+@import "_variables.less";
+// Custom for this template
+@import "bootstrap/_mixins.less";
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+#breadcrumbs {
+  background: #929292;
+
+}
+
+.breadcrumb {
+  background: none;
+  padding: 0;
+  text-align: left;
+  margin: 7px 0 7px 34px;
+  li {
+    padding: 0;
+    display: inline-block;
+    font: 400 14px/31px @font-family-base;
+    .divider {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 15px;
+      color: #c7c7c7;
+      vertical-align: top;
+    }
+    &.active {
+      color: @white;
+      span{
+        color: @white;
+      }
+    }
+    >span {
+      color: @white;
+    }
+  }
+  a {
+    color: #c7c7c7;
+    &:hover {
+      color: @global-color2;
+    }
+  }
+  .firstItem {
+    > a.pathway {
+      display: inline-block;
+      font-size: 0;
+      line-height: 0;
+      vertical-align: middle;
+      &:before {
+        content: '\f015';
+        font-family: FontAwesome;
+        font-size: 14px;
+        line-height: @line-height-base;;
+        .transition(all .5s ease);
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+<?php
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
+
+/* @var $this yii\web\View */
+/* @var $model common\modules\tickets\models\Tickets */
+/* @var $form yii\widgets\ActiveForm */
+
+$this->title = (isset($this->params['title'])) ? $this->params['title'] : '';
+$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<h2><?= Html::encode($this->title); ?></h2>
+<br/>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-primary" data-collapsed="0">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<?= Html::encode($this->title); ?>
+				</div>
+			</div>
+			<div class="panel-body">
+			<?php $form = ActiveForm::begin([
+				'id'=>'inline-validation',
+				'options' => [
+					'class'=>'form-horizontal form-stripe'
+				],
+			]); ?>
+				<div class="form-group">
+					<?= Html::activeLabel($model, 'subject', [
+						'class'=>'col-sm-2 control-label',
+						'label' => Yii::t('form', 'Тема').'<span class="required">*</span>'
+					]); ?>
+					<div class="col-sm-8">
+						<?= Html::activeTextInput($model, 'subject', ['class'=>'form-control']); ?>
+						<?= Html::error($model, 'subject', [
+							'class'=>'error'
+						]); ?>
+                    </div>
+				</div>
+                <div class="form-group">
+					<?= Html::activeLabel($model, 'text', [
+						'class'=>'col-sm-2 control-label',
+						'label' => Yii::t('form', 'Текст сообщения').'<span class="required">*</span>'
+					]); ?>
+					<div class="col-sm-8">
+					<?= $form->field($model, 'text')->widget(CKEditor::className(),[
+						'editorOptions' => [
+							'class' => 'form-control',
+							'preset' => 'basic', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+							'inline' => false, //по умолчанию false
+							'language' => 'ru',
+							'extraPlugins' => 'image',
+							'filebrowserUploadUrl' => 'uploads/files-upload/content-upload?category=content&CKEditor=content-content&CKEditorFuncNum=2&langCode=ru',
+						],
+					])->label(false); ?>
+					<?= Html::error($model, 'text', [
+						'class'=>'error'
+					]); ?>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-8" align="right">
+						<?= Html::submitButton(Yii::t('form', 'Создать'), ['class' => 'btn btn-success']) ?>
+					</div>
+				</div>
+			<?php ActiveForm::end(); ?>
+			</div>
+		</div>
+	</div>
+</div>

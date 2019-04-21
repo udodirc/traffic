@@ -1,0 +1,68 @@
+.help-block:(:empty)
+{
+	width:90%;
+}
+
+.help-block:not(:empty) 
+{
+    width:90%;
+	border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #ffffff inset;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    background: -moz-linear-gradient(center top , rgba(255, 227, 222, 1) 1%, rgba(252, 202, 193, 1) 72%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #e18b7c;
+    color: #571212;
+    font-size: 14px;
+    line-height: 30px;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+input[name="UsersSearch[id]"]
+{
+    max-width: 50px;
+}
+
+input[name="UsersSearch[username]"]
+{
+    max-width: 150px;
+}
+
+input[name="UsersSearch[email]"]
+{
+    max-width: 150px;
+}
+
+input[name="UsersSearch[status_name]"]
+{
+    max-width: 60px;
+}
+
+input[name="UsersSearch[group_name]"]
+{
+    max-width: 60px;
+}
+
+input[name="UsersSearch[created_at]"]
+{
+    max-width: 90px;
+}
+
+input[name="MenuSearch[id]"]
+{
+    max-width: 50px;
+}
+
+.file_wrap
+{
+	width: 150px;
+	height: 150px;
+	overflow:hidden;
+}
+
+.module_custom_field
+{
+	margin-bottom: 20px;
+}

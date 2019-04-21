@@ -1,0 +1,79 @@
+<?php
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\grid\GridView;
+
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model \common\models\LoginForm */
+
+$this->title = Yii::t('form', 'Уровень №').$number;
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="partners-level">
+<?php if($dataProvider !== null && $percent > 0):
+echo GridView::widget([
+	'dataProvider' => $dataProvider,
+	//'filterModel' => $searchModel,
+	'layout'=>"{pager}\n{summary}\n{items}",
+	'pager' => [
+		//'options'=>['class'=>'pagination'],   // set clas name used in ui list of pagination
+		'firstPageLabel'=>Yii::t('form', 'Первый'),   // Set the label for the "first" page button
+		'lastPageLabel'=>Yii::t('form', 'Последний'),    // Set the label for the "last" page button
+		'firstPageCssClass'=>'first',    // Set CSS class for the "first" page button
+		'lastPageCssClass'=>'last',    // Set CSS class for the "last" page button
+		'maxButtonCount'=>10,    // Set maximum number of page buttons that can be displayed
+	],
+	'columns' => [
+		['class' => 'yii\grid\SerialColumn'],
+		[
+			'attribute' => 'sponsor_name', 
+			'label' => Yii::t('form', 'Спонсор'),
+			'format'=>'raw',//raw, html
+			'value'=>function ($model) use ($partnerModel)
+			{
+				return $partnerModel->login;
+			},
+			'filter'=>false,
+		],
+		'login',
+		[
+			'attribute' => 'geo', 
+			'label' => Yii::t('form', 'Страна'),
+			'format'=>'raw',//raw, html
+			'content'=>function ($model) use ($isoList)
+			{
+				$country = (isset($isoList[$model->iso])) ? $isoList[$model->iso] : '';
+									
+				return ($model->iso != '') ? Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@frontend_images'.DIRECTORY_SEPARATOR.'flags'.DIRECTORY_SEPARATOR.strtolower($model->iso).'.png'), ['alt'=>$country, 'title'=>$country]) : '';
+			},
+			'filter'=>false,
+		],
+		[
+			'attribute' => 'created_at', 
+			'label' => Yii::t('form', 'Дата регистрации'),
+			'format' => ['date', 'php:Y-m-d H:m:s'],
+			'filter'=>false,
+		],
+		[
+			'attribute' => 'activation_date', 
+			'label' => Yii::t('form', 'Дата активации'),
+			'format' => ['date', 'php:Y-m-d H:m:s'],
+			'filter'=>false,
+		],
+		[
+			'attribute' => 'percentage', 
+			'label' => Yii::t('form', '%'),
+			'format'=>'raw',//raw, html
+			'content'=>function ($model) use ($percent)
+			{
+				return $percent;
+			},
+			'filter'=>false,
+		],
+		'percent_amount',
+	],
+]);
+endif;
+?>
+</div>

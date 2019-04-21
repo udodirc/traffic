@@ -1,0 +1,71 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "menu".
+ *
+ * @property integer $id
+ * @property integer $parent_id
+ * @property string $name
+ * @property string $url
+ */
+class Menu extends \yii\db\ActiveRecord
+{
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'menu';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['parent_id', 'name', 'url'], 'required'],
+            [['parent_id'], 'integer'],
+            [['name', 'url'], 'string', 'max' => 100]
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('form', 'ID'),
+            'parent_id' => Yii::t('form', 'Parent ID'),
+            'name' => Yii::t('form', 'Name'),
+            'url' => Yii::t('form', 'Url'),
+        ];
+    }
+     
+    public static function getMenuList()
+    {
+		$result = array();
+		$requestArr = explode("=", $_SERVER['REQUEST_URI']);
+		print_r($requestArr);
+		//$char = (preg_match($pattern, $subject, $matches)) ? ''
+		echo urldecode($requestArr[1]);
+		$requestArr = explode("/", $requestArr[1]);
+		print_r($requestArr);
+		if(count($requestArr) > 0)
+		{
+			$menuArr = Yii::$app->params['admin_menu'];
+			
+			if(isset($menuArr[$requestArr[0]]))
+			{
+				$result = $menuArr[$requestArr[0]];
+			}
+		}
+		
+		return $result;
+	}
+}

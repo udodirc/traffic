@@ -1,0 +1,58 @@
+@import "_variables.less";
+@import "bootstrap/_mixins.less";
+// ============================
+// Article Single Modules
+// ============================
+.mod-article-single {
+    margin-bottom: @line-height-base;
+    .item__module {
+        .clearfix();
+    }
+    p {
+        font-style: italic;
+    }
+    &.mod-article-single__home_about {
+        .btn {
+            &.readmore {
+                margin-top: 10px;
+                padding: 0;
+                background: none;
+                color: @global-color2;
+                &:hover {
+                    background: none;
+                    color: @global-color;
+                }
+            }
+        }
+    }
+    &.mod-article-single__home_post1 {
+        .item_img {
+            margin-right: 50px;
+            img {
+                border-radius: 500px;
+            }
+        }
+        .btn{
+        	margin-top: 15px;
+        	background: @global-color;
+        	&:hover{
+        		background: @global-color2;
+        	}
+        }
+    }
+
+        &.mod-article-single__home_post2 {
+        .item_img {
+            margin-left: 50px;
+            img {
+                border-radius: 500px;
+            }
+        }
+        .btn{
+        	margin-top: 15px;
+        }
+    }
+    &.mod-article-single__treatment{
+    	padding-top: 30px;
+    }
+}

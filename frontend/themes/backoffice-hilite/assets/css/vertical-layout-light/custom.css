@@ -1,0 +1,354 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+* {
+    margin: 0;
+}
+
+html,body {
+	height: 100%!important;
+}
+
+.main_wrap
+{
+	min-height: 100%!important;
+    height: auto !important;
+    height: 100%!important;
+    margin: 0 auto -150px;
+}
+
+.banner_wrap
+{
+	margin-bottom:50px;
+	padding-bottom: 30px;
+	border-bottom: 2px solid #e6e9ed;
+}
+
+.file_wrap
+{
+	overflow:hidden; 
+	margin:10px 10px 20px 10px;
+}
+
+.banner_text
+{
+	margin-left:10px;
+	height:50px;
+	overflow:hidden;
+}
+
+.banner_code
+{
+	width:85%; 
+    height:50px;
+    font-size:11px;
+}
+
+.banner_code textarea 
+{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.btn.btn-success.banner
+{
+	float:right;
+	width:14%; 
+	height:50px;
+}
+
+.color-primary {
+    color: #189279;
+}
+
+ul.levels
+{
+	list-style-type: none;
+}
+
+.levels li
+{
+	margin-bottom:10px;
+}
+
+.levels .title
+{
+	margin-left:10px;
+	font-size:14px;
+}
+
+.structure
+{
+	width:100%;
+	margin-top: 50px;
+}
+
+.structure_head
+{
+	width:100%;
+	margin-bottom: 50px;
+	text-align:center;
+}
+
+.structure_wrap
+{
+	width:100%;
+	overflow:hidden;
+	margin:0 auto;
+}
+
+.matrix
+{
+	width:100%;
+	margin-bottom: 20px;
+	overflow:hidden;
+}
+
+.matrix-head
+{
+	width:100%;
+	text-align:center;
+}
+
+.matrix-block
+{
+	width:100%;
+	overflow:hidden;
+	font-size: 12px;
+	line-height: 2;
+	color: #949494;
+}
+
+.matrix-block.linear
+{
+	margin:0 auto;
+}
+
+.level
+{
+	width:100%;
+	overflow:hidden;
+}
+
+.matrix_number
+{
+	text-align:center;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+.matrix-linear-block
+{
+	float:left;
+}
+
+.matrix-binary-block-wrap, .matrix-linear-block-wrap
+{
+	width:100%;
+	overflow:hidden;
+	margin:50px 0;
+}
+
+.level_1
+{
+	width:100%;
+	overflow:hidden;
+}
+
+.matrix-binary-block
+{
+	width:50%;
+	float:left;
+	margin-right:40px;
+	margin:0 auto;
+}
+
+.matrix-binary-block.level_1
+{
+	width: 50%;
+}
+
+.matrix-binary-block.level_2
+{
+	width: 25%;
+}
+
+.matrix-login
+{
+	width:100px;
+	text-align:center;
+}
+
+.matrix-wrap
+{
+	width:50%;
+	margin: 0 auto; 
+	height:80px;
+	overflow:hidden;
+}
+
+.matrix-wrap.left, .matrix-login-wrap.left
+{
+	float:left;
+	text-align:left;
+}
+
+.matrix-wrap.right, .matrix-login-wrap.right
+{
+	float:right;
+	text-align:right;
+}
+
+.matrix-image-wrap
+{
+	width:100%;
+	height:50px;
+	overflow:hidden;
+}
+
+.matrix-login-wrap
+{
+	width:100%;
+	height:30px;
+	padding:10px 0 0 0;
+	text-align:center;
+	overflow:hidden;
+}
+
+.matrix-partner
+{
+	background: url("../../images/partner.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+	width:82px;
+	height:82px;
+}
+
+.matrix-partner.center.zero
+{
+	background: url("../images/matrix0.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+	height:85px;
+}
+
+.matrix-partner.center, .matrix-login.center
+{
+	margin: 0 auto;
+}
+
+.matrix-partner.right
+{
+	float:right;
+}
+
+.matrix-partner.center
+{
+	margin: 0 auto;
+}
+
+.matrix-partner.center.status_0, .matrix-partner.status_0
+{
+	background: url("../../images/status_1.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+
+.matrix-partner.center.status_1, .matrix-partner.status_1
+{
+	background: url("../../images/status_1.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+
+.matrix-partner.center.status_2, .matrix-partner.status_2
+{
+	background: url("../../images/status_2.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+
+.matrix-partner.center.status_3, .matrix-partner.status_3
+{
+	background: url("../../images/status_3.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+
+.matrix-partner.center.status_4, .matrix-partner.status_4
+{
+	background: url("../../images/status_4.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+
+.matrix-partner.center.status_5, .matrix-partner.status_5
+{
+	background: url("../../images/status_5.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+
+.matrix-binary-empty
+{
+	padding-top: 50px;
+}
+
+.matrix-binar-line
+{
+	background: url("../images/binar-line.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+	width:100%;
+	height:27px;
+	padding:10px 0 0 20px;
+	overflow:hidden;
+}
+
+.matrix-binary-empty
+{
+	padding-top: 50px;
+}
+
+.matrix-info
+{
+	width:100%;
+	overflow:hidden;
+}
+
+.sponsor-structure-wrap
+{
+	width:100%; 
+	overflow:hidden; 
+	margin:20px 0;
+}
+
+.sponsor-structure
+{
+	float:right; 
+	margin-right:10px;
+}
+
+.tr_active_status
+{
+	background-color:#90EE90!important;
+	color:#000000;
+}
+
+.ticket-header
+{
+	font-size: 14px;
+}
+
+.green
+{
+	color: green;
+}
+
+.brown
+{
+	color: brown;
+}
+
+.list-title
+{
+	height:25px;
+}
+
+.panel-content.activation
+{
+	margin: 20px 0 30px 0;
+}
+
+.table td img, .jsgrid .jsgrid-table td img 
+{
+    width: 33px;
+    height: 20px;
+    border-radius: 0px;
+}

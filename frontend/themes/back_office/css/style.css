@@ -1,0 +1,393 @@
+html, body, div, span, object, iframe, img, strong, b, u, i,table,tbody, tfoot, thead,td,th,tr
+form, label, legend, h2, p, img{margin:0; padding:0; border:0; vertical-align:baseline; background:transparent;}
+input:focus, select:focus, textarea:focus {outline:none}
+table,td,th,tr {border-collapse:collapse; border-spacing:0;}
+html, body{width:100%; height:100%;}
+input, select, textarea {font-family: 'Arial', sans-serif; font-weight:normal;}
+input[type="button"]{cursor: pointer}
+
+.clear{clear:both; font-size:0;}
+.clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden;}
+html>body .clearfix {display:block;}
+.clearfix {display:inline-block;}
+/*\*/
+* html .clearfix {height: 1%;}
+/**/
+body{
+	font-family: Myriad Pro, sans-serif;
+	background: #f1f1f1;
+}
+
+.container{
+	width: 1146px;
+	margin: 0 auto;
+}
+.logo{
+	width: 121px;
+	height: 40px;
+	float: left;
+	margin-right: 50px;
+	padding-top: 10px;
+}
+.logo a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../images/logo.png) 0 0 no-repeat;
+}
+.add-banner{
+	width: 468px;
+	margin-right: 40px;
+	float: left;
+}
+.login-block{
+	float: right;
+	width: 420px;
+	padding-top: 10px;
+}
+.login-block form input{
+	width: 137px;
+	border: 1px solid #aaaaaa;
+	border-radius: 4px;
+  font-size: 12px;
+  padding: 4px 10px;
+}
+.login-block form{
+	margin-bottom: 10px;
+}
+.login-block form button{
+	font-size: 12px;
+	background: #666666;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 10px;
+	cursor: pointer;
+}
+.sign-up a{
+	color: #999999;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 600;
+}
+.header-top{
+	overflow: hidden;
+	padding: 10px 0;
+}
+.header-menu{
+	background: #98b1cb;
+	padding: 5px 0;
+}
+.header-menu ul{
+	margin: 0;
+}
+.header-menu ul li{
+	display: inline-block;
+	padding-right: 20px;
+}
+.header-menu ul li:last-child{
+	padding-right: 0;
+}
+.header-menu ul li a{
+	color: #fff;
+	font-size: 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}               
+                   
+.content-wrap{
+	overflow: hidden;
+	background: #fff;
+	padding: 5px;
+}
+.sidebar-menu{
+	border: 1px solid #cccccc;
+	width: 240px;
+	padding: 15px 10px;
+	float: left;
+}
+h2.title-h2{
+	font-size: 24px;
+	font-weight: 400;
+	text-align: center;
+	text-transform: uppercase;
+}
+.sidebar-menu ul li{
+	list-style: none;
+	padding-bottom: 5px;
+}
+.sidebar-menu ul li a{
+	color: #2e5283;
+	text-decoration: none;
+	font-size: 18px;
+}
+.main-content{
+	width: 850px;
+	float: left;
+	padding: 50px 10px 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+}
+.main-content h2.title-h2{
+	margin-bottom: 30px;
+}
+.main-content p{
+	text-align: justify;
+}
+footer .logo{
+	width: 210px;
+	height: 50px;
+}
+footer .logo a{
+	background: url(../images/ft-logo.png) 0 0 no-repeat;
+}
+footer{
+	background-color: #9ca7b2;
+	overflow: hidden;
+	padding-top: 15px;
+	padding-bottom: 50px;
+}
+.footer-menu{
+	width: 580px;
+	float: left;
+	overflow: hidden;
+}
+.footer-menu ul{
+	float: left;
+	width: 30%;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	padding-top: 10px;
+}
+.footer-menu ul li{
+	list-style: none;
+	padding-bottom: 5px;
+}
+.footer-menu ul li:first-child{
+	padding-top: 10px;
+}
+.footer-menu ul li a{
+	color: #fff;
+	text-decoration: none;
+}
+.copyright{
+	padding-top: 50px;
+	width: 250px;
+	float: left;
+	color: #fff;
+	font-size: 16px;
+}
+
+.panel-wrapper.panel-login
+{
+	width: 700px;
+}
+
+.login-input
+{
+	float:left;
+	width: 180px;
+}
+
+.structure
+{
+	width:100%;
+	margin-top: 50px;
+}
+
+.structure_head
+{
+	width:100%;
+	margin-bottom: 50px;
+	text-align:center;
+}
+
+.structure_wrap
+{
+	width:100%;
+	overflow:hidden;
+	margin:0 auto;
+}
+
+.matrix
+{
+	width:100%;
+	margin-bottom: 20px;
+	overflow:hidden;
+}
+
+.matrix-head
+{
+	width:100%;
+	text-align:center;
+}
+
+.matrix-block
+{
+	width:100%;
+	overflow:hidden;
+}
+
+.matrix-block.linear
+{
+	margin:0 auto;
+}
+
+.level
+{
+	width:100%;
+	overflow:hidden;
+}
+
+.matrix_number
+{
+	text-align:center;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+.matrix-linear-block
+{
+	float:left;
+}
+
+.matrix-binary-block-wrap, .matrix-linear-block-wrap
+{
+	width:100%;
+	overflow:hidden;
+	margin:50px 0;
+}
+
+.level_1
+{
+	width:100%;
+	overflow:hidden;
+}
+
+.matrix-binary-block
+{
+	width:50%;
+	float:left;
+	margin-right:40px;
+	margin:0 auto;
+}
+
+.matrix-binary-block.level_1
+{
+	width: 50%;
+}
+
+.matrix-binary-block.level_2
+{
+	width: 25%;
+}
+
+.matrix-login
+{
+	width:100px;
+	text-align:center;
+}
+
+.matrix-wrap
+{
+	width:50%;
+	margin: 0 auto; 
+	height:80px;
+	overflow:hidden;
+}
+
+.matrix-wrap.left, .matrix-login-wrap.left
+{
+	float:left;
+	text-align:left;
+}
+
+.matrix-wrap.right, .matrix-login-wrap.right
+{
+	float:right;
+	text-align:right;
+}
+
+.matrix-image-wrap
+{
+	width:100%;
+	height:50px;
+	overflow:hidden;
+}
+
+.matrix-login-wrap
+{
+	width:100%;
+	height:30px;
+	padding:10px 0 0 0;
+	text-align:center;
+	overflow:hidden;
+}
+
+.matrix-partner
+{
+	background: url("../images/partner.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+	width:41px;
+	height:50px;
+}
+
+.matrix-partner.center, .matrix-login.center
+{
+	margin: 0 auto;
+}
+
+.matrix-partner.right
+{
+	float:right;
+}
+
+.matrix-partner.center
+{
+	margin: 0 auto;
+}
+
+.matrix-binar-line
+{
+	background: url("../images/binar-line.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+	width:100%;
+	height:27px;
+	padding:10px 0 0 20px;
+	overflow:hidden;
+}
+
+.matrix-info
+{
+	width:100%;
+	overflow:hidden;
+}
+
+.matrix_info_table table
+{
+	border-collapse: collapse;
+    font-family: "Droid Sans","Arial",Verdana;
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+    border-spacing: 0;
+    background-color: transparent;
+}
+
+.matrix_info_table table th {
+    background: #f4f4f4 none repeat scroll 0 0;
+    border-bottom: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    box-shadow: 0 0 0 1px #ffffff inset;
+    color: #5a5a5a;
+    font-weight: bold;
+    height: 40px;
+    padding: 0 8px;
+}
+
+.tr_active_status
+{
+	background-color:#90EE90!important;
+	color:#000000;
+}

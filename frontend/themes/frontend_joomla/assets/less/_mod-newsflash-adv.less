@@ -1,0 +1,246 @@
+@import "_variables.less";
+@import "bootstrap/_mixins.less";
+// ============================
+// NewsFlash Advanced Modules
+// ============================
+.mod-newsflash-adv {
+  p{
+    font-style: normal;
+  }
+    &.counters {
+        text-align: center;
+        .counter {
+            font-size: 72px;
+            line-height: 1.3em;
+            letter-spacing: 0.05em;
+            font-weight: 100;
+            color: @global-color;
+            display: inline-block;
+            border-bottom: 1px solid #d2d2d2;
+        }
+        .introtext {
+          padding-top: 20px;
+            font-size: 20px;
+            line-height: 20px;
+            text-transform: uppercase;
+
+            font-weight: 900;
+            color: @text-color;
+        }
+    }
+    &.mod-newsflash-adv__pricing_simple {
+        .item {
+            .item_content {
+                text-align: center;
+                padding: 30px 20px;
+                border: 1px solid @global-color;
+                ul {
+                    padding: 10px 0;
+                    li {
+                        font-size: 24px;
+                        line-height: 26px;
+                        &:before {
+                            display: none;
+                        }
+                        & + li {
+                            margin-top: 0;
+                        }
+                    }
+                }
+                .item_title {
+                    color: @global-color;
+                    margin-bottom: 0;
+                    text-transform: uppercase;
+                }
+                .btn{
+                  padding: 19.5px 30px;
+                }
+            }
+            &.featured {
+                .item_content {
+                    background: #374046;
+                    .btn {
+                        &:hover {
+                            background: @global-color;
+                        }
+                    }
+                }
+            }
+        }
+        .price {
+            font-size: 40px;
+            line-height: 50px;
+            padding: @font-size-base 0;
+            span {
+                font-size: 16px;
+                line-height: 41px;
+                vertical-align: bottom;
+            }
+        }
+    }
+    &.mod-newsflash-adv__pricing_detailed {
+        .item {
+            position: relative;
+            .item_title {
+                color: @global-color;
+                margin-bottom: 11px;
+                text-transform: uppercase;
+            }
+            .price {
+                border-top: 1px solid @table-border-color;
+                border-bottom: 1px solid @table-border-color;
+                font-size: 40px;
+                line-height: 50px;
+                padding: @font-size-base 0;
+                span {
+                    font-size: 16px;
+                    line-height: 38px;
+                    vertical-align: bottom;
+                }
+            }
+
+                            .btn{
+                  padding: 19.5px 30px;
+                }
+            .item_content {
+                text-align: center;
+                padding: 30px 20px;
+                border: 1px solid @global-color;
+                ul {
+                    padding: 18px 0 11px;
+                    li {
+                        font-size: 16px;
+                        line-height: 30px;
+                        &:before {
+                            display: none;
+                        }
+                        & + li {
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.mod-newsflash-adv__progbars_horizontal {
+        text-align: center;
+    }
+    &.mod-newsflash-adv__progbars_circle {
+        text-align: center;
+        @media(min-width: 480px) and (max-width: 767px) {
+            .item__module {
+                width: 50%;
+                float: left;
+            }
+        }
+    }
+    &.mod-newsflash-adv__top_address {
+      padding-top: 15px;
+        .row {
+          margin: 0;
+            .item {
+              margin-bottom: 0;
+              padding: 0;
+              max-width: 270px;
+                .item_content {
+                    overflow: hidden;
+                    i {
+                        float: left;
+                        font-size: 30px;
+                        line-height: 36px;
+                        color: @text-color;
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+                    .item_introtext {
+                        float: left;
+                        p {
+                            font: 400 14px/1.2em @font-family-base;
+                            padding-bottom: 0;
+                            color: #888888;
+                        }
+                    }
+                }
+                +.item{
+                  max-width: 300px;
+                  .item_content {
+                    i{
+                      font-size: 36px;
+                      line-height: 36px;
+                    }
+                  }
+                }
+            }
+        }
+    }
+
+    &.mod-newsflash-adv__home_services{
+      .item{
+        .item_content{
+          i{
+            font-size: 30px;
+            line-height: 77px;
+            width: 77px;
+            height: 77px;
+            border-radius: 500px;
+            background: @white;
+            text-align: center;
+            color: @global-color;
+            float: left;
+            margin-right: 24px;
+          }
+
+          p{
+            font-size: 14px;
+            line-height: 18px;
+          }
+
+        }
+        margin-bottom: 25px;
+      }
+    }
+
+    &.mod-newsflash-adv__home_services2{
+      .item{
+        .btn{
+          margin-top: 25px;
+        }
+      }
+    }
+
+    &.mod-newsflash-adv__home_testimonials{
+      .item{
+        blockquote{
+          &:before{
+            color: @white;
+          }
+        }
+        .btn{
+          margin-top: 15px;
+          background: @global-color;
+          &:hover{
+            background: @global-color2;
+          }
+        }
+      }
+    }
+    &.mod-newsflash-adv__home_gallery{
+      padding-top: 20px;
+      .item{
+        margin-bottom: 30px;
+        .item_img{
+          margin-bottom: 0;
+        }
+      }
+    }
+    &.mod-newsflash-adv__team_about, &.mod-newsflash-adv__products_services{
+      padding-top: 20px;
+    }
+    .mod-newsflash-adv_custom-link {
+        text-align: center;
+        .btn{
+          padding: 19.5px 50px;
+          margin-top: 25px;
+        }
+    }
+}
