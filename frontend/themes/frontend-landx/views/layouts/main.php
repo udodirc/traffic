@@ -187,10 +187,10 @@ $solution = (isset($this->params['solution'])) ? $this->params['solution'] : nul
 					<?= Html::error($loginModel, 'password', []); ?>
 				</div>
 				<div class="field-wrapper col-md-12">
-					<?= $form->field($loginModel, 'reCaptcha')->widget(
+					<?/*= $form->field($loginModel, 'reCaptcha')->widget(
 						common\widgets\captcha\ReCaptcha::className(),
 						['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
-					); ?>
+					);*/ ?>
 				</div>
 				<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn standard-button', 'id'=>'login-submit', 'data-style'=>'expand-left']) ?>
 			<?php ActiveForm::end(); ?>
