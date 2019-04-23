@@ -7,7 +7,7 @@ return [
     'brand_slogan' => '',
     'user.passwordResetTokenExpire' => 3600,
     'payeer' => [
-		'merchant_id' => ,
+		'merchant_id' => 0,
 		'account_number' => '',
 		'currency' =>'',
 		'success_url' => '',
