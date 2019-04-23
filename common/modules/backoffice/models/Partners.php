@@ -36,7 +36,7 @@ use common\modules\structure\models\InvitePayOff;
 class Partners extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 0;
+    const STATUS_ACTIVE = 1;
     
     public $partner_id;
     public $matrix_number;
