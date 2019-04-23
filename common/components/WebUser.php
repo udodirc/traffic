@@ -3,7 +3,7 @@ namespace common\components;
 
 use Yii;
 use yii\web\User as BaseUser;
-use app\models\Permissions;
+use common\models\Permissions;
 use common\models\Service;
 
 class WebUser extends BaseUser

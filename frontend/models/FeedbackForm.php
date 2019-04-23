@@ -24,7 +24,7 @@ class FeedbackForm extends Model
             [['email'], 'email'],
             ['email', 'checkBlackList'],
             [['name', 'text'], 'string'],
-            //[['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6Le3szsUAAAAAGouzZl8qnqtVt8knTS41IDJNpy1']
+            [['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
         ];
     }
     

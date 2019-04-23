@@ -186,6 +186,12 @@ $solution = (isset($this->params['solution'])) ? $this->params['solution'] : nul
 					<?= Html::activePasswordInput($loginModel, 'password', ['id'=>'cf-password', 'class'=>'form-control input-box', 'placeholder'=>Yii::t('form', 'Пароль')]); ?>
 					<?= Html::error($loginModel, 'password', []); ?>
 				</div>
+				<div class="field-wrapper col-md-12">
+					<?= $form->field($loginModel, 'reCaptcha')->widget(
+						common\widgets\captcha\ReCaptcha::className(),
+						['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
+					); ?>
+				</div>
 				<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn standard-button', 'id'=>'login-submit', 'data-style'=>'expand-left']) ?>
 			<?php ActiveForm::end(); ?>
 			<!-- /END FORM -->
@@ -239,6 +245,12 @@ $solution = (isset($this->params['solution'])) ? $this->params['solution'] : nul
 				<div class="field-wrapper col-md-6">
 					<?= Html::activePasswordInput($signupModel, 're_password', ['id'=>'cf-password', 'class'=>'form-control input-box', 'placeholder'=>Yii::t('form', 'Повторите ваш пароль')]); ?>
 					<?= Html::error($signupModel, 're_password', []); ?>
+				</div>
+				<div class="field-wrapper col-md-12">
+					<?= $form->field($signupModel, 'reCaptcha')->widget(
+						common\widgets\captcha\ReCaptcha::className(),
+						['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
+					); ?>
 				</div>
 				<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn standard-button', 'id'=>'login-submit', 'data-style'=>'expand-left']) ?>
 			<?php ActiveForm::end(); ?>
