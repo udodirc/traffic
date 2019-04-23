@@ -52,7 +52,7 @@ class SignupForm extends Model
             [['sponsor_login', 'login', 'password', 're_password'], 'match', 'pattern' => '/^[a-zA-Z0-9]*$/u', 'message' => Yii::t('form', 'Введенны неправильные символы!')],
             ['re_password', 'compare', 'compareAttribute' => 'password'],
             //['verifyCode', 'captcha'],
-            [['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
+            //[['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
         ];
     }
     

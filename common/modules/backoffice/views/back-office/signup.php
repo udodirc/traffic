@@ -101,7 +101,7 @@ $sponsorData = (isset($sponsorData)) ? $sponsorData : null;
 					<div class="form-group">
 						<?= $form->field($model, 'reCaptcha')->widget(
 							common\widgets\captcha\ReCaptcha::className(),
-							['siteKey' => '6LdaboEUAAAAAMIP2HyOTrw6uR4WZqP05kVPp1rJ']
+							['siteKey' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
 						); ?>
 					</div>
 					<div class="form-group text-right">
