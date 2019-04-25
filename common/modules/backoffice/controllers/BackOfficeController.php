@@ -392,7 +392,8 @@ class BackOfficeController extends Controller
 					
 					if($model->save(false))
 					{	 
-						$this->layout = 'main';
+						$msg = Yii::t('messages', 'Вы прошли проверку!');
+						/*$this->layout = 'main';
 						$class = 'success';
 						$msg = Yii::t('messages', 'Вы прошли проверку!');
 						$result = true;
@@ -401,20 +402,104 @@ class BackOfficeController extends Controller
 					
 						return $this->render('success_signup', [
 							'content' => $content,
-						]);
+						]);*/
 					}
 				}
 			}
 		}
 		
-		if(!$result)
+		\Yii::$app->getSession()->setFlash('confirm-registration', $msg);
+		
+		return $this->goHome();
+		
+		/*if(!$result)
 		{
 			\Yii::$app->getSession()->setFlash($class, $msg);
 			return $this->goHome();
-		}
+		}*/
 	}
 	
-	public function actionRestorePassword()
+	 public function actionRestorePassword()
+    {
+		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+		$request = \Yii::$app->getRequest();
+		
+		//Initial vars
+		$errors = [];
+		$msg = Yii::t('messages', 'Failure!');
+		$result = false;
+		
+		//Check request is ajax
+		if($request->isAjax) 
+		{	
+			$post = Yii::$app->request->post('RestorePasswordEmailForm');
+			$model = new RestorePasswordEmailForm;
+			
+			if($model->load(Yii::$app->request->post())) 
+			{	
+				$email = (isset($post['email'])) ? $post['email'] : '';
+				$user = Partners::find()->where(['email' => $email])->one();
+				
+				if(empty($user)) 
+				{
+					$msg = Yii::t('messages', 'Такого пользователя нет!');
+				}
+				else
+				{
+					$hash = Yii::$app->getSecurity()->generateRandomString(32);
+					$model = RestorePassword::find()->where(['user_id' => $user->id])->one();
+				
+					if($model === NULL)
+					{	
+						$model = new RestorePassword;
+						$model->user_id = $user->id;
+					}
+					else
+					{
+						$datetime1 = new \DateTime($model->created_at);
+						$datetime2 = new \DateTime(date('Y-m-d H:i:s'));
+						$interval = $datetime1->diff($datetime2);
+					
+						if($interval->d == 0)
+						{
+							$model->hash = $hash;
+							$model->created_at = date('Y-m-d H:i:s');
+							$model->save(false);  // a new row is inserted into user table
+							$msg = Yii::t('messages', 'Новый пароль уже выслан на ваш email!');
+						}
+					}
+					
+					$model->hash = $hash;
+					$model->created_at = date('Y-m-d H:i:s');
+				
+					// a new row is inserted into user table
+					if($model->save(false))
+					{
+						if(isset(\Yii::$app->params['supportEmail']))
+						{
+							$emailFrom = (isset(\Yii::$app->params['email_from'])) ? \Yii::$app->params['email_from'] : '';
+							$result = \Yii::$app->mailer->compose(['html' => 'restorePassword-html'], ['user_id' => $user->id, 'username' => $user->first_name.'&nbsp;'.$user->last_name, 'login' => $user->login, 'email' => $user->email, 'hash' => $model->hash, 'site' => Url::base(true)])
+							->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
+							->setTo($user->email)
+							->setSubject(Yii::t('messages', 'Тема: Восстановления пароля'))
+							->send();
+							
+							$msg = ($result) ? Yii::t('messages', 'Новый пароль выслан на ваш email!') : Yii::t('messages', 'Failure!');
+						}
+					}
+				}
+			}
+			else
+			{	
+				//Get validate errors
+				$errors = [0, ActiveForm::validate($model), 'restore-password'];
+			}
+		}
+		
+		return ['result' => $result, 'errors' => $errors,  'msg' => $msg];
+	}
+	
+	/*public function actionRestorePassword()
     {
 		$this->layout = (!\Yii::$app->user->isGuest) ? 'back_office' : 'main';
 		$this->view->params['model'] = new LoginForm();
@@ -497,7 +582,7 @@ class BackOfficeController extends Controller
 		return $this->render('restore_password_email', [
             'model' => $formModel
         ]);
-	}
+	}*/
 	
 	public function actionRestorePasswordForm($id, $hash) 
 	{

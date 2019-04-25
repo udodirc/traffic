@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\web\View;
 use yii\bootstrap\ActiveForm;
 use common\models\StaticContent;
+use yii\bootstrap\Modal;
 use common\widgets\running_geo_data\RunningGeoDataWidget;
 
 /* @var $this yii\web\View */

@@ -17,19 +17,20 @@ FrontendLandXAppAsset::register($this);
 $bundle = FrontendLandXAppAsset::register($this);
 $brandSlogan = (isset($this->params['brand_slogan'])) ? $this->params['brand_slogan'] : '';
 
-$inlineScript = '
-$("#login-link").click(function () {
-	$("#login-modal").modal("show")
-});
-		
-$("#signup-link").click(function () {
-	$("#signup-modal").modal("show")
-});';
-$this->registerJs($inlineScript,  View::POS_END);
-
 $loginModel = (isset($this->params['loginModel'])) ? $this->params['loginModel'] : null;
 $signupModel = (isset($this->params['signupModel'])) ? $this->params['signupModel'] : null;
+$restorePasswordEmailModel = (isset($this->params['restorePasswordEmailModel'])) ? $this->params['restorePasswordEmailModel'] : null;
 $solution = (isset($this->params['solution'])) ? $this->params['solution'] : null;
+
+if(\Yii::$app->session->hasFlash('confirm-registration'))
+{
+	$inlineScript = '$(document).ready(function()
+	{
+		$("#confirm-registration").modal("show");
+	});';
+	
+	$this->registerJs($inlineScript,  View::POS_END);
+}
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -175,7 +176,7 @@ $solution = (isset($this->params['solution'])) ? $this->params['solution'] : nul
 			?>
 				<!-- IF LOG SUCCESSFULLY -->
 				<h6 class="success">
-					<span class="colored-text icon_check"></span> Your message has been sent successfully. 
+					<span class="colored-text icon_check"></span>
 				</h6>
 				<!-- IF LOG UNSUCCESSFULL -->
 				<h6 class="error"></h6>
@@ -185,6 +186,9 @@ $solution = (isset($this->params['solution'])) ? $this->params['solution'] : nul
 				<div class="field-wrapper col-md-6">
 					<?= Html::activePasswordInput($loginModel, 'password', ['id'=>'cf-password', 'class'=>'form-control input-box', 'placeholder'=>Yii::t('form', 'Пароль')]); ?>
 					<?= Html::error($loginModel, 'password', []); ?>
+				</div>
+				<div class="restore-password">
+					<a id="restore-password-link" href="#"><?= Yii::t('form', 'Забыли свой пароль?'); ?></a>
 				</div>
 				<div class="field-wrapper col-md-12">
 					<?/*= $form->field($loginModel, 'reCaptcha')->widget(
@@ -222,7 +226,7 @@ $solution = (isset($this->params['solution'])) ? $this->params['solution'] : nul
 			?>
 				<!-- IF LOG SUCCESSFULLY -->
 				<h6 class="success">
-					<span class="colored-text icon_check"></span> Your message has been sent successfully. 
+					<span class="colored-text icon_check"></span> 
 				</h6>
 				<!-- IF LOG UNSUCCESSFULL -->
 				<h6 class="error"></h6>
@@ -251,6 +255,61 @@ $solution = (isset($this->params['solution'])) ? $this->params['solution'] : nul
 						common\widgets\captcha\ReCaptcha::className(),
 						['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
 					); */?>
+				</div>
+				<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn standard-button', 'id'=>'login-submit', 'data-style'=>'expand-left']) ?>
+			<?php ActiveForm::end(); ?>
+			<!-- /END FORM -->
+			</div>
+			<?php
+			Modal::end();
+		?>
+		<?php endif; ?>
+		<?php if(\Yii::$app->session->hasFlash('confirm-registration')): ?>
+			<?php
+				Modal::begin([
+					'header' => '<h4>'.Yii::t('form', 'Подтверждение регистрации!').'</h4>',
+					'id' => 'confirm-registration',
+					'size' => 'modal-lg',
+				]);
+				?>
+				<!-- EXPANDED LOGIN FORM -->
+				<div class="expanded-contact-form">
+					<h6 class="success">
+						<span class="colored-text icon_check"></span><?= Html::encode(Yii::$app->session->getFlash('success')); ?>
+					</h6>
+				</div>
+				<?php
+				Modal::end();
+			?>
+		<?php endif; ?>
+		<?php if($restorePasswordEmailModel !== null): ?>
+			<?php
+			Modal::begin([
+				'header' => '<h4>'.Yii::t('form', 'Вход').'</h4>',
+				'id' => 'restore-password-modal',
+				'size' => 'modal-lg',
+			]);
+			?>
+			<!-- EXPANDED LOGIN FORM -->
+			<div class="expanded-contact-form">
+			<!-- FORM -->
+			<?php $form = ActiveForm::begin([
+			'options' => [
+				'class'=>'contact-form',
+				'id'=>'restore-password',
+				'role'=>'form"',
+			],
+			'action'=>'restore-password',
+			]); 
+			?>
+				<!-- IF LOG SUCCESSFULLY -->
+				<h6 class="success">
+					<span class="colored-text icon_check"></span>
+				</h6>
+				<!-- IF LOG UNSUCCESSFULL -->
+				<h6 class="error"></h6>
+				<div class="field-wrapper col-md-12">
+					<?= Html::activeTextInput($restorePasswordEmailModel, 'email', ['id'=>'cf-email', 'class'=>'form-control input-box', 'placeholder'=>Yii::t('form', 'Email')]); ?>
 				</div>
 				<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn standard-button', 'id'=>'login-submit', 'data-style'=>'expand-left']) ?>
 			<?php ActiveForm::end(); ?>
