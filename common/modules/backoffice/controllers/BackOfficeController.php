@@ -495,12 +495,11 @@ class BackOfficeController extends Controller
 						if(isset(\Yii::$app->params['supportEmail']))
 						{
 							$emailFrom = (isset(\Yii::$app->params['email_from'])) ? \Yii::$app->params['email_from'] : '';
-							/*$result = \Yii::$app->mailer->compose(['html' => 'restorePassword-html'], ['user_id' => $user->id, 'username' => $user->first_name.'&nbsp;'.$user->last_name, 'login' => $user->login, 'email' => $user->email, 'hash' => $model->hash, 'site' => Url::base(true)])
+							$result = \Yii::$app->mailer->compose(['html' => 'restorePassword-html'], ['user_id' => $user->id, 'username' => $user->first_name.'&nbsp;'.$user->last_name, 'login' => $user->login, 'email' => $user->email, 'hash' => $model->hash, 'site' => Url::base(true)])
 							->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
 							->setTo($user->email)
 							->setSubject(Yii::t('messages', 'Тема: Восстановления пароля'))
-							->send();*/
-							$result = true;
+							->send();
 							$msg = ($result) ? Yii::t('messages', 'Новый пароль выслан на ваш email!') : Yii::t('messages', 'Failure!');
 						}
 					}
