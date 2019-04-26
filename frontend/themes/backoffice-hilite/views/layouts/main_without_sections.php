@@ -22,6 +22,10 @@ $signupModel = (isset($this->params['signupModel'])) ? $this->params['signupMode
 $restorePasswordEmailModel = (isset($this->params['restorePasswordEmailModel'])) ? $this->params['restorePasswordEmailModel'] : null;
 $solution = (isset($this->params['solution'])) ? $this->params['solution'] : null;
 
+$this->registerJsFile(Yii::getAlias('@frontend_themes').DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'js'.DIRECTORY_SEPARATOR.'bootstrap.min.js', [
+	'depends' => [\yii\web\JqueryAsset::className()]
+]);
+
 if(\Yii::$app->session->hasFlash('confirm-registration'))
 {
 	$inlineScript = '$(document).ready(function()
@@ -58,9 +62,9 @@ if(\Yii::$app->session->hasFlash('confirm-registration'))
 		<!-- =========================
 			HEADER   
 		============================== -->
-		<header id="home">
+		<header id="home" style="background:none;">
 			<!-- COLOR OVER IMAGE -->
-			<div class="color-overlay">
+			<div class="color-overlay" style="background:none;">
 				<div class="navigation-header">
 					<!-- STICKY NAVIGATION -->
 					<div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation">
@@ -112,22 +116,6 @@ if(\Yii::$app->session->hasFlash('confirm-registration'))
 					</div>
 					<!-- /END ONLY LOGO ON HEADER -->
 				</div>
-				<!-- HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6">
-							<!-- SCREENSHOT -->
-							<div class="home-screenshot side-screenshot pull-left">
-								<?= Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@frontend_images'.DIRECTORY_SEPARATOR.'screenshots'.DIRECTORY_SEPARATOR.'1.jpg'), ['class'=>'img-responsive', 'alt'=>'Feature', 'title'=>'Feature']); ?>
-							</div>
-						</div>
-						<!-- RIGHT - HEADING AND TEXTS -->
-						<?php if($solution !== null): ?>
-							<?= $solution; ?>
-						<?php endif; ?>
-					</div>
-				</div>
-				<!-- /END HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
 			</div>
 		</header>
 		<?= $content; ?>

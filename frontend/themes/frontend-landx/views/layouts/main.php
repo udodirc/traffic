@@ -22,12 +22,22 @@ $signupModel = (isset($this->params['signupModel'])) ? $this->params['signupMode
 $restorePasswordEmailModel = (isset($this->params['restorePasswordEmailModel'])) ? $this->params['restorePasswordEmailModel'] : null;
 $solution = (isset($this->params['solution'])) ? $this->params['solution'] : null;
 
-if(\Yii::$app->session->hasFlash('confirm-registration'))
+if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session->hasFlash('restore-password'))
 {
-	$inlineScript = '$(document).ready(function()
+	if(\Yii::$app->session->hasFlash('confirm-registration'))
 	{
-		$("#confirm-registration").modal("show");
-	});';
+		$inlineScript = '$(document).ready(function()
+		{
+			$("#confirm-registration").modal("show");
+		});';
+	}
+	elseif(\Yii::$app->session->hasFlash('restore-password'))
+	{
+		$inlineScript = '$(document).ready(function()
+		{
+			$("#restore-password").modal("show");
+		});';
+	}
 	
 	$this->registerJs($inlineScript,  View::POS_END);
 }
@@ -276,6 +286,24 @@ if(\Yii::$app->session->hasFlash('confirm-registration'))
 				<div class="expanded-contact-form">
 					<h6 class="success">
 						<span class="colored-text icon_check"></span><?= Html::encode(Yii::$app->session->getFlash('success')); ?>
+					</h6>
+				</div>
+				<?php
+				Modal::end();
+			?>
+		<?php endif; ?>
+		<?php if(\Yii::$app->session->hasFlash('restore-password')): ?>
+			<?php
+				Modal::begin([
+					'header' => '<h4>'.Yii::t('form', 'Восстановление пароля!').'</h4>',
+					'id' => 'restore-password',
+					'size' => 'modal-lg',
+				]);
+				?>
+				<!-- EXPANDED LOGIN FORM -->
+				<div class="expanded-contact-form">
+					<h6 class="success">
+						<span class="colored-text icon_check"></span><?= Html::encode(Yii::$app->session->getFlash('restore-password')); ?>
 					</h6>
 				</div>
 				<?php
