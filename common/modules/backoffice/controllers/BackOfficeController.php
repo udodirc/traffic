@@ -320,11 +320,10 @@ class BackOfficeController extends Controller
 				{
 					if($signupResult['result']) 
 					{
-						$mailResult = true;
-						
 						if(isset(\Yii::$app->params['supportEmail']))
 						{
 							$url = Url::base(true);
+							$mailResult = true;
 							
 							if(!strpos($url, 'localhost'))
 							{	

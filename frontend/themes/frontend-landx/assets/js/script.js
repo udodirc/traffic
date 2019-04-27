@@ -6,6 +6,7 @@ $(document).ready(function()
 	$("#login-form").submit(function(e) 
     {
 		e.preventDefault(); // avoid to execute the actual submit of the form.
+		e.stopImmediatePropagation();
 		
 		url = 'login';
 		data = $(this).serialize();
@@ -17,6 +18,7 @@ $(document).ready(function()
 	$("#signup-form").submit(function(e) 
     {
 		e.preventDefault(); // avoid to execute the actual submit of the form.
+		e.stopImmediatePropagation();
 		
 		url = 'signup';
 		data = $(this).serialize();
@@ -29,6 +31,7 @@ $(document).ready(function()
 	$("#contact-form").submit(function(e) 
     {
 		e.preventDefault(); // avoid to execute the actual submit of the form.
+		e.stopImmediatePropagation();
 		
 		url = 'contacts';
 		data = $(this).serialize();
@@ -41,6 +44,7 @@ $(document).ready(function()
 	$("#restore-password").submit(function(e) 
     {
 		e.preventDefault(); // avoid to execute the actual submit of the form.
+		e.stopImmediatePropagation();
 		
 		url = 'restore-password';
 		data = $(this).serialize();

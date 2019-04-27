@@ -49,6 +49,7 @@ $adminMenu = new AdminMenu();
 					],
 					'activeCssClass'=>false,
 					'encodeLabels' => false,
+					'admin' => true,
 					'linkTemplate'=>'<a href="{url}">{image}&nbsp;&nbsp;{label}</a>',
 				]); ?>
 			</div>

@@ -172,7 +172,7 @@ return [
 	],*/
 	'top_leader_limit' => 10,
 	'demo_structure_count' => 1700,
-	'demo_structure_type' => false,
+	'demo_structure_type' => true,
 	'demo_structure_activation' => false,
 	'structure_type' => 2,
 	'activation_amount' => 50,

@@ -3,7 +3,7 @@ use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
-use yii\widgets\Menu;
+use common\widgets\Menu as MenuWidget;
 use common\models\Menu as LeftAdminMenu;
 use common\models\Service;
 use app\models\AdminMenu;
@@ -28,7 +28,7 @@ $adminMenu = new AdminMenu();
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <!-- Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold|PT+Sans+Narrow:regular,bold|Droid+Serif:iamp;v1' rel='stylesheet' type='text/css' />	
+	<!--<link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold|PT+Sans+Narrow:regular,bold|Droid+Serif:iamp;v1' rel='stylesheet' type='text/css' />	-->
 </head>
 <body>
     <?php $this->beginBody() ?>
@@ -42,13 +42,14 @@ $adminMenu = new AdminMenu();
 		<div id="user-options" class="row">
 			<div class="threecol"></div>
 			<div class="ninecol last fixed">
-				<?= CustomMenu::widget([
+				<?= MenuWidget::widget([
 					'items' => $adminMenu->getAdminTopMenuList(),
 					'options' => [
 						'class'=>"nav-user-options"
 					],
 					'activeCssClass'=>false,
 					'encodeLabels' => false,
+					'admin' => true,
 					'linkTemplate'=>'<a href="{url}">{image}&nbsp;&nbsp;{label}</a>',
 				]); ?>
 			</div>
@@ -57,7 +58,7 @@ $adminMenu = new AdminMenu();
 	<div class="container">
 		<div class="row">
 			<div id="sidebar" class="threecol">
-				<?= Menu::widget([
+				<?= MenuWidget::widget([
 					'items' => $adminMenu->getAdminLeftMenuList(),
 					'options' => [
 						'id'=>"navigation"
