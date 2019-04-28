@@ -126,12 +126,6 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 				<!-- HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
 				<div class="container">
 					<div class="row">
-						<div class="col-md-6">
-							<!-- SCREENSHOT -->
-							<div class="home-screenshot side-screenshot pull-left">
-								<?= Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@frontend_images'.DIRECTORY_SEPARATOR.'screenshots'.DIRECTORY_SEPARATOR.'1.jpg'), ['class'=>'img-responsive', 'alt'=>'Feature', 'title'=>'Feature']); ?>
-							</div>
-						</div>
 						<!-- RIGHT - HEADING AND TEXTS -->
 						<?php if($solution !== null): ?>
 							<?= $solution; ?>

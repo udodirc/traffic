@@ -36,8 +36,8 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
 	<div class="container">	
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<h3 class="heading">Need any help? Contact us now!</h3>
-				<a href="" class="contact-link expand-form"><span class="icon_mail_alt"></span>Contact us now</a>
+				<h3 class="heading">Нужна помощь? Напишите нам!</h3>
+				<a href="" class="contact-link expand-form"><span class="icon_mail_alt"></span>Напишите нам</a>
 				<!-- EXPANDED CONTACT FORM -->
 				<div class="expanded-contact-form">
 					<!-- FORM -->
@@ -52,7 +52,7 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
 					?>
 						<!-- IF MAIL SENT SUCCESSFULLY -->
 						<h6 class="success">
-							<span class="colored-text icon_check"></span> Your message has been sent successfully. 
+							<span class="colored-text icon_check"></span>Ваше сообщение успешно отправлено. 
 						</h6>
 						<!-- IF MAIL SENDING UNSUCCESSFULL -->
 						<h6 class="error"></h6>
