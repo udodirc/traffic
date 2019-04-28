@@ -101,7 +101,17 @@ function make_action(url, data)
 				{	
 					window.location.replace(res.url);
 				}
-				else if(url == 'restore-password' || url == 'signup' | url == 'contacts')
+				else if(url == 'signup')
+				{
+					$(".error").html('');
+					$(".success").html('');
+					
+					$('.fade.modal.in').modal('hide');
+						
+					$("#signup-success-modal .success").html('<span class="colored-text icon_check"></span>' + msg + '<br/>');	
+					$("#signup-success-modal").modal("show");
+				}
+				else if(url == 'restore-password' || url == 'contacts')
 				{
 					$(".success").html('<span class="colored-text icon_check"></span>' + msg + '<br/>');
 					$(".success").show();

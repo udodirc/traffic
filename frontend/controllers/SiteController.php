@@ -121,6 +121,7 @@ class SiteController extends Controller
 			$this->view->params['feedbackModel'] = new FeedbackForm();
 			$this->view->params['loginModel'] = new LoginForm();
 			$this->view->params['restorePasswordEmailModel'] = new RestorePasswordEmailForm;
+			$this->view->params['sponsorData'] = SignupForm::getSponsorData();
 			$this->view->params['brand_slogan'] = (isset(Yii::$app->params['brand_slogan'])) ? Yii::$app->params['brand_slogan'] : '';
 			/*$this->view->params['curr_day_register'] = (!is_null(RegisterStats::getRegisterCountByCurrentDay())) ? RegisterStats::getRegisterCountByCurrentDay()->register_stats : 0; 
 			$this->view->params['total_register'] = (!is_null(Partners::find())) ? Partners::find()->count() : 0;

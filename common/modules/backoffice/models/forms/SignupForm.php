@@ -52,7 +52,7 @@ class SignupForm extends Model
             [['sponsor_login', 'login', 'password', 're_password'], 'match', 'pattern' => '/^[a-zA-Z0-9]*$/u', 'message' => Yii::t('form', 'Введенны неправильные символы!')],
             ['re_password', 'compare', 'compareAttribute' => 'password'],
             //['verifyCode', 'captcha'],
-            //[['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
+            [['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
         ];
     }
     
@@ -190,6 +190,15 @@ class SignupForm extends Model
 				$result = isset(Yii::$app->request->cookies['referal']) ? Yii::$app->request->cookies['referal'] : '';
 			}
 		};
+		
+		return $result;
+	}
+	
+	public static function getSponsorData()
+    {
+		$result = null;
+		$login = self::getSponsorLogin();
+		$result = ($login != '') ? Partners::findByUsername($login) : Partners::find()->where(['id'=>1])->one();
 		
 		return $result;
 	}

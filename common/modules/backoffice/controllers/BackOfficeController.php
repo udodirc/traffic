@@ -306,8 +306,7 @@ class BackOfficeController extends Controller
 		{
 			$post = Yii::$app->request->post('SignupForm');
 			$model = new SignupForm();
-			$sposnorLogin = SignupForm::getSponsorLogin();
-			$sponsorData = ($sposnorLogin != '') ? Partners::findByUsername($sposnorLogin) : Partners::find()->where(['id'=>1])->one();
+			$sponsorData = SignupForm::getSponsorData();
 			$model->sponsor_id = (isset($post['sponsor_id'])) ? intval($post['sponsor_id']) : 0;
 			$model->sponsor_login = (isset($post['sponsor_login'])) ? $post['sponsor_login'] : '';
 				
@@ -349,7 +348,7 @@ class BackOfficeController extends Controller
 							{	
 								$result = true;
 								$class = 'success';
-								$msg = Yii::t('messages', 'You registered! Confirm of registration is sent to your email.');
+								$msg = Yii::t('messages', 'Вы зарегистрированы! Подверждение регистрации отправлено вам на почту!');
 							}
 						}
 					}

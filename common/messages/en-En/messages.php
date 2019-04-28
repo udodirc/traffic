@@ -38,7 +38,7 @@ return [
     'Подтверждение регистрации' => 'Registration confirm',
     'Тема: Восстановления пароля' => 'Subject: restore password',
     'Новый Реферал!' => 'You have a new refferal!',
-    'Вы зарегистрированы! Подверждение регистрации отправлено вам на почту.' => 'You are registered! Confirmation is send to your email.',
+    'Вы зарегистрированы! Подверждение регистрации отправлено вам на почту!' => 'You are registered! Confirmation is send to your email.',
     'Вы уже зарегистрированы!' => 'Already, you are registered!',
     'Вы прошли проверку!' => 'You passed the test!',
     'Пароль изменен!' => 'Password is changed!',

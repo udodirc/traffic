@@ -20,6 +20,7 @@ $brandSlogan = (isset($this->params['brand_slogan'])) ? $this->params['brand_slo
 $loginModel = (isset($this->params['loginModel'])) ? $this->params['loginModel'] : null;
 $signupModel = (isset($this->params['signupModel'])) ? $this->params['signupModel'] : null;
 $restorePasswordEmailModel = (isset($this->params['restorePasswordEmailModel'])) ? $this->params['restorePasswordEmailModel'] : null;
+$sponsorData = (isset($this->params['sponsorData'])) ? $this->params['sponsorData'] : null;
 $solution = (isset($this->params['solution'])) ? $this->params['solution'] : null;
 
 if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session->hasFlash('restore-password'))
@@ -261,6 +262,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 					<?= Html::error($signupModel, 're_password', []); ?>
 				</div>
 				<div class="field-wrapper col-md-12">
+					<?= $form->field($signupModel, 'sponsor_id')->hiddenInput(['value' => ($sponsorData !== null) ? $sponsorData->id : 1])->label(false) ?>
 					<?= $form->field($signupModel, 'reCaptcha')->widget(
 						common\widgets\captcha\ReCaptcha::className(),
 						['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
@@ -269,6 +271,22 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 				<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn standard-button', 'id'=>'login-submit', 'data-style'=>'expand-left']) ?>
 			<?php ActiveForm::end(); ?>
 			<!-- /END FORM -->
+			</div>
+			<?php
+			Modal::end();
+		?>
+		<?php
+			Modal::begin([
+				'header' => '<h4>'.Yii::t('form', 'Подтверждение регистрации!').'</h4>',
+				'id' => 'signup-success-modal',
+				'size' => 'modal-lg',
+			]);
+			?>
+			<!-- SUCCESS SIGNUP -->
+			<div class="expanded-contact-form">
+				<h6 class="success">
+					<span class="colored-text icon_check"></span><?= Yii::t('messages', 'Вы успешно зарегестрированы, подтверждение регистрации отправлено на почту'); ?>
+				</h6>
 			</div>
 			<?php
 			Modal::end();
