@@ -111,7 +111,17 @@ function make_action(url, data)
 					$("#signup-success-modal .success").html('<span class="colored-text icon_check"></span>' + msg + '<br/>');	
 					$("#signup-success-modal").modal("show");
 				}
-				else if(url == 'restore-password' || url == 'contacts')
+				else if(url == 'restore-password')
+				{
+					$(".error").html('');
+					$(".success").html('');
+					
+					$('.fade.modal.in').modal('hide');
+						
+					$("#restore-password-success-modal .success").html('<span class="colored-text icon_check"></span>' + msg + '<br/>');
+					$("#restore-password-success-modal").modal("show");
+				}
+				else if(url == 'contacts')
 				{
 					$(".success").html('<span class="colored-text icon_check"></span>' + msg + '<br/>');
 					$(".success").show();

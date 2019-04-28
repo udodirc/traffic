@@ -330,7 +330,7 @@ class BackOfficeController extends Controller
 								$mailResult = \Yii::$app->mailer->compose(['html' => 'signup-html-ru'], ['partner_id' => $signupResult['model'][0], 'first_name' =>$signupResult['model'][1], 'last_name' => $signupResult['model'][2], 'email' => $signupResult['model'][3], 'auth_key' => $signupResult['model'][4], 'login' => $signupResult['model'][5], 'site' => Url::base(true)])
 								->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
 								->setTo($model->email)
-								->setSubject(Yii::t('messages', '► Confirm of registration'))
+								->setSubject(Yii::t('messages', '► Подтверждение регистрации'))
 								->send();
 								
 								if($mailResult)
@@ -339,7 +339,7 @@ class BackOfficeController extends Controller
 									$mailResult = \Yii::$app->mailer->compose(['html' => 'new-refferal-html-ru'], ['first_name' => $sponsorData->first_name, 'last_name' => $sponsorData->last_name, 'refferal_name' => $signupResult['model'][5], 'site' => Url::base(true)])
 									->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
 									->setTo($sponsorData->email)
-									->setSubject(Yii::t('messages', '► New refferal!'))
+									->setSubject(Yii::t('messages', '► Новый Реферал!'))
 									->send();
 								}
 							}

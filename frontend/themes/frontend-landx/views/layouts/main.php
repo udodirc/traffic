@@ -214,6 +214,22 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 			<?php
 			Modal::end();
 		?>
+		<?php
+			Modal::begin([
+				'header' => '<h4>'.Yii::t('form', 'Подтверждение регистрации!').'</h4>',
+				'id' => 'restore-password-success-modal',
+				'size' => 'modal-lg',
+			]);
+			?>
+			<!-- SUCCESS SIGNUP -->
+			<div class="expanded-contact-form">
+				<h6 class="success">
+					<span class="colored-text icon_check"></span>
+				</h6>
+			</div>
+			<?php
+			Modal::end();
+		?>
 		<?php endif; ?>
 		<?php if($signupModel !== null): ?>
 			<?php
