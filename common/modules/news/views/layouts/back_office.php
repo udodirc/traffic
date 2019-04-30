@@ -20,15 +20,15 @@ $ticketsList = (isset($this->params['tickets_list'])) ? $this->params['tickets_l
 $ticketsCount = (isset($this->params['tickets_count'])) ? $this->params['tickets_count'] : 0;
 $ticketsMesagesCount = (isset($this->params['tickets_mesages_count'])) ? $this->params['tickets_mesages_count'] : 0;
 
-$this->registerCssFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice/assets/js/wysihtml5/bootstrap-wysihtml5.css',['depends' => [\yii\web\JqueryAsset::className()]]);
-$this->registerCssFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice/assets/js/selectboxit/jquery.selectBoxIt.css',['depends' => [\yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice/assets/js/gsap/TweenMax.min.js',['depends' => [\yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice/assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js',['depends' => [\yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice/assets/js/bootstrap.js',['depends' => [\yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice/assets/js/resizeable.js',['depends' => [\yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice/assets/js/neon-api.js',['depends' => [\yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice/assets/js/neon-custom.js',['depends' => [\yii\web\JqueryAsset::className()]]);
-$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice/assets/js/neon-demo.js',['depends' => [\yii\web\JqueryAsset::className()]]);
+$this->registerCssFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice_neon/assets/js/wysihtml5/bootstrap-wysihtml5.css',['depends' => [\yii\web\JqueryAsset::className()]]);
+$this->registerCssFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice_neon/assets/js/selectboxit/jquery.selectBoxIt.css',['depends' => [\yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice_neon/assets/js/gsap/TweenMax.min.js',['depends' => [\yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice_neon/assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js',['depends' => [\yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice_neon/assets/js/bootstrap.js',['depends' => [\yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice_neon/assets/js/resizeable.js',['depends' => [\yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice_neon/assets/js/neon-api.js',['depends' => [\yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice_neon/assets/js/neon-custom.js',['depends' => [\yii\web\JqueryAsset::className()]]);
+$this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice_neon/assets/js/neon-demo.js',['depends' => [\yii\web\JqueryAsset::className()]]);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -139,7 +139,7 @@ $this->registerJsFile(Yii::$app->request->baseUrl.'/frontend/themes/backoffice/a
 		<?= $content ?>
 		<!-- Footer -->
 		<footer class="main">
-			&copy; <?= date("Y"); ?> <strong>22usd.club</strong>
+			&copy; <?= date("Y"); ?> <strong><?= Yii::$app->name; ?></strong>
 		</footer>
 	</div>
 	<div class="counter">

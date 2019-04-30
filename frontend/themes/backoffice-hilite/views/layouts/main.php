@@ -1,6 +1,7 @@
 <?php
 use frontend\assets\FrontendLandXAppAsset;
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 use yii\web\View;
@@ -49,7 +50,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration'))
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<meta name="format-detection" content="telephone=no"/>
 		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-		<title><?= $this->title; ?></title>
+		<title><?= Html::encode($this->title); ?></title>
 		<?php $this->head() ?>
 	</head>
 	<body>
@@ -123,7 +124,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration'))
 						</div>
 						<!-- RIGHT - HEADING AND TEXTS -->
 						<?php if($solution !== null): ?>
-							<?= $solution; ?>
+							<?= HtmlPurifier::process($solution); ?>
 						<?php endif; ?>
 					</div>
 				</div>
@@ -140,7 +141,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration'))
 					<?/*= Html::a(Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@frontend_images'.DIRECTORY_SEPARATOR.'logo-dark.png'), ['alt'=>'logo', 'title'=>'logo']), '/', []); */?>
 				</div>
 				<div class="copyright">
-					 ©<?= date("Y"); ?> <?= Yii::$app->name; ?>.
+					 ©<?= date("Y"); ?> <?= Html::encode(Yii::$app->name); ?>.
 				</div>
 				<!--
 				<ul class="social-icons">

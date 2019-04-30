@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 use yii\helpers\Url;
 use yii\widgets\DetailView;
 use yii\grid\GridView;
@@ -7,11 +8,11 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Content */
 
-$this->title = (isset($this->params['title'])) ? $this->params['title'] : '';
+$this->title = (isset($this->params['title'])) ? Html::encode($this->params['title']) : '';
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<h2><?= Html::encode($this->title); ?></h2>
+<h2><?= $this->title; ?></h2>
 <br/>
 <div class="row">
 	<div class="col-12 grid-margin">
@@ -19,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="row">
 				<div class="card-body">
 					<h4 class="card-title"><?= Yii::t('form', 'Информация'); ?></h4>
-					<?= (isset($content) && $content != null) ? $content->content : ''; ?>
+					<?= (isset($content) && $content != null) ? HtmlPurifier::process($content->content) : ''; ?>
 				</div>  
 			</div>
 		</div>
@@ -39,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<?php endif; ?>
 			<div class="row">
 				<div class="card-body">
-					<h4 class="card-title"><?= Html::encode($this->title); ?></h4>
+					<h4 class="card-title"><?= $this->title; ?></h4>
 					<?= GridView::widget([
 						'dataProvider' => $dataProvider,
 						//'filterModel' => $searchModel,
@@ -60,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								'format'=>'raw',//raw, html
 								'content'=>function ($model)
 								{
-									return (strlen($model->login) > 3) ? '****'.substr($model->login, 3) : '**'.substr($model->login, 1);
+									return (strlen($model->login) > 3) ? '****'.Html::encode(substr($model->login, 3)) : '**'.Html::encode(substr($model->login, 1));
 								},
 							],
 							[
@@ -69,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								'format'=>'raw',//raw, html
 								'content'=>function ($model) use ($isoList)
 								{
-									$country = (isset($isoList[$model->iso])) ? $isoList[$model->iso] : '';
+									$country = (isset($isoList[$model->iso])) ? Html::encode($isoList[$model->iso]) : '';
 										
 									return ($model->iso != '') ? Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@backoffice_images'.DIRECTORY_SEPARATOR.'flags'.DIRECTORY_SEPARATOR.strtolower($model->iso).'.png'), ['width'=>'30px', 'height'=>'30px', 'alt'=>$country, 'title'=>$country]) : '';
 								},

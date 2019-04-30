@@ -8,8 +8,8 @@ use yii\web\View;
 /* @var $model app\models\Content */
 
 $this->title = (isset($this->params['title'])) ? $this->params['title'] : '';
-$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => Html::encode($this->title), 'url' => ['index']];
+$this->params['breadcrumbs'][] = Html::encode($this->title);
 ?>
 <div class="row">
 	<div class="col-12 grid-margin">

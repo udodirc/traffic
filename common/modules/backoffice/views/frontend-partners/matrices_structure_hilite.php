@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\web\View;
@@ -7,8 +8,8 @@ use yii\web\View;
 /* @var $this yii\web\View */
 /* @var $model app\models\Content */
 
-$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => Html::encode($this->title), 'url' => ['index']];
+$this->params['breadcrumbs'][] = Html::encode($this->title);
 ?>
 <div class="row">
 	<div class="col-12 grid-margin">
@@ -17,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="col-md-12">
                     <div class="card-body">
 						<h4 class="card-title"><?= Yii::t('form', 'Информация'); ?></h4>
-						<?= (isset($content) && $content != null) ? $content->content : ''; ?>
+						<?= (isset($content) && $content != null) ? HtmlPurifier::process($content->content) : ''; ?>
 					</div>
 				</div>
 			</div>

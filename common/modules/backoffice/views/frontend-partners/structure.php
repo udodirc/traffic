@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\web\View;
@@ -11,11 +12,11 @@ $this->registerJsFile(Yii::getAlias('@modules').DIRECTORY_SEPARATOR.'shop'.DIREC
 	'depends' => [\yii\web\JqueryAsset::className()]
 ]);
 
-$this->title = (isset($this->params['title'])) ? $this->params['title'] : '';
+$this->title = (isset($this->params['title'])) ? Html::encode($this->params['title']) : '';
 $this->params['breadcrumbs'][] = ['label' => Yii::t('form', 'Структура'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<h1><?= Html::encode($this->title); ?></h1>
+<h1><?= $this->title; ?></h1>
 <br/>
 <div class="row">
 	<div class="col-12 grid-margin">
@@ -24,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="card-body">
 					<h4 class="card-title"><?= Yii::t('form', 'Информация'); ?></h4>
 					<p class="card-description">
-						<?= (isset($newsAttention) && $newsAttention != null) ? $newsAttention->content : ''; ?>
+						<?= (isset($newsAttention) && $newsAttention != null) ? HtmlPurifier::process($newsAttention->content) : ''; ?>
 					</p>
 				</div>  
 			</div>
@@ -36,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<div class="card">
 			<div class="row">
 				<div class="card-body">
-					<h4 class="card-title"><?= Html::encode($this->title); ?></h4>
+					<h4 class="card-title"><?= $this->title; ?></h4>
 					<div class="table-responsive">
 					<?= GridView::widget([
 						'dataProvider' => $dataProvider,
@@ -85,17 +86,17 @@ $this->params['breadcrumbs'][] = $this->title;
 								{
 									$status = ($partnerModel['matrix_1'] > 0) ? 'class="tr_active_status"' : '';
 									$geoData = unserialize($partnerModel['geo']);
-									$iso = (isset($geoData['country']['iso'])) ? $geoData['country']['iso'] : '';
-									$country = (isset($geoData['country']['name_ru'])) ? $geoData['country']['name_ru'] : '';
+									$iso = (isset($geoData['country']['iso'])) ? Html::encode($geoData['country']['iso']) : '';
+									$country = (isset($geoData['country']['name_ru'])) ? Html::encode($geoData['country']['name_ru']) : '';
 										
 									return '<tr data-key="0" '.$status.'>
 									<td>0</td>
-										<td>'.((strlen($partnerModel['sponsor_name']) > 3) ? '****'.substr($partnerModel['sponsor_name'], 3) : '**'.substr($partnerModel['sponsor_name'], 1)).'</td>
-										<td>'.$partnerModel['login'].'</td>
+										<td>'.((strlen($partnerModel['sponsor_name']) > 3) ? '****'.Html::encode(substr($partnerModel['sponsor_name'], 3)) : '**'.Html::encode(substr($partnerModel['sponsor_name'], 1))).'</td>
+										<td>'.Html::encode($partnerModel['login']).'</td>
 										<td>'.(($iso != '') ? Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@backoffice_images'.DIRECTORY_SEPARATOR.'flags'.DIRECTORY_SEPARATOR.strtolower($iso).'.png'), ['alt'=>$country, 'title'=>$country]) : '').'</td>
-										<td>'.date("Y-m-d H:i:s", $partnerModel['created_at']).'</td>
+										<td>'.date("Y-m-d H:i:s", Html::encode($partnerModel['created_at'])).'</td>
 										<td>'.(($partnerModel['matrix_1'] > 0) ? Yii::t('form', 'Оплатил') : '').'</td>
-										<td>'.$partnerModel['matrix_1'].'</td>
+										<td>'.Html::encode($partnerModel['matrix_1']).'</td>
 									</tr>';
 								}
 							}
@@ -108,7 +109,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								'format'=>'raw',//raw, html
 								'content'=>function ($model)
 								{
-									return (strlen($model['sponsor_name']) > 3) ? '****'.substr($model['sponsor_name'], 3) : '**'.substr($model['sponsor_name'], 1);
+									return (strlen($model['sponsor_name']) > 3) ? '****'.Html::encode(substr($model['sponsor_name'], 3)) : '**'.Html::encode(substr($model['sponsor_name'], 1));
 								},
 							],
 							[
@@ -122,7 +123,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								'format'=>'raw',//raw, html
 								'content'=>function ($model) use ($isoList)
 								{
-									$country = (isset($isoList[$model['iso']])) ? $isoList[$model['iso']] : '';
+									$country = (isset($isoList[$model['iso']])) ? Html::encode($isoList[$model['iso']]) : '';
 										
 									return ($model['iso'] != '') ? Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@backoffice_images'.DIRECTORY_SEPARATOR.'flags'.DIRECTORY_SEPARATOR.strtolower($model['iso']).'.png'), ['alt'=>$country, 'title'=>$country]) : '';
 								},

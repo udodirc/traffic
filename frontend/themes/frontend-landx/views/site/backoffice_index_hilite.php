@@ -8,7 +8,7 @@ use yii\widgets\ListView;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
-$this->title = (isset($this->params['title'])) ? $this->params['title'] : '';
+$this->title = (isset($this->params['title'])) ? Html::encode($this->params['title']) : '';
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

@@ -1,6 +1,7 @@
 <?php
 use frontend\assets\FrontendLandXAppAsset;
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 use yii\web\View;
@@ -128,7 +129,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 					<div class="row">
 						<!-- RIGHT - HEADING AND TEXTS -->
 						<?php if($solution !== null): ?>
-							<?= $solution; ?>
+							<?= HtmlPurifier::process($solution); ?>
 						<?php endif; ?>
 					</div>
 				</div>
@@ -145,7 +146,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 					<?/*= Html::a(Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@frontend_images'.DIRECTORY_SEPARATOR.'logo-dark.png'), ['alt'=>'logo', 'title'=>'logo']), '/', []); */?>
 				</div>
 				<div class="copyright">
-					 ©<?= date("Y"); ?> <?= Yii::$app->name; ?>.
+					 ©<?= date("Y"); ?> <?= Html::encode(Yii::$app->name); ?>.
 				</div>
 				<!--
 				<ul class="social-icons">
@@ -196,10 +197,10 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 					<a id="restore-password-link" href="#"><?= Yii::t('form', 'Забыли свой пароль?'); ?></a>
 				</div>
 				<div class="field-wrapper col-md-12">
-					<?= $form->field($loginModel, 'reCaptcha')->widget(
+					<?/*= $form->field($loginModel, 'reCaptcha')->widget(
 						common\widgets\captcha\ReCaptcha::className(),
 						['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
-					); ?>
+					); */?>
 				</div>
 				<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn standard-button', 'id'=>'login-submit', 'data-style'=>'expand-left']) ?>
 			<?php ActiveForm::end(); ?>

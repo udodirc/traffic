@@ -105,6 +105,7 @@ class Partners extends ActiveRecord implements IdentityInterface
             [['login'], 'match', 'pattern' => '/^[a-z0-9-_\s,]+$/u', 'message' => Yii::t('form', 'Введенны неправильные символы!')],
             [['password', 're_password'], 'match', 'pattern' => '/^[A-Za-z0-9_\s,]+$/u', 'message' => Yii::t('form', 'Введенны неправильные символы!')],
             ['re_password', 'compare', 'compareAttribute' => 'password'],
+            [['login', 'first_name', 'last_name', 'email', 'payeer_wallet', 'password', 're_password'], 'filter', 'filter' => '\yii\helpers\HtmlPurifier::process']
         ];
     }
     

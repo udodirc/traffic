@@ -1,23 +1,24 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Content */
 
-$this->title = (isset($this->params['title'])) ? $this->params['title'] : '';
+$this->title = (isset($this->params['title'])) ? Html::encode($this->params['title']) : '';
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<h2><?= Html::encode($this->title); ?></h2>
+<h2><?= $this->title; ?></h2>
 <br/>
 <div class="row">
 	<div class="col-12 grid-margin">
 		<div class="card">
 			<div class="row">
 				<div class="card-body">
-					<h4 class="card-title"><?= Html::encode($this->title); ?></h4>
+					<h4 class="card-title"><?= $this->title; ?></h4>
 					<p class="card-description">
-						<?= (isset($leftContent) && $leftContent != null) ? $leftContent->content : ''; ?> 
+						<?= (isset($leftContent) && $leftContent != null) ? HtmlPurifier::process($leftContent->content) : ''; ?> 
 					</p>
 				</div>  
 			</div>

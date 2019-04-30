@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 use yii\helpers\Url;
 use yii\grid\GridView;
 use common\components\ContentHelper;
@@ -7,7 +8,7 @@ use common\components\ContentHelper;
 /* @var $this yii\web\View */
 /* @var $model app\models\Content */
 
-$this->title = (isset($this->params['title'])) ? $this->params['title'] : '';
+$this->title = (isset($this->params['title'])) ? Html::encode($this->params['title']) : '';
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -29,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<div class="border-bottom text-center pb-6">
 							<img src="https://via.placeholder.com/92x92" alt="profile" class="img-lg rounded-circle mb-3"/>
 							<div class="mb-3">
-								<h3><?= Html::encode(((\Yii::$app->user->identity !== null) ? \Yii::$app->user->identity->firstName.' '.\Yii::$app->user->identity->lastName : '')); ?></h3>
+								<h3><?= Html::encode(((\Yii::$app->user->identity !== null) ? Html::encode(\Yii::$app->user->identity->firstName).' '.Html::encode(\Yii::$app->user->identity->lastName) : '')); ?></h3>
 							</div>
 							<div class="d-flex justify-content-center">
 								<?= Html::a(Yii::t('form', 'Редактировать'), ['update', 'id' => (isset($model['id'])) ? $model['id'] : 0], ['class' => 'btn btn-success mr-1']) ?>
@@ -42,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									<?= Yii::t('form', 'Логин'); ?>
 								</span>
 								<span class="float-right text-muted">
-									<?= Html::encode((isset($model['login'])) ? $model['login'] : ''); ?>
+									<?= Html::encode((isset($model['login'])) ? Html::encode($model['login']) : ''); ?>
 								</span>
 							</p>
 							<p class="clearfix">
@@ -50,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									<?= Yii::t('form', 'Имя'); ?>
 								</span>
 								<span class="float-right text-muted">
-									<?= Html::encode((isset($model['first_name'])) ? $model['first_name'] : ''); ?>
+									<?= Html::encode((isset($model['first_name'])) ? Html::encode($model['first_name']) : ''); ?>
 								</span>
 							</p>
 							<p class="clearfix">
@@ -58,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									<?= Yii::t('form', 'Фамилия'); ?>
 								</span>
 								<span class="float-right text-muted">
-									<?= Html::encode((isset($model['last_name'])) ? $model['last_name'] : ''); ?>
+									<?= Html::encode((isset($model['last_name'])) ? Html::encode($model['last_name']) : ''); ?>
 								</span>
 							</p>
 							<p class="clearfix">
@@ -66,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									<?= Yii::t('form', 'Email'); ?>
 								</span>
 								<span class="float-right text-muted">
-									<?= Html::encode((isset($model['email'])) ? $model['email'] : ''); ?>
+									<?= Html::encode((isset($model['email'])) ? Html::encode($model['email']) : ''); ?>
 								</span>
 							</p>
 							<p class="clearfix">
@@ -74,7 +75,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									<?= Yii::t('form', 'Payeer кошелек'); ?>
 								</span>
 								<span class="float-right text-muted">
-									<?= Html::encode((isset($model['payeer_wallet'])) ? $model['payeer_wallet'] : ''); ?>
+									<?= Html::encode((isset($model['payeer_wallet'])) ? Html::encode($model['payeer_wallet']) : ''); ?>
 								</span>
 							</p>
 							<p class="clearfix">
@@ -82,7 +83,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									<?= Yii::t('form', 'Статус'); ?>
 								</span>
 								<span class="float-right text-muted">
-									<?= Html::encode((isset($statuses_list[$model['status']])) ? $statuses_list[$model['status']] : ''); ?>
+									<?= Html::encode((isset($statuses_list[$model['status']])) ? Html::encode($statuses_list[$model['status']]) : ''); ?>
 								</span>
 							</p>
 							<p class="clearfix">
@@ -98,7 +99,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									<?= Yii::t('form', 'Дата создания'); ?>
 								</span>
 								<span class="float-right text-muted">
-									<?= Html::encode((isset($model['created_at'])) ? date('m-d-Y', $model['created_at']) : ''); ?>
+									<?= Html::encode((isset($model['created_at'])) ? date('m-d-Y', Html::encode($model['created_at'])) : ''); ?>
 								</span>
 							</p>
 						</div>
@@ -163,10 +164,10 @@ $this->params['breadcrumbs'][] = $this->title;
 						<div class="py-6">
 							<p class="clearfix">
 								<span class="float-left">
-									<?= $partnerData['label']; ?>
+									<?= HtmlPurifier::process($partnerData['label']); ?>
 								</span>
 								<span class="float-right text-muted">
-									<?= $partnerData['value']; ?>
+									<?= HtmlPurifier::process($partnerData['value']); ?>
 								</span>
 							</p>
 						</div>
@@ -218,9 +219,9 @@ $this->params['breadcrumbs'][] = $this->title;
 							'format'=>'raw',//raw, html
 							'content'=>function ($model) use ($isoList)
 							{
-								$country = (isset($isoList[$model['iso']])) ? $isoList[$model['iso']] : '';
+								$country = (isset($isoList[$model['iso']])) ? Html::encode($isoList[$model['iso']]) : '';
 								
-								return ($model['iso'] != '') ? Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@backoffice_images'.DIRECTORY_SEPARATOR.'flags'.DIRECTORY_SEPARATOR.strtolower($model['iso']).'.png'), ['alt'=>$country, 'title'=>$country]) : '';
+								return ($model['iso'] != '') ? Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@backoffice_images'.DIRECTORY_SEPARATOR.'flags'.DIRECTORY_SEPARATOR.strtolower(Html::encode($model['iso'])).'.png'), ['alt'=>$country, 'title'=>$country]) : '';
 							},
 							'filter'=>false,
 						],

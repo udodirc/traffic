@@ -16,7 +16,8 @@ use yii\filters\VerbFilter;
  */
 class FrontendNewsController extends Controller
 {
-	public $layout = 'back_office';
+	public $layout = 'backoffice';
+	public $theme = '';
 	protected $user_id;
 	protected $identity_id;
 	
@@ -40,6 +41,9 @@ class FrontendNewsController extends Controller
 		$ticketsModel = new TicketsMessages();
 		$this->view->params['tickets_count'] = $ticketsModel->getMessagesCountByPartnerID($id);
 		$this->view->params['tickets_mesages_count'] = Tickets::find()->where('partner_id=:id AND status=:status', [':id' => $id, ':status' => Tickets::STATUS_ADMIN_ANSWER])->count();
+		
+		//Set theme
+		$this->theme = (isset(\Yii::$app->params['defaultTheme'])) ? ('_'.\Yii::$app->params['defaultTheme']) : '';
 		
         return parent::beforeAction($event);
     }
@@ -77,7 +81,7 @@ class FrontendNewsController extends Controller
 		$this->identity_id = $partnerID;
 		$this->view->params['title'] = Yii::t('form', 'Новость');
 		
-        return $this->render('news', [
+        return $this->render('news'.$this->theme, [
             'model' => $this->findModel($id),
         ]);
     }

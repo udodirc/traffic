@@ -4,6 +4,7 @@ namespace common\modules\faq\widgets;
 use Yii;
 use yii\base\Widget;
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 use yii\helpers\Url;
 
 class BackOfficeWidget extends Widget
@@ -39,8 +40,8 @@ class BackOfficeWidget extends Widget
 		return strtr($this->template, [
 			'{title}' => Yii::t('form', 'Вопрос'),
 			'{number}' => $number,
-			'{question}' => $item['question'],
-			'{answer}' => $item['answer'],
+			'{question}' => HtmlPurifier::process($item['question']),
+			'{answer}' => HtmlPurifier::process($item['answer']),
 		]);
     }
     

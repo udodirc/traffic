@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 use yii\web\View;
 use yii\bootstrap\ActiveForm;
 use common\models\StaticContent;
@@ -10,25 +11,25 @@ use common\widgets\running_geo_data\RunningGeoDataWidget;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
-$this->title = (!is_null($seo)) ? $seo->meta_title : '';
+$this->title = (!is_null($seo)) ? Html::encode($seo->meta_title) : '';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => (!is_null($seo)) ? $seo->meta_desc : '',
+    'content' => (!is_null($seo)) ? HtmlPurifier::process($seo->meta_desc) : '',
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => (!is_null($seo)) ? $seo->meta_keywords : '',
+    'content' => (!is_null($seo)) ? HtmlPurifier::process($seo->meta_keywords) : '',
 ]);
 
 \Yii::$app->view->registerMetaTag(["test", null, null, array('property' => "og:image")]);
 
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = Html::encode($this->title);
 
 $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedbackModel'] : null;
 ?>
 <?php foreach($contentList as $i => $content): ?>
-<section class="<?= isset($content->style) ? ($content->url.(isset($content->style) ? ' '.$content->style : '')) : ''; ?>" id="<?= isset($content->url) ? $content->url : ''; ?>">
-	<?= isset($content->content) ? $content->content : ''; ?>
+<section class="<?= isset($content->style) ? ($content->url.(isset($content->style) ? ' '.Html::encode($content->style) : '')) : ''; ?>" id="<?= isset($content->url) ? Html::encode($content->url) : ''; ?>">
+	<?= isset($content->content) ? HtmlPurifier::process($content->content) : ''; ?>
 </section>
 <?php endforeach; ?>
 <?php if($feedbackModel !== null): ?>

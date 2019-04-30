@@ -5,6 +5,7 @@ use Yii;
 use yii\base\Widget;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\helpers\HtmlPurifier;
 
 class TicketsListWidget extends Widget
 {
@@ -41,9 +42,9 @@ class TicketsListWidget extends Widget
 		$this->template = self::getTemplate($this->templateName);
 		
 		return ($this->template != '') ? strtr($this->template, [
-			'{subject}' => $item->subject,
+			'{subject}' => HtmlPurifier::process($item->subject),
 			'{date}' => date('m-d-Y', $item->created_at),
-			'{url}' => \Yii::$app->request->BaseUrl.'/ticket/'.$item->id,
+			'{url}' => Html::encode(\Yii::$app->request->BaseUrl.'/ticket/'.$item->id),
 		]) : '';
     }
 	
@@ -68,7 +69,7 @@ class TicketsListWidget extends Widget
 			
 			case 'hi-lite':
 				$result = '
-				<a class="dropdown-item preview-item">
+				<a href="{url}" class="dropdown-item preview-item">
 					<div class="preview-thumbnail">
 						<div class="preview-icon bg-success">
 							<i class="mdi mdi-information mx-0"></i>

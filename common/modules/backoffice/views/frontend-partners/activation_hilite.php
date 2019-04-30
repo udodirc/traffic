@@ -1,15 +1,16 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 use common\models\Service;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Content */
 
-$this->title = (isset($this->params['title'])) ? $this->params['title'] : '';
+$this->title = (isset($this->params['title'])) ? Html::encode($this->params['title']) : '';
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<h2><?= Html::encode($this->title); ?></h2>
+<h2><?= $this->title; ?></h2>
 <br/>
 <div class="row">
 	<div class="col-12 grid-margin">
@@ -17,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="row">
 				<div class="card-body">
 					<h4 class="card-title"><?= Yii::t('form', 'Информация'); ?></h4>
-					<?= (isset($content) && $content != null) ? $content->content : ''; ?>
+					<?= (isset($content) && $content != null) ? HtmlPurifier::process($content->content) : ''; ?>
 				</div>  
 			</div>
 		</div>
@@ -37,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<?php endif; ?>
 			<div class="row">
 				<div class="card-body">
-					<h4 class="card-title"><?= Html::encode($this->title); ?></h4>
+					<h4 class="card-title"><?= $this->title; ?></h4>
 					<div class="panel-content activation">
 						<?php if (Service::isActionAllowed('is_activation_allowed')): ?>
 							<?php if ($model->matrix_1 > 0): ?>
@@ -52,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<?php endif; ?>
 					</div>
 					<div class="panel-content">
-						<?= (isset($tile_content) && $tile_content != null) ? $tile_content->content : ''; ?>     
+						<?= (isset($tile_content) && $tile_content != null) ? HtmlPurifier::process($tile_content->content) : ''; ?>     
 					</div>
 				</div>
 			</div>

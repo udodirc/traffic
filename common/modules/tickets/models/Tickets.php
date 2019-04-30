@@ -44,6 +44,7 @@ class Tickets extends \yii\db\ActiveRecord
             [['partner_id', 'status', 'created_at'], 'integer'],
             [['subject', 'login'], 'string', 'max' => 100],
             [['text'], 'string'],
+            [['subject', 'text'], 'filter', 'filter' => '\yii\helpers\HtmlPurifier::process']
         ];
     }
 

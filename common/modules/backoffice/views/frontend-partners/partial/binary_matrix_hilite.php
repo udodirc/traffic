@@ -1,17 +1,18 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
 
 if(isset($matrixData['child_structure']) && !empty($matrixData['child_structure'])):				
 ?>
 	<div class="matrix-binary-block-wrap">
 		<div class="matrix-binary-block" style="width:100%">
 			<div class="matrix-binary">
-				<div class="matrix-login center"><?= Yii::t('form', 'ID площадки').' - '.$matrixID; ?></div>
-				<div class="matrix-partner center status_<?= ($gold_token > 0) ? 'gold_token' : $model->status; ?>">
-					<?= ($gold_token > 0) ? '<div class="gold_token">$'.$gold_token.'</div>' : ''; ?>
+				<div class="matrix-login center"><?= Yii::t('form', 'ID площадки').' - '.Html::encode($matrixID); ?></div>
+				<div class="matrix-partner center status_<?= ($gold_token > 0) ? 'gold_token' : Html::encode($model->status); ?>">
+					<?= ($gold_token > 0) ? '<div class="gold_token">$'.Html::encode($gold_token).'</div>' : ''; ?>
 				</div>
 				<div class="matrix-login center">
-					<?= $model->login; ?>
+					<?= Html::encode($model->login); ?>
 				</div>
 			</div>
 		</div>
@@ -26,12 +27,12 @@ if(isset($matrixData['child_structure']) && !empty($matrixData['child_structure'
 			<div style="float:left; width:50%; overflow:hidden;">
 				<div class="matrix-binary-block" style="width:100%">
 					<div class="matrix-binary">
-						<div class="matrix-login center"><?= Yii::t('form', 'ID площадки').' - '.((isset($levelData['data']['id'])) ? $levelData['data']['id'] : ''); ?></div>
-						<div class="matrix-partner center status_<?= ($levelData['data']['gold_token'] > 0) ? 'gold_token' : ((isset($levelData['data'])) ? $levelData['data']['status'] : ''); ?>">
-							<?= ($levelData['data']['gold_token'] > 0) ? '<div class="gold_token">$'.$levelData['data']['gold_token'].'</div>' : ''; ?>
+						<div class="matrix-login center"><?= Yii::t('form', 'ID площадки').' - '.((isset($levelData['data']['id'])) ? Html::encode($levelData['data']['id']) : ''); ?></div>
+						<div class="matrix-partner center status_<?= ($levelData['data']['gold_token'] > 0) ? 'gold_token' : ((isset($levelData['data'])) ? Html::encode($levelData['data']['status']) : ''); ?>">
+							<?= ($levelData['data']['gold_token'] > 0) ? '<div class="gold_token">$'.Html::encode($levelData['data']['gold_token']).'</div>' : ''; ?>
 						</div>
 						<div class="matrix-login center">
-							<?= (isset($levelData['data']['login'])) ? $levelData['data']['login'] : ''; ?>
+							<?= (isset($levelData['data']['login'])) ? Html::encode($levelData['data']['login']) : ''; ?>
 						</div>
 					</div>
 				</div>
@@ -54,12 +55,12 @@ if(isset($matrixData['child_structure']) && !empty($matrixData['child_structure'
 							<div style="float:left; width:50%; overflow:hidden;">
 								<div class="matrix-binary-block" style="width:100%">
 									<div class="matrix-binary">
-										<div class="matrix-login center"><?= Yii::t('form', 'ID площадки').' - '.((isset($levelData2['data'])) ? $levelData2['data']['id'] : ''); ?></div>
-										<div class="matrix-partner center status_<?= ($levelData2['data']['gold_token'] > 0) ? 'gold_token' : ((isset($levelData2['data'])) ? $levelData2['data']['status'] : ''); ?>">
-											<?= ($levelData2['data']['gold_token'] > 0) ? '<div class="gold_token">$'.$levelData2['data']['gold_token'].'</div>' : ''; ?>
+										<div class="matrix-login center"><?= Yii::t('form', 'ID площадки').' - '.((isset($levelData2['data'])) ? Html::encode($levelData2['data']['id']) : ''); ?></div>
+										<div class="matrix-partner center status_<?= ($levelData2['data']['gold_token'] > 0) ? 'gold_token' : ((isset($levelData2['data'])) ? Html::encode($levelData2['data']['status']) : ''); ?>">
+											<?= ($levelData2['data']['gold_token'] > 0) ? '<div class="gold_token">$'.Html::encode($levelData2['data']['gold_token']).'</div>' : ''; ?>
 										</div>
 										<div class="matrix-login center">
-											<?= (isset($levelData2['data'])) ? $levelData2['data']['login'] : ''; ?>
+											<?= (isset($levelData2['data'])) ? Html::encode($levelData2['data']['login']) : ''; ?>
 										</div>
 									</div>
 								</div>
@@ -70,11 +71,11 @@ if(isset($matrixData['child_structure']) && !empty($matrixData['child_structure'
 									?>
 										<div class="matrix-binary-block" style="width:50%">
 											<div class="matrix-binary">
-												<div class="matrix-login center"><?= Yii::t('form', 'ID площадки').' - '.((isset($levelData3['data'])) ? $levelData3['data']['id'] : ''); ?></div>
-												<div class="matrix-partner center status_<?= ($levelData3['data']['gold_token'] > 0) ? 'gold_token' : ((isset($levelData3['data'])) ? $levelData3['data']['status'] : ''); ?>">
-													<?= ($levelData3['data']['gold_token'] > 0) ? '<div class="gold_token">$'.$levelData3['data']['gold_token'].'</div>' : ''; ?>
+												<div class="matrix-login center"><?= Yii::t('form', 'ID площадки').' - '.((isset($levelData3['data'])) ? Html::encode($levelData3['data']['id']) : ''); ?></div>
+												<div class="matrix-partner center status_<?= ($levelData3['data']['gold_token'] > 0) ? 'gold_token' : ((isset($levelData3['data'])) ? Html::encode($levelData3['data']['status']) : ''); ?>">
+													<?= ($levelData3['data']['gold_token'] > 0) ? '<div class="gold_token">$'.Html::encode($levelData3['data']['gold_token']).'</div>' : ''; ?>
 												</div>
-													<?= (isset($levelData3['data'])) ? $levelData3['data']['login'] : ''; ?>
+													<?= (isset($levelData3['data'])) ? Html::encode($levelData3['data']['login']) : ''; ?>
 												</div>
 											</div>
 										</div>
@@ -133,11 +134,11 @@ if(isset($matrixData['child_structure']) && !empty($matrixData['child_structure'
 			foreach($matrixData['matrix_info'] as $type => $matrixInfo):
 			?>
 			<tr>
-				<td><?= $matrixNumber; ?></td>
-				<td>$<?= $matrixInfo[0]; ?></td>
+				<td><?= Html::encode($matrixNumber); ?></td>
+				<td>$<?= Html::encode($matrixInfo[0]); ?></td>
 				<td><?= $matrixInfo[1]; ?></td>
-				<td><?= gmdate("Y-m-d H:i:s", $matrixInfo[2]); ?></td>
-				<td><?= ($matrixInfo[3] > 0) ? Yii::t('form', 'Закрыта!').' - '.gmdate("Y-m-d H:i:s", $matrixInfo[3]) : Yii::t('form', 'В ожидании закрытия'); ?></td>
+				<td><?= gmdate("Y-m-d H:i:s", Html::encode($matrixInfo[2])); ?></td>
+				<td><?= ($matrixInfo[3] > 0) ? Yii::t('form', 'Закрыта!').' - '.gmdate("Y-m-d H:i:s", Html::encode($matrixInfo[3])) : Yii::t('form', 'В ожидании закрытия'); ?></td>
 			</tr>
 			<?php
 			endforeach;

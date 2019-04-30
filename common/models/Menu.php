@@ -264,11 +264,11 @@ class Menu extends \yii\db\ActiveRecord
 				/*[
 					'label' => Yii::t('menu', 'Статистика'),
 					'url' => ['/partners/partner-info'],
-				],*/
+				],
 				[
 					'label' => Yii::t('menu', 'Запрос на вывод'),
 					'url' => ['/partners/withdrawal'],
-				],
+				],*/
 				[
 					'label' => Yii::t('menu', 'TOP Leaders'),
 					'url' => ['/partners/top-leaders'],
@@ -372,7 +372,7 @@ class Menu extends \yii\db\ActiveRecord
 					]; 
 					
 					$result[] = [
-						'label' => Yii::t('menu', $menu['name']),
+						'label' => Yii::t('menu', Html::encode($menu['name'])),
 						'options'=> $options,
 						'template' => ($backoffice) ? '<a href="javascript:void(0);" data-toggle="collapse" data-target="#'.$menu['parent_id'].'_dr">
 							<div class="pull-left">
@@ -417,7 +417,7 @@ class Menu extends \yii\db\ActiveRecord
 					if($access)
 					{
 						$result[] = [
-							'label' => Yii::t('menu', $menu['name']), 
+							'label' => Yii::t('menu', Html::encode($menu['name'])), 
 							//'icon' => $icon,
 							'url' => '#'.$menu['url'], 
 							//'url' => Url::base().DIRECTORY_SEPARATOR.$menu['url'], 

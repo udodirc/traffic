@@ -710,7 +710,7 @@ class FrontendPartnersController extends Controller
 			$this->view->params['title'] = Yii::t('form', 'Информация для лидеров');
 			$partnerModel = $this->findModel($id);
 			
-			return $this->render('top_leader_info', [
+			return $this->render('top_leader_info'.$this->theme, [
 				'model' => $partnerModel,
 				'content' => $content,
 				'id' => $id,

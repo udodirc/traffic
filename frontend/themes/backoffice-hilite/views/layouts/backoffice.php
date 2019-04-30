@@ -116,7 +116,7 @@ $ticketsMesagesCount = (isset($this->params['tickets_mesages_count'])) ? $this->
 				<div class="footer-wrapper">
 					<footer class="footer">
 						<div class="d-sm-flex justify-content-center justify-content-sm-between">
-							<span class="text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; <?= date("Y"); ?> <?= Yii::$app->name; ?>. All rights reserved. </span>
+							<span class="text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; <?= date("Y"); ?> <?= Html::encode(Yii::$app->name); ?>. All rights reserved. </span>
 						</div>
 					</footer>
 				</div>

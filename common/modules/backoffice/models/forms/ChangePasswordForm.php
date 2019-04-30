@@ -19,6 +19,7 @@ class ChangePasswordForm extends Model
 			[['password', 're_password'], 'required', 'message' => Yii::t('messages', 'Это поле должно быть заполнено!')],
             [['password', 're_password'], 'match', 'pattern' => '/^[a-zA-Z0-9]*$/u', 'message' => Yii::t('messages', 'Введенны неправильные символы!')],
             ['re_password', 'compare', 'compareAttribute' => 'password'],
+            [['password', 're_password'], 'filter', 'filter' => '\yii\helpers\HtmlPurifier::process']
         ];
     }
 
