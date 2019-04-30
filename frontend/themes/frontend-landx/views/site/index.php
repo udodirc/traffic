@@ -71,10 +71,10 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
 							]); ?>
 						</div>
 						<div class="field-wrapper col-md-12">
-							<?/*= $form->field($feedbackModel, 'reCaptcha')->widget(
+							<?= $form->field($feedbackModel, 'reCaptcha')->widget(
 								common\widgets\captcha\ReCaptcha::className(),
 								['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
-							); */?>
+							); ?>
 						</div>
 						<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn standard-button', 'id'=>'contacts-submit', 'data-style'=>'expand-left']) ?>
 					<?php ActiveForm::end(); ?>

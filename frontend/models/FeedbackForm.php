@@ -25,7 +25,7 @@ class FeedbackForm extends Model
             ['email', 'checkBlackList'],
             [['name', 'text'], 'string'],
             [['name', 'email', 'text'], 'filter', 'filter' => '\yii\helpers\HtmlPurifier::process'],
-            //[['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
+            [['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
         ];
     }
     
