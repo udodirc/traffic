@@ -112,6 +112,7 @@ class BackendTicketsController extends Controller
 		if(($ticketModel = Tickets::find()->with('partner')->where('id=:id', [':id' => $id])->one()) !== null) 
 		{
 			$messageForm = new MessageForm();
+			$messageForm->scenario = ('backend');
 			$model = new TicketsMessages();
 			$dataProvider = new ActiveDataProvider([
 				'query' => $model->getMessagesList($id),

@@ -30,6 +30,22 @@ class FeedbackForm extends Model
     }
     
     /**
+     * Scenarios
+     *
+     * @return mixed
+     */
+    public function scenarios()
+	{
+		$scenarios = parent::scenarios();
+		
+        $scenarios['frontend'] = ['name', 'email', 'text', 'reCaptcha'];
+		
+		$scenarios['backend'] = ['name', 'email', 'text'];
+		
+		return $scenarios;
+    }
+    
+    /**
      * @inheritdoc
      */
     public function attributeLabels()

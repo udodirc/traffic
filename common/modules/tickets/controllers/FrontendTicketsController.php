@@ -118,6 +118,7 @@ class FrontendTicketsController extends Controller
 		{
 			$this->view->params['title'] = $ticketModel->subject;
 			$messageForm = new MessageForm();
+			$messageForm->scenario = ('frontend');
 			$model = new TicketsMessages();
 			$dataProvider = new ActiveDataProvider([
 				'query' => $model->getMessagesList($id),
