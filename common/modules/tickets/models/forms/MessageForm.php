@@ -12,6 +12,7 @@ use common\modules\tickets\models\TicketsMessages;
 class MessageForm extends Model
 {
 	public $message;
+	public $reCaptcha;
 	
 	/**
      * @inheritdoc

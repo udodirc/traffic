@@ -22,6 +22,7 @@ class Tickets extends \yii\db\ActiveRecord
 {
 	public $text;
 	public $login;
+	public $reCaptcha;
 	
 	const STATUS_PARTNER_ANSWER = 0;
     const STATUS_ADMIN_ANSWER = 1;
