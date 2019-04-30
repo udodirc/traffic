@@ -76,6 +76,12 @@ $this->title = (isset($ticketModel->subject)) ? $ticketModel->subject : '';
 							'class'=>'error mt-2 text-danger'
 						]); ?>
 					</div>
+					<div class="form-group">
+						<?= $form->field($messageForm, 'reCaptcha')->widget(
+							common\widgets\captcha\ReCaptcha::className(),
+							['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
+						); ?>
+					</div>
 					<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn btn-primary mr-2']) ?>
 				<?php ActiveForm::end(); ?>
 			</div>		

@@ -369,7 +369,7 @@ class FrontendPartnersController extends Controller
 		$dataProvider->pagination->pageSize = Service::getPageSize();
 		$this->view->params['title'] = Yii::t('form', 'Заработок по структуре');
 		
-		return $this->render('matrix_payments_list', [
+		return $this->render('matrix_payments_list'.$this->theme, [
 			'searchModel' => $searchModel,
 			'dataProvider' => $dataProvider,
 			'demo' => $demo

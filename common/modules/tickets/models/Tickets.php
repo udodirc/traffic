@@ -44,7 +44,8 @@ class Tickets extends \yii\db\ActiveRecord
             [['partner_id', 'status', 'created_at'], 'integer'],
             [['subject', 'login'], 'string', 'max' => 100],
             [['text'], 'string'],
-            [['subject', 'text'], 'filter', 'filter' => '\yii\helpers\HtmlPurifier::process']
+            [['subject', 'text'], 'filter', 'filter' => '\yii\helpers\HtmlPurifier::process'],
+            [['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
         ];
     }
 

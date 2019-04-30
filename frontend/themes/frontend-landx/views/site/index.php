@@ -38,9 +38,9 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<h3 class="heading">Нужна помощь? Напишите нам!</h3>
-				<a href="" class="contact-link expand-form"><span class="icon_mail_alt"></span>Напишите нам</a>
+				<a href="<?= (isset(\Yii::$app->params['supportEmail'])) ? 'mailto:'.\Yii::$app->params['supportEmail'] : ''; ?>" class="contact-link expand-form2"><span class="icon_mail_alt"></span>Напишите нам</a>
 				<!-- EXPANDED CONTACT FORM -->
-				<div class="expanded-contact-form">
+				<div class="expanded-contact-form" style="display:none">
 					<!-- FORM -->
 					<?php $form = ActiveForm::begin([
 					'options' => [

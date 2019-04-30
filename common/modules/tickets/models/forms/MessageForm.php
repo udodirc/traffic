@@ -21,6 +21,7 @@ class MessageForm extends Model
         return [
 			[['message'], 'required'],
 			[['message'], 'string'],
+			[['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
         ];
     }
     
