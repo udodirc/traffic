@@ -23,6 +23,12 @@ use mihaildev\ckeditor\CKEditor;
 	])->label(false); ?>
     <?/*= $form->field($model, 'text')->textArea(['rows' => '6'])*/ ?>
     <div class="form-group">
+	<?= $form->field($messageForm, 'reCaptcha')->widget(
+		common\widgets\captcha\ReCaptcha::className(),
+		['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
+	); ?>
+	</div>
+    <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('form', 'Создать') : Yii::t('form', 'Редактировать'), ['class' => $model->isNewRecord ? 'button-blue' : 'button-blue']) ?>
     </div>
     <?php ActiveForm::end(); ?>
