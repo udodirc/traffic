@@ -314,7 +314,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 				<!-- EXPANDED LOGIN FORM -->
 				<div class="expanded-contact-form">
 					<h6 class="success">
-						<span class="colored-text icon_check"></span><?= Html::encode(Yii::$app->session->getFlash('success')); ?>
+						<span class="colored-text icon_check"></span><?= Html::encode(Yii::$app->session->getFlash('confirm-registration')); ?>
 					</h6>
 				</div>
 				<?php
