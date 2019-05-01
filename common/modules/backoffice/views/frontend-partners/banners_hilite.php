@@ -19,14 +19,12 @@ $this->registerJs($inlineScript,  View::POS_END);
 <div class="row">
 	<div class="col-12 grid-margin">
 		<div class="card">
-			<div class="row">
-				<div class="card-body">
+			<div class="card-body">
 					<h4 class="card-title"><?= $this->title; ?></h4>
 					<?=$this->render('partial/banners_list'.$theme, [
 						'category' => $category
 					]);?>
-				</div>  
-			</div>
+				</div>
 		</div>
 	</div>
 </div>

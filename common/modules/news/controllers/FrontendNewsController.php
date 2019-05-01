@@ -16,7 +16,7 @@ use yii\filters\VerbFilter;
  */
 class FrontendNewsController extends Controller
 {
-	public $layout = 'backoffice';
+	public $layout = 'back_office';
 	public $theme = '';
 	protected $user_id;
 	protected $identity_id;

@@ -122,28 +122,36 @@ if(isset($matrixData['child_structure']) && !empty($matrixData['child_structure'
 	<?php
 	if((isset($matrixData['matrix_info'])) && !empty($matrixData['matrix_info'])):
 	?>
-		<table class="table table-striped table-bordered">
-			<thead>
-				<th><?= Yii::t('form', 'ID площадки'); ?></th>
-				<th><?= Yii::t('form', 'Всего заработано'); ?></th>
-				<th><?= Yii::t('form', 'Баллы'); ?></th>
-				<th><?= Yii::t('form', 'Дата оплаты'); ?></th>
-				<th><?= Yii::t('form', 'Статус'); ?></th>
-			</thead>
-			<?php
-			foreach($matrixData['matrix_info'] as $type => $matrixInfo):
-			?>
-			<tr>
-				<td><?= Html::encode($matrixNumber); ?></td>
-				<td>$<?= Html::encode($matrixInfo[0]); ?></td>
-				<td><?= $matrixInfo[1]; ?></td>
-				<td><?= gmdate("Y-m-d H:i:s", Html::encode($matrixInfo[2])); ?></td>
-				<td><?= ($matrixInfo[3] > 0) ? Yii::t('form', 'Закрыта!').' - '.gmdate("Y-m-d H:i:s", Html::encode($matrixInfo[3])) : Yii::t('form', 'В ожидании закрытия'); ?></td>
-			</tr>
-			<?php
-			endforeach;
-			?>
-		</table>
+		<div class="table-responsive">
+			<div id="basic-table" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+				<div class="row">
+					<div class="col-sm-12">
+						<table class="table dataTable no-footer">
+							<thead>
+								<th><?= Yii::t('form', 'ID площадки'); ?></th>
+								<th><?= Yii::t('form', 'Всего заработано'); ?></th>
+								<th><?= Yii::t('form', 'Баллы'); ?></th>
+								<th><?= Yii::t('form', 'Дата оплаты'); ?></th>
+								<th><?= Yii::t('form', 'Статус'); ?></th>
+							</thead>
+							<?php
+							foreach($matrixData['matrix_info'] as $type => $matrixInfo):
+							?>
+							<tr>
+								<td><?= Html::encode($matrixNumber); ?></td>
+								<td>$<?= Html::encode($matrixInfo[0]); ?></td>
+								<td><?= $matrixInfo[1]; ?></td>
+								<td><?= gmdate("Y-m-d H:i:s", Html::encode($matrixInfo[2])); ?></td>
+								<td><?= ($matrixInfo[3] > 0) ? Yii::t('form', 'Закрыта!').' - '.gmdate("Y-m-d H:i:s", Html::encode($matrixInfo[3])) : Yii::t('form', 'В ожидании закрытия'); ?></td>
+							</tr>
+							<?php
+							endforeach;
+							?>
+						</table>
+					</div>	
+				</div>	
+			</div>	
+		</div>
 	<?php
 	endif;
 	?>

@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 </div>
 <div class="row">
-	<div class="col-12 grid-margin">
+	<div class="col-md-6 offset-md-3">
 		<div class="card">
 			<?php if (Yii::$app->session->hasFlash('success')): ?>
 			<div class="alert alert-success" role="alert">

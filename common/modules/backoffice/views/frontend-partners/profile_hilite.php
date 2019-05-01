@@ -179,13 +179,16 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 </div>
 <div class="row" style="margin-top:30px;">
-	<div class="col-12">
+	<div class="col-lg-12 grid-margin stretch-card">
 		<div class="card">
 			<div class="card-body">
 				<h4 class="card-title"><?= Yii::t('form', 'Лично приглашенные рефералы'); ?></h4>
+				<div class="table-responsive">
 				<?= GridView::widget([
 					'dataProvider' => $dataProvider,
 					//'filterModel' => $searchModel,
+					'id'=>'basic-table',
+					'class'=>'dataTables_wrapper container-fluid dt-bootstrap4 no-footer',
 					'layout'=>"{items}\n{pager}",
 					'rowOptions' => function ($model, $index, $widget, $grid)
 					{
@@ -249,6 +252,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					],
 				]);
 				?> 
+				</div>
 			</div>
 		</div>
 	</div>
