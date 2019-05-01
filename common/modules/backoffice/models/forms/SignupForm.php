@@ -198,6 +198,7 @@ class SignupForm extends Model
     {
 		$result = null;
 		$login = self::getSponsorLogin();
+		echo $login;
 		$result = ($login != '') ? Partners::findByUsername($login) : Partners::find()->where(['id'=>1])->one();
 		
 		return $result;
