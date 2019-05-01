@@ -309,7 +309,7 @@ class BackOfficeController extends Controller
 			$sponsorData = SignupForm::getSponsorData();
 			$model->sponsor_id = (isset($post['sponsor_id'])) ? intval($post['sponsor_id']) : 0;
 			$model->sponsor_login = (isset($post['sponsor_login'])) ? $post['sponsor_login'] : '';
-			var_dump($sponsorData);	
+				
 			if($model->load(Yii::$app->request->post()) && $sponsorData != null) 
 			{
 				$mailResult = false;
@@ -353,19 +353,19 @@ class BackOfficeController extends Controller
 						}
 					}
 					else
-					{	echo 'Work3!';
+					{	
 						//Get validate errors
 						$errors = [0, ActiveForm::validate($model), 'register-form'];
 					}
 				}
 				else
-				{	echo 'Work2!';
+				{	
 					//Get validate errors
 					$errors = [0, ActiveForm::validate($model), 'register-form'];
 				}
 			}
 			else
-			{	echo 'Work!';
+			{	
 				//Get validate errors
 				$errors = [0, ActiveForm::validate($model), 'register-form'];
 			}
