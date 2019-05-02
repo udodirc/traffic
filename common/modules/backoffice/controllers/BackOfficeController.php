@@ -498,7 +498,7 @@ class BackOfficeController extends Controller
 							->setTo($user->email)
 							->setSubject(Yii::t('messages', 'Тема: Восстановления пароля'))
 							->send();
-							$msg = ($result) ? Yii::t('messages', 'Новый пароль выслан на ваш email!') : Yii::t('messages', 'Failure!');
+							$msg = ($result) ? Yii::t('messages', 'Новый пароль выслан на ваш email! Если письмо не пришло подождите 10') : Yii::t('messages', 'Failure!');
 						}
 					}
 				}

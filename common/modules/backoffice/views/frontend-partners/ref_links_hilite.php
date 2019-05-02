@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="card-body">
 					<h4 class="card-title"><?= $this->title; ?></h4>
 					<p class="card-description">
-						<?= (isset($content)) ? ContentHelper::checkContentVeiables(HtmlPurifier::process($content->content)) : ''; ?>
+						<?= (isset($content)) ? ContentHelper::checkContentVeiables($content->content) : ''; ?>
 					</p>
 				</div>  
 			</div>
