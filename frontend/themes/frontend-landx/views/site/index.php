@@ -27,6 +27,12 @@ $this->params['breadcrumbs'][] = Html::encode($this->title);
 
 $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedbackModel'] : null;
 ?>
+<section class="services section3" id="services">
+	<div class="container">
+		<h2>Предстарт проекта!</h2>
+		<?= isset($prelaunch) ? HtmlPurifier::process($prelaunch) : ''; ?>
+	</div>
+</section>
 <?php foreach($contentList as $i => $content): ?>
 <section class="<?= isset($content->style) ? ($content->url.(isset($content->style) ? ' '.Html::encode($content->style) : '')) : ''; ?>" id="<?= isset($content->url) ? Html::encode($content->url) : ''; ?>">
 	<?= isset($content->content) ? HtmlPurifier::process($content->content) : ''; ?>
@@ -38,7 +44,7 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<h3 class="heading">Нужна помощь? Напишите нам!</h3>
-				<a href="<?= (isset(\Yii::$app->params['supportEmail'])) ? 'mailto:'.\Yii::$app->params['supportEmail'] : ''; ?>" class="contact-link expand-form2"><span class="icon_mail_alt"></span>Напишите нам</a>
+				<a href="<?= (isset(\Yii::$app->params['supportEmail'])) ? 'mailto:'.\Yii::$app->params['supportEmail'] : ''; ?>" class="contact-link expand-form2"><span class="icon_mail_alt"></span><?= (isset(\Yii::$app->params['supportEmail'])) ? \Yii::$app->params['supportEmail'] : ''; ?></a>
 				<!-- EXPANDED CONTACT FORM -->
 				<div class="expanded-contact-form" style="display:none">
 					<!-- FORM -->

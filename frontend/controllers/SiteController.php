@@ -123,9 +123,9 @@ class SiteController extends Controller
 			$this->view->params['restorePasswordEmailModel'] = new RestorePasswordEmailForm;
 			$this->view->params['sponsorData'] = SignupForm::getSponsorData();
 			$this->view->params['brand_slogan'] = (isset(Yii::$app->params['brand_slogan'])) ? Yii::$app->params['brand_slogan'] : '';
-			/*$this->view->params['curr_day_register'] = (!is_null(RegisterStats::getRegisterCountByCurrentDay())) ? RegisterStats::getRegisterCountByCurrentDay()->register_stats : 0; 
+			$this->view->params['curr_day_register'] = (!is_null(RegisterStats::getRegisterCountByCurrentDay())) ? RegisterStats::getRegisterCountByCurrentDay()->register_stats : 0; 
 			$this->view->params['total_register'] = (!is_null(Partners::find())) ? Partners::find()->count() : 0;
-			$this->view->params['phone'] = (!is_null(StaticContent::find()->where(['name'=>'phone'])->one())) ? StaticContent::find()->where(['name'=>'phone'])->one()->content : '';
+			/*$this->view->params['phone'] = (!is_null(StaticContent::find()->where(['name'=>'phone'])->one())) ? StaticContent::find()->where(['name'=>'phone'])->one()->content : '';
 			$this->view->params['location'] = (!is_null(StaticContent::find()->where(['name'=>'location'])->one())) ? StaticContent::find()->where(['name'=>'location'])->one()->content : '';*/
 			$this->view->params['solution'] = (!is_null(StaticContent::find()->where(['name'=>'solution'])->one())) ? StaticContent::find()->where(['name'=>'solution'])->one()->content : '';
 			
@@ -158,6 +158,7 @@ class SiteController extends Controller
         else
         {
 			$counterContent = (!is_null(StaticContent::find()->where(['name'=>'counter_content'])->one())) ? StaticContent::find()->where(['name'=>'counter_content'])->one()->content : '';
+			$prelaunch = (!is_null(StaticContent::find()->where(['name'=>'prelaunch'])->one())) ? StaticContent::find()->where(['name'=>'prelaunch'])->one()->content : '';
 			$partnersGeoDataList = Partners::getRandGeoDataList(100);
 			$sliderList = Slider::find()->all();
 			$contentList = Content::getContentList();
@@ -165,6 +166,7 @@ class SiteController extends Controller
 			return $this->render('index', [
 				'counterContent' => $counterContent,
 				'staticContent' => $staticContent,
+				'prelaunch' => $prelaunch,
 				'contentList' => $contentList,
 				'partnersGeoDataList' => $partnersGeoDataList,
 				'sliderList' => $sliderList,
