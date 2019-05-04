@@ -14,13 +14,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
 	<div class="col-12 grid-margin">
 		<div class="card">
-			<div class="row">
-				<div class="card-body">
-					<h4 class="card-title"><?= Yii::t('form', 'Информация'); ?></h4>
-					<p class="card-description">
-						<?= (isset($content) && $content != null) ? $content->content : ''; ?>
-					</p>
-				</div>  
+			<div class="card-body">
+				<h4 class="card-title"><?= Yii::t('form', 'Информация'); ?></h4>
+				<p class="card-description">
+					<?= (isset($content) && $content != null) ? $content->content : ''; ?>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -47,6 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="table-responsive">
 				<?= GridView::widget([
 					'dataProvider' => $dataProvider,
+					'class'=>'dataTables_wrapper container-fluid dt-bootstrap4 no-footer',
 					//'filterModel' => $searchModel,
 					'layout'=>"{pager}\n{summary}\n{items}",
 					'pager' => [

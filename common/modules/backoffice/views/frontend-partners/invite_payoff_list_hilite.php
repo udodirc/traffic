@@ -5,7 +5,7 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Content */
 
-$this->title = (isset($this->params['title'])) ? Html::encode($this->params['title']) : '';
+$this->title = (isset($this->params['title'])) ? $this->params['title'] : '';
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -42,14 +42,14 @@ $this->params['breadcrumbs'][] = $this->title;
 								['class' => 'yii\grid\SerialColumn'],
 								'id',
 								[
-									'attribute'=>'benefit_login',
-									'label' => Yii::t('form', 'Логин получателя'),
+									'attribute'=>'payer_login',
+									'label' => Yii::t('form', 'Логин плательщика'),
 									'value' => 'partner.login',
 								],
 								[
-									'attribute'=>'payer_login',
-									'label' => Yii::t('form', 'Логин плательщика'),
-									'value' => 'payerPartner.login',
+									'attribute'=>'benefit_login',
+									'label' => Yii::t('form', 'Логин получателя'),
+									'value' => 'benefitPartner.login',
 								],
 								'matrix_number',
 								'matrix_id',
@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								],
 							],
 						]);
-						?>     
+						?> 
 					</div>
 				</div>
 			</div>

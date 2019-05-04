@@ -17,13 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
 	<div class="col-12 grid-margin">
 		<div class="card">
-			<div class="row">
-				<div class="card-body">
-					<h4 class="card-title"><?= $this->title; ?></h4>
-					<p class="card-description">
-						<?= (isset($content)) ? ContentHelper::checkContentVeiables($content->content) : ''; ?>
-					</p>
-				</div>  
+			<div class="card-body">
+				<h4 class="card-title"><?= $this->title; ?></h4>
+				<p class="card-description">
+					<?= (isset($content)) ? ContentHelper::checkContentVeiables($content->content) : ''; ?>
+				</p>
 			</div>
 		</div>
 	</div>

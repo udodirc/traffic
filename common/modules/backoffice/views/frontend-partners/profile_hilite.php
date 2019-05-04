@@ -215,7 +215,11 @@ $this->params['breadcrumbs'][] = $this->title;
 						'id',
 						'login',
 						'email',
-						'ref_count',
+						[
+							'attribute'=>'ref_count',
+							'label' => Yii::t('form', 'Кол-во рефералов'),
+							'format'=>'raw',//raw, html
+						],
 						[
 							'attribute' => 'geo', 
 							'label' => Yii::t('form', 'Страна'),
@@ -236,7 +240,11 @@ $this->params['breadcrumbs'][] = $this->title;
 								return ($model['matrix_1'] > 0) ? Yii::t('form', 'Активен') : Yii::t('form', 'Не активен');
 							},
 						],
-						'matrix_1',
+						[
+							'attribute'=>'matrix_1',
+							'label' => Yii::t('form', 'Матрица'),
+							'format'=>'raw',//raw, html
+						],
 						[
 							'attribute' => 'created_at', 
 							'label' => Yii::t('form', 'Дата регистрации'),

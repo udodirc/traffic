@@ -42,27 +42,35 @@ $this->params['breadcrumbs'][] = $this->title;
 								['class' => 'yii\grid\SerialColumn'],
 								'id',
 								[
-									'attribute'=>'benefit_login',
-									'label' => Yii::t('form', 'Логин получателя'),
-									'value' => 'partner.login',
+									'attribute'=>'partner_id',
+									'label'=>Yii::t('form', 'Логин'),
+									'format'=>'text', // Возможные варианты: raw, html
+									'filterInputOptions'=>['name' => 'BallsSearch[login]'],
+									'content'=>function($data){
+										return $data->getPartnerName();
+									},
 								],
 								[
-									'attribute'=>'payer_login',
-									'label' => Yii::t('form', 'Логин плательщика'),
-									'value' => 'payerPartner.login',
+									'attribute' => 'structure_number', 
+									'label' => Yii::t('form', 'Структура'),
+									'format'=>'raw',//raw, html
+									'value'=>function ($model) use ($structuresList) {
+										return (isset($structuresList[$model->structure_number])) ? $structuresList[$model->structure_number] : '';
+									},
 								],
 								'matrix_number',
 								'matrix_id',
-								'amount',
+								'balls',
 								[
 									'attribute' => 'created_at', 
-									'label' => Yii::t('form', 'Дата'),
+									'label' => Yii::t('form', 'Дата оплаты'),
 									'format' => ['date', 'php:Y-m-d H:m:s'],
 									'filter'=>false,
 								],
+								//['class' => 'yii\grid\ActionColumn'],
 							],
-						]);
-						?>     
+						]); 
+						?>
 					</div>
 				</div>
 			</div>

@@ -27,6 +27,7 @@ use common\modules\structure\models\LevelsPecentage;
 use common\modules\structure\models\MatricesSettings;
 use common\modules\structure\models\DemoBalls;
 use common\modules\structure\models\Balls;
+use common\modules\structure\models\BallsSearch;
 use common\modules\structure\models\GoldToken;
 use common\modules\structure\models\PaymentsInvoices;
 use common\modules\structure\models\Withdrawal;
@@ -359,6 +360,7 @@ class FrontendPartnersController extends Controller
 		$id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
 		$this->user_id = $id;
 		$this->identity_id = $id;
+		self::checkIDInQueryParams($id);
 		
 		$demo = (isset(Yii::$app->request->queryParams['demo'])) ? Yii::$app->request->queryParams['demo'] : 0;
 		$structure = (isset(Yii::$app->request->queryParams['structure'])) ? Yii::$app->request->queryParams['structure'] : 0;
@@ -381,6 +383,7 @@ class FrontendPartnersController extends Controller
 		$id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
 		$this->user_id = $id;
 		$this->identity_id = $id;
+		self::checkIDInQueryParams($id);
 		
 		$demo = (isset(Yii::$app->request->queryParams['demo'])) ? Yii::$app->request->queryParams['demo'] : 0;
 		$structure = (isset(Yii::$app->request->queryParams['structure'])) ? Yii::$app->request->queryParams['structure'] : 0;
@@ -391,12 +394,34 @@ class FrontendPartnersController extends Controller
 		$dataProvider->pagination->pageSize = Service::getPageSize();
 		$this->view->params['title'] = Yii::t('form', 'Список выплат за личные приглашения');
 		
-		return $this->render('invite_payoff_list', [
+		return $this->render('invite_payoff_list'.$this->theme, [
 			'searchModel' => $searchModel,
 			'dataProvider' => $dataProvider,
 			'demo' => $demo
 		]);
 	}
+	
+	/**
+     * Lists all Balls models.
+     * @return mixed
+     */
+    public function actionBallsList()
+    {
+		$id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
+		$this->user_id = $id;
+		$this->identity_id = $id;
+		self::checkIDInQueryParams($id);
+		
+        $searchModel = new BallsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $structuresList = (isset(\Yii::$app->params['structures'])) ? \Yii::$app->params['structures'] : [];
+
+        return $this->render('balls_list'.$this->theme, [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'structuresList' => $structuresList
+        ]);
+    }
 	
 	public function actionTopLeaders()
     {
@@ -981,4 +1006,21 @@ class FrontendPartnersController extends Controller
             throw new NotFoundHttpException(Yii::t('messages', 'Такой страницы не существует!'));
         }
     }
+    
+    protected static function checkIDInQueryParams($id)
+    {
+		if(!isset($_GET['id']) || !isset($_GET['structure']))
+		{
+			throw new NotFoundHttpException(Yii::t('messages', 'Такой страницы не существует!'));
+		}
+		else
+		{
+			$paramsID = intval($_GET['id']);
+			
+			if($id != $paramsID)
+			{
+				throw new NotFoundHttpException(Yii::t('messages', 'Такой страницы не существует!'));
+			}
+		}
+	}
 }
