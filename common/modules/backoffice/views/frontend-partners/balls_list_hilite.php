@@ -21,14 +21,15 @@ $this->params['breadcrumbs'][] = $this->title;
 				<?= Html::encode(Yii::$app->session->getFlash('error')); ?>
 			</div>
 			<?php endif; ?>
-			<div class="row">
-				<div class="card-body">
-					<h4 class="card-title"><?= $this->title; ?></h4>
-					<div class="panel-content">
+			<div class="card-body">
+				<h4 class="card-title"><?= $this->title; ?></h4>
+				<div class="panel-content">
+					<div class="table-responsive">
 						<?= GridView::widget([
 							'dataProvider' => $dataProvider,
 							//'filterModel' => $searchModel,
 							'layout'=>"{pager}\n{summary}\n{items}",
+							'class'=>'dataTables_wrapper container-fluid dt-bootstrap4 no-footer',
 							'pager' => [
 								'options'=>['class'=>'pagination flex-wrap'],   // set clas name used in ui list of pagination
 								'linkOptions' => ['class' => 'page-link'],
