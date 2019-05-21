@@ -76,7 +76,8 @@ class Content extends \yii\db\ActiveRecord
 	{
 		return self::find()
 		->select('menu.url, content.title, content.content, content.style')
-		->leftJoin('menu', 'menu.content_id = content.id AND content.status > 0')
+		->leftJoin('menu', 'menu.content_id = content.id')
+		->where('content.status > 0')
 		->all();
 	}
 }

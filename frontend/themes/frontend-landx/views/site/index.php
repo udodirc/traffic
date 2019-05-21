@@ -27,10 +27,33 @@ $this->params['breadcrumbs'][] = Html::encode($this->title);
 
 $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedbackModel'] : null;
 ?>
-<section class="services section3" id="services">
+<section class="services section3" id="services" style="padding-top: 0px;">
 	<div class="container">
-		<h2>Предстарт проекта!</h2>
-		<?= isset($prelaunch) ? HtmlPurifier::process($prelaunch) : ''; ?>
+		<div class="register_info">
+			<div class="register_count">
+				<div class="total_register bold"><?= Yii::t('menu', 'Регистраций сегодня'); ?></div>
+				<div class="total_register"><?= (isset($this->params['curr_day_register']) && !empty($this->params['curr_day_register'])) ? $this->params['curr_day_register'] : 0; ?></div>
+			</div>
+			<div class="register_count">
+				<div class="total_register bold"><?= Yii::t('menu', 'Всего партнеров'); ?></div>
+				<div class="total_register"><?= (isset($this->params['total_register'])) ? $this->params['total_register'] : 0; ?></div>
+			</div>
+		</div>
+		<div class="content_wrap register_widget">
+			<div class="simple-marquee-container">
+				<div class="marquee">
+					<?= RunningGeoDataWidget::widget([
+						'item_list' => $partnersGeoDataList,
+						'options' => ['duration'=>40000, 'hover'=>'false']
+					]);
+					?>
+				</div>
+			</div>
+		</div>
+		<div style="padding: 20px 0 0 20px;">
+			<h2>Предстарт проекта!</h2>
+			<?= isset($prelaunch) ? HtmlPurifier::process($prelaunch) : ''; ?>
+		</div>
 	</div>
 </section>
 <?php foreach($contentList as $i => $content): ?>

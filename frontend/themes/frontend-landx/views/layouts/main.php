@@ -124,15 +124,16 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 					</div>
 					<!-- /END ONLY LOGO ON HEADER -->
 				</div>
-				<!-- HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
+				<!-- HEADING, FEATURES AND REGISTRATION FORM CONTAINER 
 				<div class="container">
 					<div class="row">
-						<!-- RIGHT - HEADING AND TEXTS -->
+						<!-- RIGHT - HEADING AND TEXTS
 						<?php if($solution !== null): ?>
-							<?= HtmlPurifier::process($solution); ?>
+							<?/*= HtmlPurifier::process($solution);*/ ?>
 						<?php endif; ?>
 					</div>
 				</div>
+				-->
 				<!-- /END HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
 			</div>
 		</header>

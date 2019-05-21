@@ -51,6 +51,7 @@ class FrontendLandXAppAsset extends AssetBundle
 		'assets/js/jquery.ajaxchimp.min.js',
 		'assets/js/custom.js',
 		'assets/js/script.js',
+		'assets/js/marquee.js',
 	];
     public $depends = [
         'yii\web\YiiAsset',

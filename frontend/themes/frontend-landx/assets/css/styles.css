@@ -359,7 +359,7 @@ h6 {
 }
 
 .color-overlay {
-	background: rgba(0, 0, 0, 0.6);
+	/*background: rgba(0, 0, 0, 0.6);*/
 }
 
 
@@ -371,9 +371,9 @@ h6 {
    4.2.1 BASIC STYLES               
 -----------------------------------------*/
 header {
-	background: url(../images/bg-image-1.jpg) no-repeat center top fixed;
+	/*background: url(../images/bg-image-1.jpg) no-repeat center top fixed;
 	-webkit-background-size: cover;
-	background-size: cover;
+	background-size: cover;*/
 }
 
 header .vertical-registration-form {
