@@ -62,10 +62,10 @@ $this->params['breadcrumbs'][] = $this->title;
 								]])->passwordInput(['maxlength' => 32]); ?>
 								<div class="col-sm-6 b-r">
 									<div class="form-group">
-										<?= $form->field($model, 'reCaptcha')->widget(
+										<?/*= $form->field($model, 'reCaptcha')->widget(
 											common\widgets\captcha\ReCaptcha::className(),
 											['siteKey' => '6LdQjRMUAAAAAECdoEwiGZwBKmLeMGMmZHNMBdRf']
-										); ?>
+										);*/ ?>
 									</div>
 								</div>
 								<div class="col-sm-6 b-r">
