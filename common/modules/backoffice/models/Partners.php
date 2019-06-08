@@ -859,7 +859,7 @@ class Partners extends ActiveRecord implements IdentityInterface
 						'attribute' => 'total_balls_'.$number, 
 						'label' => Yii::t('form', 'Всего заработано баллов по структуре'). '&nbsp;'.$number.' - '.Yii::t('form', 'РЕАЛЬНЫЙ ЗАРАБОТОК'),
 						'format'=>'raw',//raw, html
-						'value'=>Html::encode($partnerData['total_balls_'.$number]).' - '.Html::a(Yii::t('form', 'Смотреть'), \Yii::$app->request->BaseUrl.'/'.$url.'/balls?structure='.$number.'&id='.$partnerData['id'].'&demo=0', ['target'=>'blank']),
+						'value'=>Html::encode($partnerData['total_balls_'.$number]).' - '.Html::a(Yii::t('form', 'Смотреть'), \Yii::$app->request->BaseUrl.'/balls?BallsSearch[login]='.$partnerData['login'].'&BallsSearch[structure_number]='.$number, ['target'=>'blank']),
 					];
 				}
 				
