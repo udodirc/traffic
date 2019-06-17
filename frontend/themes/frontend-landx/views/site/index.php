@@ -51,7 +51,6 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
 			</div>
 		</div>
 		<div style="padding: 20px 0 0 20px;">
-			<h2>Предстарт проекта!</h2>
 			<?= isset($prelaunch) ? HtmlPurifier::process($prelaunch) : ''; ?>
 		</div>
 	</div>
