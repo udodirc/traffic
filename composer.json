@@ -18,9 +18,9 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "2amigos/yii2-file-upload-widget": "~1.0",
         "vova07/yii2-imperavi-widget": "*",
         "himiklab/yii2-recaptcha-widget" : "*",
+        "2amigos/yii2-file-upload-widget": "~1.0",
         "omnilight/yii2-sypexgeo": "*",
         "2amigos/yii2-ckeditor-widget" : "2.0",
         "yarcode/yii2-payeer": "~1.0"
@@ -40,5 +40,11 @@
             "bower-asset-library": "vendor/bower"
         }
     },
-    "mihaildev/yii2-ckeditor": "*"
+    "mihaildev/yii2-ckeditor": "*",
+    "repositories": [
+		{
+			"type": "composer",
+			"url": "https://asset-packagist.org"
+		}
+	]
 }
