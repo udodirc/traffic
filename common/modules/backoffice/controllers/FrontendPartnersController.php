@@ -650,8 +650,8 @@ class FrontendPartnersController extends Controller
 				'demo' => $demo,
 				'list_view' => $list_view,
 				'structure_number' => $structure,
-				'pay_off' => $matricesSettings['pay_off'],
-				'matrix_wide' => $matricesSettings['wide'],
+				'pay_off' => $matricesSettings['pay_off'] ?? '',
+				'matrix_wide' => $matricesSettings['wide'] ?? '',
 				'gold_token_list' => $goldTokenList,
 				'theme' => $this->theme,
 			]);

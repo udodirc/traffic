@@ -525,6 +525,11 @@ class Partners extends ActiveRecord implements IdentityInterface
 	{
 		return $this->hasMany(InvitePayOff::className(), ['partner_id' => 'id']);
 	}
+	
+	public function getWithdrawal()
+	{
+		return $this->hasMany(Withdrawal::className(), ['partner_id' => 'id']);
+	}
     
     public function registerPartner($structureNumber, $model, $demo_structure = true)
     {
@@ -726,7 +731,7 @@ class Partners extends ActiveRecord implements IdentityInterface
 							'attribute' => 'matrix',
 							'label' => Yii::t('form', 'Матрицы').' - '.$i,
 							'format'=> 'raw',
-							'value' => Html::a(Yii::t('form', 'Смотреть'), \Yii::$app->request->BaseUrl.'/backoffice/backend-partners/partners-matrix/'.$model['id'].'/'.$number.'/'.$i.'/0/'.(($level['levels'] > $list_view_count) ? 1 : 0), ['target'=>'blank']),
+							//'value' => Html::a(Yii::t('form', 'Смотреть'), \Yii::$app->request->BaseUrl.'/backoffice/backend-partners/partners-matrix/'.$model['id'].'/'.$number.'/'.$i.'/0/'.(($level['levels'] > $list_view_count) ? 1 : 0), ['target'=>'blank']),
 						];
 					}
 					
@@ -973,7 +978,7 @@ class Partners extends ActiveRecord implements IdentityInterface
 		
 		$model = self::findOne($id);
 		$model->geo = serialize($geoData);
-		$model->iso = $geoData['country']['iso'];
+		$model->iso = $geoData['country']['iso'] ?? '';
 		$model->ip = $geo->getIP();
 		$result = $model->save(false);
 		
@@ -1018,8 +1023,8 @@ class Partners extends ActiveRecord implements IdentityInterface
 					'geo' => function ($geoData) 
 					{
 						$geo = unserialize($geoData->geo);
-						$iso = $geo['country']['iso'];
-						$country = $geo['country']['name_ru'];
+						$iso = $geo['country']['iso'] ?? '';
+						$country = $geo['country']['name_ru'] ?? '';
 						
 						return [$iso, $country];
 					},

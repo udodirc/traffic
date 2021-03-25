@@ -23,7 +23,8 @@
         "2amigos/yii2-file-upload-widget": "~1.0",
         "omnilight/yii2-sypexgeo": "*",
         "2amigos/yii2-ckeditor-widget" : "2.0",
-        "yarcode/yii2-payeer": "~1.0"
+        "yarcode/yii2-payeer": "~1.0",
+        "yiisoft/yii2-jui": "2.0.x-dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

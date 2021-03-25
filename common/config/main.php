@@ -56,6 +56,10 @@ return [
             'defaultRoles' => ['guest'],
         ],
     ],
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm'   => '@vendor/npm-asset',
+    ],
     'language' => 'ru-RU',
     //'language' => 'en-En',
     'bootstrap' => [

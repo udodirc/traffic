@@ -47,6 +47,14 @@ class Withdrawal extends \yii\db\ActiveRecord
 			],
 		];
     }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPartner()
+    {
+        return $this->hasOne(Partners::className(), ['id' => 'partner_id']);
+    }
 
     /**
      * @inheritdoc

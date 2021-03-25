@@ -12,7 +12,7 @@ if($matrices > 0):
 			<div class="left-element">
 				<i class="glyphicon glyphicon-th-list"></i>
 				<span class="title">'.Yii::t('form', 'Площадка').'&nbsp;№'.$i.'</span>
-			</div>', ['/partners/partners-matrix/'.$id.'/'.$structure.'/'.$i.'/'.(($demo) ? 1 : 0).'/'.(($level['levels'] > $list_view_count) ? 1 : 0)]); 
+			</div>', ['/partners/partners-matrix/'.$id.'/'.$structure.'/'.$i.'/'.(($demo) ? 1 : 0).'/'.((($level['levels'] ?? 0) > $list_view_count) ? 1 : 0)]); 
 			?>
 		</li>
 	<?php endfor; ?>
