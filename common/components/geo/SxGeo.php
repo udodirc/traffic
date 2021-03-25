@@ -215,7 +215,7 @@ class SxGeo {
 		$pos = 0;
 		foreach($pack AS $p){
 			list($type, $name) = explode(':', $p);
-			$type0 = $type{0};
+			$type0 = $type[0];
 			if($empty) {
 				$unpacked[$name] = $type0 == 'b' || $type0 == 'c' ? '' : 0;
 				continue;
