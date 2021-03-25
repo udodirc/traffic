@@ -246,8 +246,8 @@ class SxGeo {
 				case 'f': $v = unpack('f', $val); break;
 				case 'd': $v = unpack('d', $val); break;
 
-				case 'n': $v = current(unpack('s', $val)) / pow(10, $type{1}); break;
-				case 'N': $v = current(unpack('l', $val)) / pow(10, $type{1}); break;
+				case 'n': $v = current(unpack('s', $val)) / pow(10, $type[1]); break;
+				case 'N': $v = current(unpack('l', $val)) / pow(10, $type[1]); break;
 
 				case 'c': $v = rtrim($val, ' '); break;
 				case 'b': $v = $val; $l++; break;
