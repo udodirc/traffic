@@ -246,7 +246,7 @@ class FrontendPartnersController extends Controller
 		$partnersList = $model->getPartnersListByPartnerID($id);
 		$partnerscount = (!is_null($partnersList)) ? $partnersList->count() : 0;
 		$structureNumber = 1;
-		$demo = (!is_null($partnerModel)) ? (($partnerModel['matrix_'.$structureNumber] > 0) ? false : true) : false; 
+		$demo = (!is_null($partnerModel)) ? ((isset($partnerModel['matrix_'.$structureNumber]) && ($partnerModel['matrix_'.$structureNumber] > 0)) ? false : true) : false; 
 		$isoList = IsoHelper::getIsoList('en');
 		$mainModalWindow = \Yii::$app->session->get('user.main_modal_window');
 		$modalContent = ($mainModalWindow > 0) ? (!is_null(StaticContent::find()->where(['name'=>'structure_page_modal']))) ? StaticContent::find()->where(['name'=>'structure_page_modal'])->one() : '' : '';
