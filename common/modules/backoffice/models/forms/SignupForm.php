@@ -113,7 +113,7 @@ class SignupForm extends Model
         {	
 			return $result;
         }
-		
+	
 		$structureNumber = 1;
 		$partnerID = 0;
 		$sponsorID = ($this->sponsor_id > 1) ? $this->sponsor_id : 1;
@@ -137,9 +137,12 @@ class SignupForm extends Model
 		
 		$dbModel = new DbBase();
 		$demoActivation = (isset(\Yii::$app->params['demo_structure_activation']) && (\Yii::$app->params['demo_structure_activation'])) ? 1 : 0;
-		$procedureInData = [$structureNumber, $sponsorID, $model->login, $model->first_name, $model->last_name, $model->email, $model->phone, $model->password_hash, $model->created_at, $model->auth_key, $model->status, $demoActivation, '@p7'];
-		$procedureOutData = ['@p7'=>'VAR_OUT_RESULT'];
-		$procedureResult = $dbModel->callProcedure('add_partner_in_structure', $procedureInData, $procedureOutData);
+		$procedureInData = [$structureNumber, $sponsorID, $model->login, $model->first_name, $model->last_name, $model->email, $model->phone, $model->password_hash, $model->created_at, $model->auth_key, $model->status, $demoActivation];
+                $select = '@p'.count($procedureInData);
+                $procedureInData[] = $select;
+                $procedureOutData = [$select => 'VAR_OUT_RESULT'];
+                
+                $procedureResult = $dbModel->callProcedure('add_partner_in_structure', $procedureInData, $procedureOutData);
 		
 		if(!empty($procedureResult))
 		{

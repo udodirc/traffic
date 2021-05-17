@@ -324,9 +324,8 @@ class BackOfficeController extends Controller
 							$url = Url::base(true);
 							$mailResult = true;
 							
-							if(!strpos($url, 'localhost'))
-							{	
-								$emailFrom = (isset(\Yii::$app->params['email_from'])) ? \Yii::$app->params['email_from'] : '';
+							if(!strpos($url, 'localhost') && !strpos($url, 'local'))
+							{	$emailFrom = (isset(\Yii::$app->params['email_from'])) ? \Yii::$app->params['email_from'] : '';
 								$mailResult = \Yii::$app->mailer->compose(['html' => 'signup-html-ru'], ['partner_id' => $signupResult['model'][0], 'first_name' =>$signupResult['model'][1], 'last_name' => $signupResult['model'][2], 'email' => $signupResult['model'][3], 'auth_key' => $signupResult['model'][4], 'login' => $signupResult['model'][5], 'site' => Url::base(true)])
 								->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
 								->setTo($model->email)

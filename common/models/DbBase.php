@@ -14,14 +14,12 @@ class DbBase extends \yii\db\ActiveRecord
 		$sqlPocedure = self::getSqlPocedure($procedureName, $procedureInData, $outPutData);
 		
 		if($sqlPocedure['procedure'] != '')
-		{	
-			$connection = \Yii::$app->db;
+		{	$connection = \Yii::$app->db;
 			$command = $connection->createCommand($sqlPocedure['procedure']);
-			$command->execute();
-			$command->pdoStatement->closeCursor();
+			$res = $command->execute();
+                        $command->pdoStatement->closeCursor();
 			$procedureResult = ($sqlPocedure['output'] != '') ? $connection->createCommand($sqlPocedure['output'])->queryAll() : $connection->createCommand("SELECT @p1 AS `VAR_OUT_RESULT`")->queryAll();
 			$outResult = filter_var($procedureResult[0]['VAR_OUT_RESULT'], FILTER_VALIDATE_BOOLEAN);
-			
 			$result = ['result'=>$outResult, 'output'=>(!empty($outPutData)) ? $procedureResult[0] : []];
 		}
 		
@@ -47,8 +45,8 @@ class DbBase extends \yii\db\ActiveRecord
 				
 				if(!is_object($inData))
 				{	
-					$procedure.=((strpos($inData, '@') !== 0) && (strpos($inData, NULL) !== 0)) ? "'".$inData."'".$comma : $inData.$comma;
-				}
+                                    $procedure.= (preg_match("/(@p)/", $inData)) ? $inData.$comma : "'".$inData."'".$comma;
+                                }
 			}
 		
 			$procedure.=")";
