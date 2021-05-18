@@ -61,8 +61,8 @@ $(document).ready(function()
 		
 		$("#login-modal").modal("show");
 	});
-			
-	$("#signup-link").click(function () 
+        
+        $("body").on("click","#signup-link", function()
 	{
 		$(".error").html('');
 		$(".success").html('');
