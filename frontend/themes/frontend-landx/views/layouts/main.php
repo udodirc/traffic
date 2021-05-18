@@ -275,10 +275,10 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 				</div>
 				<div class="field-wrapper col-md-12">
 					<?= $form->field($signupModel, 'sponsor_id')->hiddenInput(['value' => ($sponsorData !== null) ? $sponsorData->id : 1])->label(false) ?>
-					<?/*= $form->field($signupModel, 'reCaptcha')->widget(
+					<?= $form->field($signupModel, 'reCaptcha')->widget(
 						common\widgets\captcha\ReCaptcha::className(),
 						['siteKey' => '6Le3szsUAAAAAOMdQNGpbgKVumgxkm9cLBs5XPqP']
-					); */?>
+					); ?>
 				</div>
 				<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn standard-button', 'id'=>'login-submit', 'data-style'=>'expand-left']) ?>
 			<?php ActiveForm::end(); ?>
