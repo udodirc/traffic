@@ -54,12 +54,19 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
 		<div style="padding: 20px 0 0 20px;">
 			<?= isset($prelaunch) ? HtmlPurifier::process($prelaunch) : ''; ?>
 		</div>
-                <div style="padding: 20px 0 0 20px;" align="center">
-                     <?= CounterWidget::widget([
-                        'options' => []
-                    ]);
-                    ?>
-		</div>
+                <div class="container">	
+                    <div class="row">
+			<div class="col-md-8 col-md-offset-2">
+                            <div style="color:red; padding: 20px 0 0 20px; overflow: hidden" align="center">
+                                <?=
+                                CounterWidget::widget([
+                                    'options' => []
+                                ]);
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
 	</div>
 </section>
 <?php foreach($contentList as $i => $content): ?>

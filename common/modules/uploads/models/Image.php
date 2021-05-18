@@ -43,6 +43,7 @@ class Image
     {
         $val = trim($val);
         $last = strtolower($val[strlen($val)-1]);
+        $val = intval(substr($val, 0, -1));
         
         switch($last) 
         {
