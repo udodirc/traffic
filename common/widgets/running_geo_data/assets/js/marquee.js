@@ -63,7 +63,6 @@
         this.hovered = false;
         this.padding = 0;
         
-        
         this.init();
     }
     function marqueeObj(newElement){

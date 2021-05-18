@@ -6,6 +6,7 @@ use yii\bootstrap\ActiveForm;
 use common\models\StaticContent;
 use yii\bootstrap\Modal;
 use common\widgets\running_geo_data\RunningGeoDataWidget;
+use common\widgets\counter\CounterWidget;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
@@ -44,7 +45,7 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
 				<div class="marquee">
 					<?= RunningGeoDataWidget::widget([
 						'item_list' => $partnersGeoDataList,
-						'options' => ['duration'=>40000, 'hover'=>'false']
+						'options' => ['duration'=>10000, 'hover'=>'false']
 					]);
 					?>
 				</div>
@@ -52,6 +53,12 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
 		</div>
 		<div style="padding: 20px 0 0 20px;">
 			<?= isset($prelaunch) ? HtmlPurifier::process($prelaunch) : ''; ?>
+		</div>
+                <div style="padding: 20px 0 0 20px;" align="center">
+                     <?= CounterWidget::widget([
+                        'options' => []
+                    ]);
+                    ?>
 		</div>
 	</div>
 </section>

@@ -24,7 +24,7 @@ class CounterWidget extends Widget
 			}
 		
 			$date = Yii::$app->params['counter']['date'];
-			$this->registerClientScript($date);
+                        $this->registerClientScript($date);
 		}
 	}
 	

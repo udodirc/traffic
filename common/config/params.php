@@ -203,7 +203,7 @@ return [
 		'2'=>Yii::t('form', 'Личный кабинет'), 
 	],
 	'slider' => ['is_enable'=>true],
-	'counter' => ['is_enable'=>false, 'content'=>true, 'date'=>['year'=>2017, 'month'=>11, 'day'=>10]],
+	'counter' => ['is_enable'=>true, 'content'=>false, 'date'=>['year'=>2021, 'month'=>6, 'day'=>10]],
 	'email_black_list'=>[
 		'sample@email.tst',
 		'netsparker@example.com'
