@@ -80,6 +80,11 @@ $brandSlogan = (isset($this->params['brand_slogan'])) ? $this->params['brand_slo
 			</section>
 			<!-- Site Footer -->
 			<footer class="site-footer">
+				<div class="counter">
+					<?= CounterWidget::widget([
+						'counter_name' => 'liveinternet',
+					]); ?>
+				</div>
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6">
