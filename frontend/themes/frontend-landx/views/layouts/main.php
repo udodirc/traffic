@@ -378,6 +378,11 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 		?>
 		<?php endif; ?>
 	<?php $this->endBody() ?>
+	<div class="counter">
+		<?= CounterWidget::widget([
+			'counter_name' => 'liveinternet',
+		]); ?>
+	</div>
 	</body>
 </html>
 <?php $this->endPage() ?>
