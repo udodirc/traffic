@@ -92,6 +92,12 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 								<div class="navbar-right signup">
 									<?= Html::a('Вход', '#', ['id'=>'login-link']); ?>
 									<?= Html::a('Регистрация', '#', ['id'=>'signup-link']); ?>
+									<!-- ConveyThis button: -->
+									<div id="conveythis-wrapper-main">
+										<a href="https://www.conveythis.com" class="conveythis-no-translate notranslate" title="ConveyThis" >
+											ConveyThis
+										</a>
+									</div>
 								</div>
 								<!-- #menu -->
 								<?= MenuWidget::widget([
@@ -383,6 +389,14 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 			'counter_name' => 'liveinternet',
 		]); ?>
 	</div>
+	<script src="//s2.conveythis.com/javascriptClassic/1/conveythis.js"></script>
+	<script src="//s2.conveythis.com/javascriptClassic/1/translate.js"></script>
+	<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(e) {
+	conveythis.init({source_language_id: 771, languages: [{"id":"771","active":true},{"id":"703","active":false},{"id":"777","active":false}]})
+	});
+	</script>
+	<!-- End ConveyThis button code. -->
 	</body>
 </html>
 <?php $this->endPage() ?>
