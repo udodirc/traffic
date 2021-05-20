@@ -25,7 +25,7 @@ use mihaildev\ckeditor\CKEditor;
     <div class="form-group">
 	<?= $form->field($messageForm, 'reCaptcha')->widget(
 		common\widgets\captcha\ReCaptcha::className(),
-		['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
+		['siteKey' => '6Le3szsUAAAAAOMdQNGpbgKVumgxkm9cLBs5XPqP']
 	); ?>
 	</div>
     <div class="form-group">

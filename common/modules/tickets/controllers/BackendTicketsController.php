@@ -143,7 +143,7 @@ class BackendTicketsController extends Controller
 		$msg = Yii::t('messages', 'Ошибка!');
 			
 		if($model->load(Yii::$app->request->post())) 
-		{
+		{	
 			if($model->sendMessage($id, 2, $userID))
 			{
 				$class = 'success';
