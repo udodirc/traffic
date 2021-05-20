@@ -76,7 +76,7 @@ class Counters extends Model
 			$result['yandex'] = $yandex->value;
 		}
 		
-		$file = Yii::getAlias('@root_dir').DIRECTORY_SEPARATOR.'analyticstracking.php';
+		$file = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'analyticstracking.php';
 		$google = Files::readTextFile($file);
 		
 		if($google != '')
