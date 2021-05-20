@@ -23,7 +23,7 @@ use mihaildev\ckeditor\CKEditor;
 	])->label(false); ?>
     <?/*= $form->field($model, 'text')->textArea(['rows' => '6'])*/ ?>
     <div class="form-group">
-	<?= $form->field($messageForm, 'reCaptcha')->widget(
+	<?= $form->field($model, 'reCaptcha')->widget(
 		common\widgets\captcha\ReCaptcha::className(),
 		['siteKey' => '6Le3szsUAAAAAOMdQNGpbgKVumgxkm9cLBs5XPqP']
 	); ?>
