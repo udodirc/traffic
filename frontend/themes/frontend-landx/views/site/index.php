@@ -58,14 +58,12 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
         </div>
         <div class="container">	
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div style="color:red; padding: 20px 0 0 20px; overflow: hidden" align="center">
-                        <?=
-                        CounterWidget::widget([
-                            'options' => []
-                        ]);
-                        ?>
+                <div class="col-md-12 mr-auto ml-5">
+                    <div data-type="countdown" data-id="2563990" class="tickcounter" style="width: 100%; position: relative; padding-bottom: 25%">
+                            <a href="//www.tickcounter.com/countdown/2563990/" title="До Старта осталось:">До Старта осталось:</a>
+                            <a href="//www.tickcounter.com/" title="Countdown">Countdown</a>
                     </div>
+                    <script>(function(d, s, id) { var js, pjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//www.tickcounter.com/static/js/loader.js"; pjs.parentNode.insertBefore(js, pjs); }(document, "script", "tickcounter-sdk"));</script>
                 </div>
             </div>
         </div>
