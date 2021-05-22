@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = Html::encode($this->title);
 				<div class="col-md-12">
                     <div class="card-body">
 						<h4 class="card-title"><?= Yii::t('form', 'Информация'); ?></h4>
-						<?= (isset($content) && $content != null) ? HtmlPurifier::process($content->content) : ''; ?>
+						<?= (isset($content) && $content != null) ? $content->content : ''; ?>
 					</div>
 				</div>
 			</div>
