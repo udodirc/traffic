@@ -221,7 +221,8 @@ return [
                 'payments-settings/index'=>'settings/payments-settings',
                 'modules-settings/index'=>'settings/modules-settings',
                 'modules-settings'=>'settings/modules-settings',
-                'seo/backend-seo/index-page/index'=>'seo/backend-seo/index-page'
+                'seo/backend-seo/index-page/index'=>'seo/backend-seo/index-page',
+                'test/create-demo-structure'=>'backoffice/backend-partners/create-demo-structure'
             ]
         ],
     ],

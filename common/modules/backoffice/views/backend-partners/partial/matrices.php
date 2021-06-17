@@ -10,7 +10,7 @@ if($matrices > 0):
 		<li>
 			<div class="panel-wrapper fixed">
 				<div class="panel level">
-					<?= Html::a('<div class="count">'.Yii::t('form', 'Площадка').'&nbsp;'.$i.'</div>', ['/backoffice/backend-partners/partners-matrix/'.$id.'/'.$structure.'/'.$i.'/'.(($demo) ? 1 : 0).'/'.(($level['levels'] > $list_view_count) ? 1 : 0)]); ?>
+					<?= Html::a('<div class="count">'.Yii::t('form', 'Площадка').'&nbsp;'.$i.'</div>', ['/backoffice/backend-partners/partners-matrix/'.$id.'/'.$structure.'/'.$i.'/'.(($demo) ? 1 : 0).'/'.((isset($level['levels']) && $level['levels'] > $list_view_count) ? 1 : 0)]); ?>
 				</div>
 			</div>
 		</li>

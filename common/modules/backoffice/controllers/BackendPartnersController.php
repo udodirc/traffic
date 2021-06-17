@@ -1057,6 +1057,12 @@ class BackendPartnersController extends Controller
         return $this->redirect(['index']);
     }
     
+    public function actionCreateDemoStructure()
+    {
+        $matrix = new Matrix();
+        $matrix->createDemoStructure(100, false);
+    }
+    
     /**
      * Finds the Users model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
