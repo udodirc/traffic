@@ -17,23 +17,26 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*",
         "vova07/yii2-imperavi-widget": "*",
-        "himiklab/yii2-recaptcha-widget" : "*",
         "2amigos/yii2-file-upload-widget": "~1.0",
         "omnilight/yii2-sypexgeo": "*",
         "2amigos/yii2-ckeditor-widget" : "2.0",
         "yarcode/yii2-payeer": "~1.0",
-        "yiisoft/yii2-jui": "2.0.x-dev"
+        "yiisoft/yii2-symfonymailer": "~2.0.0",
+        "yiisoft/yii2-codeception": "~2.0.0",
+        "yiisoft/yii2-jui": "2.0.x-dev",
+        "mihaildev/yii2-ckeditor": "*"
     },
     "require-dev": {
-        "yiisoft/yii2-codeception": "*",
-        "yiisoft/yii2-debug": "*",
+       "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-faker": "*"
     },
     "config": {
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
     },
     "extra": {
         "asset-installer-paths": {

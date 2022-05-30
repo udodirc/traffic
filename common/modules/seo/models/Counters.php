@@ -50,8 +50,8 @@ class Counters extends Model
 		$command = $connection->createCommand($sql);
 		$command->execute();
 		
-		$file = Yii::getAlias('@root_dir').DIRECTORY_SEPARATOR.'analyticstracking.php';
-		
+		$file = Yii::getAlias('@root_path').DIRECTORY_SEPARATOR.'analyticstracking.php';
+
 		if(Files::createTextFile($file, $model->google))
 		{
 			$result = true;
