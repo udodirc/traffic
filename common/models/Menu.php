@@ -419,7 +419,7 @@ class Menu extends \yii\db\ActiveRecord
 						$result[] = [
 							'label' => Yii::t('menu', Html::encode($menu['name'])), 
 							//'icon' => $icon,
-							'url' => $menu['url'],
+							'url' => '#',
 							//'url' => Url::base().DIRECTORY_SEPARATOR.$menu['url'], 
 							/*'options'=> ($backoffice) ? [] : ['class' => $class],
 							'template' => ($backoffice)  ? '<a href="{url}">
@@ -503,19 +503,19 @@ class Menu extends \yii\db\ActiveRecord
 					<span class="icemega_title icemega_nosubtitle">{label}</span>
 				</a>',
 			];*/
-			$result[] = [
+			/*$result[] = [
 				'label' => Yii::t('menu', 'Контакты'), 
 				'url' => ['#contacts'], 
-				/*'options'=> ['class' => 'iceMenuLiLevel_1'],
+				'options'=> ['class' => 'iceMenuLiLevel_1'],
 				'template' => '<a href="{url}" class="iceMenuTitle">
 				<span class="icemega_title icemega_nosubtitle">{label}</span>
-				</a>',*/
+				</a>',
 			];
-			/*$result[] = [
-				'label' => Yii::t('menu', 'Регистрация'), 
+			$result[] = [
+				'label' => Yii::t('menu', 'Регистрация'),
 				'url' => ['#'],
 				'template' => '<a href="#" data-toggle="modal" data-target="#authModalCenter">{label}</a>',
-				/*'options'=> ['class' => 'iceMenuLiLevel_1'],
+				'options'=> ['class' => 'iceMenuLiLevel_1'],
 				'template' => '<a href="{url}" class="iceMenuTitle">
 					<span class="icemega_title icemega_nosubtitle">{label}</span>
 				</a>',
@@ -527,8 +527,8 @@ class Menu extends \yii\db\ActiveRecord
 				/*'template' => '<a href="{url}" class="iceMenuTitle">
 					<span class="icemega_title icemega_nosubtitle">{label}</span>
 				</a>',
-			];*/
-			/*$result[] = [
+			];
+			$result[] = [
 				'label' => Yii::t('menu', 'Вход'), 
 				'url' => '#', 
 				'template' => '<a href="{url}" id="login-link">{label}</a>',

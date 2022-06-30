@@ -40,8 +40,6 @@ $ticketsMesagesCount = (isset($this->params['tickets_mesages_count'])) ? $this->
 		<!-- partial:../../partials/_navbar.html -->
 		<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 			<div class="text-left navbar-brand-wrapper d-flex align-items-center justify-content-between">
-				<?/*= Html::a(Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@backoffice_images'.DIRECTORY_SEPARATOR.'logo.svg'), ['alt'=>'logo']), '/', ['class' => 'navbar-brand brand-logo']); ?>
-				<?= Html::a(Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@backoffice_images'.DIRECTORY_SEPARATOR.'logo-mini.svg'), ['alt'=>'logo']), '/', ['class' => 'navbar-brand brand-logo-mini']);*/ ?>
 				<button class="navbar-toggler align-self-center" type="button" data-toggle="minimize">
 					<span class="mdi mdi-menu"></span>
 				</button>

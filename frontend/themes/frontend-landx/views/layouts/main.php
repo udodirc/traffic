@@ -85,8 +85,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<?/*= Html::a(Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@frontend_images'.DIRECTORY_SEPARATOR.'logo-dark.png'), ['alt'=>'logo', 'title'=>'logo']), '/', ['class'=>'navbar-brand']); */?>
-							</div>
+                            </div>
 							<!-- NAVIGATION LINKS -->
 							<div class="navbar-collapse collapse" id="landx-navigation">
 								<div class="navbar-right signup">
@@ -150,8 +149,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 		<footer class="bgcolor-2">
 			<div class="container">
 				<div class="footer-logo">
-					<?/*= Html::a(Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@frontend_images'.DIRECTORY_SEPARATOR.'logo-dark.png'), ['alt'=>'logo', 'title'=>'logo']), '/', []); */?>
-				</div>
+                </div>
 				<div class="copyright">
 					 ©<?= date("Y"); ?> <?= Html::encode(Yii::$app->name); ?>.
 				</div>
@@ -202,12 +200,6 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 				</div>
 				<div class="restore-password">
 					<a id="restore-password-link" href="#"><?= Yii::t('form', 'Забыли свой пароль?'); ?></a>
-				</div>
-				<div class="field-wrapper col-md-12">
-					<?/*= $form->field($loginModel, 'reCaptcha')->widget(
-						common\widgets\captcha\ReCaptcha::className(),
-						['siteKey' => '6LeiwJ8UAAAAADcw3ymj25xEht39C_nVMloTA84f']
-					); */?>
 				</div>
 				<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn standard-button', 'id'=>'login-submit', 'data-style'=>'expand-left']) ?>
 			<?php ActiveForm::end(); ?>

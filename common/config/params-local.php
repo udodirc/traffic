@@ -3,7 +3,7 @@ $rootDir = true;
 Yii::setAlias('@root_path', $_SERVER['DOCUMENT_ROOT']);
 Yii::setAlias('@root_dir', 'traffic.local');
 Yii::setAlias('@dashboard_theme', 'gentella');
-Yii::setAlias('@frontend_theme', 'frontend_neon');
+Yii::setAlias('@frontend_theme', 'frontend-landx');
 Yii::setAlias('@uploads_dir', Yii::getAlias('@root_path').(($rootDir) ? DIRECTORY_SEPARATOR.Yii::getAlias('@root_dir') : '').DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'uploads');
 Yii::setAlias('@upload_dir', (($rootDir) ? DIRECTORY_SEPARATOR.Yii::getAlias('@root_dir') : '').DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'uploads');
 Yii::setAlias('@content_uploads_dir', Yii::getAlias('@uploads_dir').DIRECTORY_SEPARATOR.'content');

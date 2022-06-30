@@ -88,4 +88,4 @@ $this->params['breadcrumbs'][] = $this->title;
 		</div>
     </div>
 </section>
-<?= ($staticContent !== null) ? $staticContent->content : ''; ?>
+<?= ($staticContent !== null) ? $staticContent : ''; ?>
