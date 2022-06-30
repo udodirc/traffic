@@ -46,8 +46,8 @@ return [
 	'admin_top_menu' =>[],
 	'admin_left_menu' =>[],
 	'menu_category' =>['front_top'=>1, 'front_left'=>2, 'front_bottom_1'=>3, 'front_bottom_2'=>4, 'front_bottom_3'=>5, 'backoffice_left'=>6, 'backoffice_top'=>7],
-	/*'captcha_site_key'=>'6LdFWYEUAAAAAFcToFyb6-2lvxojkwbR3-qCMe4L',
-	'captcha_secret'=>'6LdFWYEUAAAAAHCFu6Yn3wlcRjHQk0B_MBy78_Ht',*/
+	'captcha_site_key'=>'6LdjvrEgAAAAAE2_vul1JWtfwTcpYtRHza0-Nxmr',
+	'captcha_secret'=>'6LdjvrEgAAAAAEQ9hlIGMfo__VXSe84aB8h4p5B0',
 	'structure_levels'=>5,
 	'matrices_count'=>8,
 	'matrices_linear_count'=>6,
