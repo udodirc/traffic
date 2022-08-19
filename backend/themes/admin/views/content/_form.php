@@ -19,14 +19,6 @@ use mihaildev\ckeditor\CKEditor;
 	]); ?>
     </div>
     <?= $form->field($model, 'title')->textInput(['maxlength' => 100]) ?>
-    <?/*= $form->field($model, 'content')->widget(Redactor::className(), [ 'settings' => [ 
-		'lang'        => 'ru',
-		'minHeight'   => 200,
-		'imageManagerJson' => Url::to(['/content/images-get']),
-		'imageUpload' => Url::to(['/content/uploads']),
-		'plugins'     => ['fullscreen', 'table', 'video', 'imagemanager']
-		]
-    ]);*/ ?>
     <div class="form-wysywig">
 		<?= $form->field($model, 'content')->widget(CKEditor::className(),[
 			'editorOptions' => [

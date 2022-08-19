@@ -84,7 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
 										
 								return '<tr data-key="0" '.$status.'>
 								<td>0</td>
-									<td>'.((strlen($partnerModel['sponsor_name']) > 3) ? '****'.Html::encode(substr($partnerModel['sponsor_name'], 3)) : '**'.Html::encode(substr($partnerModel['sponsor_name'], 1))).'</td>
+									<td>'.(($partnerModel['sponsor_name'] != null) ? ((strlen($partnerModel['sponsor_name']) > 3) ? '****'.Html::encode(substr($partnerModel['sponsor_name'], 3)) : '**'.Html::encode(substr($partnerModel['sponsor_name'], 1))) : '').'</td>
 									<td>'.Html::encode($partnerModel['login']).'</td>
 									<td>'.(($iso != '') ? Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@backoffice_images'.DIRECTORY_SEPARATOR.'flags'.DIRECTORY_SEPARATOR.strtolower($iso).'.png'), ['alt'=>$country, 'title'=>$country]) : '').'</td>
 									<td>'.date("Y-m-d H:i:s", Html::encode($partnerModel['created_at'])).'</td>

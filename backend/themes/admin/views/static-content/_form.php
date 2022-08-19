@@ -13,14 +13,6 @@ use mihaildev\ckeditor\CKEditor;
 <div class="static-content-form">
     <?php $form = ActiveForm::begin(); ?>
     <?= $form->field($model, 'name')->textInput(['maxlength' => 100]) ?>
-    <?/*= $form->field($model, 'content')->widget(Redactor::className(), [ 'settings' => [ 
-		'lang'        => 'ru',
-		'minHeight'   => 200,
-		'imageManagerJson' => Url::to(['/static-content/images-get']),
-		'imageUpload' => Url::to(['/static-content/uploads']),
-		'plugins'     => ['fullscreen', 'table', 'video', 'imagemanager']
-		]
-    ]); */?>
     <div class="form-wysywig">
 		<?= $form->field($model, 'content')->widget(CKEditor::className(),[
 			'editorOptions' => [

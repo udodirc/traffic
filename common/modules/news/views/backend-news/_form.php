@@ -30,22 +30,6 @@ use mihaildev\ckeditor\CKEditor;
 			'filebrowserUploadUrl' => 'uploads/files-upload/content-upload?category=content&CKEditor=content-content&CKEditorFuncNum=2&langCode=ru',
 		],
 	]); ?>
-    <?/*= $form->field($model, 'short_text')->widget(Redactor::className(), [ 'settings' => [ 
-		'lang'        => 'ru',
-		'minHeight'   => 200,
-		'imageManagerJson' => Url::to(['/content/images-get']),
-		'imageUpload' => Url::to(['/content/uploads']),
-		'plugins'     => ['fullscreen', 'table', 'video', 'imagemanager']
-		]
-    ]); ?>
-    <?= $form->field($model, 'text')->widget(Redactor::className(), [ 'settings' => [ 
-		'lang'        => 'ru',
-		'minHeight'   => 200,
-		'imageManagerJson' => Url::to(['/content/images-get']),
-		'imageUpload' => Url::to(['/content/uploads']),
-		'plugins'     => ['fullscreen', 'table', 'video', 'imagemanager']
-		]
-    ]);*/ ?>
     <?= $form->field($model, 'meta_title')->textInput(['maxlength' => 100]) ?>
     <?= $form->field($model, 'meta_description')->textArea(['rows' => '6']) ?>
     <?= $form->field($model, 'meta_keywords')->textArea(['rows' => '6']) ?>
