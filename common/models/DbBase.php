@@ -38,15 +38,19 @@ class DbBase extends \yii\db\ActiveRecord
 			$count = count($procedureInData);
 			$data = '';
 			$comma = '';
-			
+
 			foreach($procedureInData as $i => $inData)
 			{
 				$comma = (($i == ($count - 1)) ? "" : ", ");
 				
 				if(!is_object($inData))
-				{	
-                                    $procedure.= (preg_match("/(@p)/", $inData)) ? $inData.$comma : "'".$inData."'".$comma;
-                                }
+				{
+                    if($inData !== null){
+                        $procedure.= (preg_match("/(@p)/", $inData)) ? $inData.$comma : "'".$inData."'".$comma;
+                    } else {
+                        $procedure.= "'".$inData."'".$comma;
+                    }
+                }
 			}
 		
 			$procedure.=")";

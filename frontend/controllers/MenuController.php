@@ -18,7 +18,7 @@ class MenuController extends \yii\web\Controller
 	public function actionIndex()
     {
 		$this->layout = (!\Yii::$app->user->isGuest) ? 'back_office' : 'page';
-		
+
 		if(\Yii::$app->user->isGuest)
 		{
 			$this->view->params['model'] = new LoginForm();
@@ -94,7 +94,7 @@ class MenuController extends \yii\web\Controller
 				$this->view->params['bread_crumbs'] = $breadCrumbs;
 			}
 		}
-		
+
 		return $this->render(($backoffice) ? 'backoffice_index' : 'index', [
 			'title'=>$title, 
 			'data'=>$content,

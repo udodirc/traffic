@@ -419,7 +419,7 @@ class Menu extends \yii\db\ActiveRecord
 						$result[] = [
 							'label' => Yii::t('menu', Html::encode($menu['name'])), 
 							//'icon' => $icon,
-							'url' => '#',
+							'url' => $menu['url'],
 							//'url' => Url::base().DIRECTORY_SEPARATOR.$menu['url'], 
 							/*'options'=> ($backoffice) ? [] : ['class' => $class],
 							'template' => ($backoffice)  ? '<a href="{url}">
