@@ -1,9 +1,9 @@
 <?php
 return [
-    'adminEmail' => 'support@traffic-profit.com',
-    'supportEmail' => 'support@traffic-profit.com',
-    'email_from' => 'traffic-profit.com',
-    'site_url' => 'traffic-profit.com',
+    'adminEmail' => 'alphapractices.com@gmail.com',
+    'supportEmail' => 'alphapractices.com@gmail.com',
+    'email_from' => 'alphapractices.com',
+    'site_url' => 'alphapractices.com',
     'brand_slogan' => '',
     'user.passwordResetTokenExpire' => 3600,
     'payeer' => [
@@ -213,6 +213,7 @@ return [
 	],
 	'is_action_allowed'=>true,
 	'is_payment_allowed'=>false,
+    'is_email_verification_allowed'=>false,
 	'max_reserve_places'=>100,
 	'list_view_count'=>3,
 	'update_emails_statuses_list'=>[

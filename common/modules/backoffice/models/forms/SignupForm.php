@@ -15,6 +15,7 @@ class SignupForm extends Model
 {
 	const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 0;
+    const STATUS_CONFIRMED = 1;
 	
 	public $id;
 	public $sponsor_id;
@@ -125,7 +126,7 @@ class SignupForm extends Model
         $model->email = $this->email;
         $model->phone = $this->phone;
         $model->group_id = 0;
-        $model->status = self::STATUS_ACTIVE;
+        $model->status = (isset(\Yii::$app->params['is_email_verification_allowed']) && (\Yii::$app->params['is_email_verification_allowed'])) ? self::STATUS_ACTIVE : self::STATUS_CONFIRMED;
         $model->created_at = 0;
         $model->setPassword($this->password);
         $model->generateAuthKey();

@@ -317,39 +317,45 @@ class BackOfficeController extends Controller
 				
 				if(isset($signupResult['result']))
 				{
-					if($signupResult['result']) 
-					{
-						if(isset(\Yii::$app->params['supportEmail']))
-						{
-							$url = Url::base(true);
-							$mailResult = true;
-							
-							if(!strpos($url, 'localhost') && !strpos($url, 'local'))
-							{	$emailFrom = (isset(\Yii::$app->params['email_from'])) ? \Yii::$app->params['email_from'] : '';
-								$mailResult = \Yii::$app->mailer->compose(['html' => 'signup-html-ru'], ['partner_id' => $signupResult['model'][0], 'first_name' =>$signupResult['model'][1], 'last_name' => $signupResult['model'][2], 'email' => $signupResult['model'][3], 'auth_key' => $signupResult['model'][4], 'login' => $signupResult['model'][5], 'site' => Url::base(true)])
-								->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
-								->setTo($model->email)
-								->setSubject(Yii::t('messages', '► Подтверждение регистрации'))
-								->send();
-								
-								if($mailResult)
-								{
-									$mailResult = false;
-									$mailResult = \Yii::$app->mailer->compose(['html' => 'new-refferal-html-ru'], ['first_name' => $sponsorData->first_name, 'last_name' => $sponsorData->last_name, 'refferal_name' => $signupResult['model'][5], 'site' => Url::base(true)])
-									->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
-									->setTo($sponsorData->email)
-									->setSubject(Yii::t('messages', '► Новый Реферал!'))
-									->send();
-								}
-							}
-							
-							if($mailResult)
-							{	
-								$result = true;
-								$class = 'success';
-								$msg = Yii::t('messages', 'Вы зарегистрированы! Подверждение регистрации отправлено вам на почту!</br> Если письмо не пришло сразу, то подождите 10-15 минут. Могут быть задержки ответа с сервера');
-							}
-						}
+					if($signupResult['result'])
+                    {
+                        if(isset(\Yii::$app->params['is_email_verification_allowed']) && (\Yii::$app->params['is_email_verification_allowed']))
+                        {
+                            if (isset(\Yii::$app->params['supportEmail'])) {
+                                $url = Url::base(true);
+                                $mailResult = true;
+
+                                if (!strpos($url, 'localhost') && !strpos($url, 'local')) {
+                                    $emailFrom = (isset(\Yii::$app->params['email_from'])) ? \Yii::$app->params['email_from'] : '';
+                                    $mailResult = \Yii::$app->mailer->compose(['html' => 'signup-html-ru'], ['partner_id' => $signupResult['model'][0], 'first_name' => $signupResult['model'][1], 'last_name' => $signupResult['model'][2], 'email' => $signupResult['model'][3], 'auth_key' => $signupResult['model'][4], 'login' => $signupResult['model'][5], 'site' => Url::base(true)])
+                                        ->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
+                                        ->setTo($model->email)
+                                        ->setSubject(Yii::t('messages', '► Подтверждение регистрации'))
+                                        ->send();
+
+                                    if ($mailResult) {
+                                        $mailResult = false;
+                                        $mailResult = \Yii::$app->mailer->compose(['html' => 'new-refferal-html-ru'], ['first_name' => $sponsorData->first_name, 'last_name' => $sponsorData->last_name, 'refferal_name' => $signupResult['model'][5], 'site' => Url::base(true)])
+                                            ->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
+                                            ->setTo($sponsorData->email)
+                                            ->setSubject(Yii::t('messages', '► Новый Реферал!'))
+                                            ->send();
+                                    }
+                                }
+
+                                if ($mailResult) {
+                                    $result = true;
+                                    $class = 'success';
+                                    $msg = Yii::t('messages', 'Вы зарегистрированы! Подверждение регистрации отправлено вам на почту!</br> Если письмо не пришло сразу, то подождите 10-15 минут. Могут быть задержки ответа с сервера');
+                                }
+                            }
+                        }
+                        else
+                        {
+                            $result = true;
+                            $class = 'success';
+                            $msg = Yii::t('messages', 'Вы зарегистрированы! Можете войти в личный кабинет.');
+                        }
 					}
 					else
 					{	
