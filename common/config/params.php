@@ -146,6 +146,7 @@ return [
 		6 => Yii::t('form', 'Золотой жетон'),
 	],*/
 	'reserve_statuses'=>[
+        1 => Yii::t('form', 'User'),
 		2 => Yii::t('form', 'Partner'),
 		3 => Yii::t('form', 'Leader'),
 		4 => Yii::t('form', 'VIP - leader'),

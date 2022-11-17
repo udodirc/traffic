@@ -1,6 +1,8 @@
 <?php
 namespace common\modules\backoffice\controllers;
 
+use common\models\Content;
+use common\models\Menu;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -765,6 +767,31 @@ class FrontendPartnersController extends Controller
 		return $this->render('marketing_plan'.$this->theme, [
             'leftContent' => $leftContent,
             'rightContent' => $rightContent,
+        ]);
+    }
+
+    /**
+     * Displays a custom menu.
+     * @return mixed
+     */
+    public function actionMenu()
+    {
+        $id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
+        $this->user_id = $id;
+        $this->identity_id = $id;
+
+        $url = pathinfo(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), PATHINFO_BASENAME);
+        $data = Menu::find()->select(['id', 'parent_id', 'category_id', 'content_id', 'controller_id', 'name', 'backoffice', 'partner_status'])->where('url =:url AND status != :status', [':url'=>$url, 'status'=>Menu::STATUS_NOT_PUBLISH])->one();
+        $breadCrumbs = Menu::createBreadCrumbs($data, $url);
+        $content = Content::find()->where('id =:id AND status != :status', ['id'=>$data->content_id, 'status'=>Content::STATUS_NOT_PUBLISH])->one();
+        $metaTitle = (!is_null($content)) ? $content->meta_title : '';
+        $metaDesc = (!is_null($content)) ? $content->meta_description : '';
+        $metaKeys = (!is_null($content)) ? $content->meta_keywords : '';
+
+        $this->view->params['title'] = $data->name;
+
+        return $this->render('menu'.$this->theme, [
+            'content' => $content,
         ]);
     }
     
