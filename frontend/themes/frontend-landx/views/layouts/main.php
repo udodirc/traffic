@@ -17,12 +17,12 @@ use common\modules\seo\widgets\CounterWidget;
 FrontendLandXAppAsset::register($this);
 $bundle = FrontendLandXAppAsset::register($this);
 $brandSlogan = (isset($this->params['brand_slogan'])) ? $this->params['brand_slogan'] : '';
-
 $loginModel = (isset($this->params['loginModel'])) ? $this->params['loginModel'] : null;
 $signupModel = (isset($this->params['signupModel'])) ? $this->params['signupModel'] : null;
 $restorePasswordEmailModel = (isset($this->params['restorePasswordEmailModel'])) ? $this->params['restorePasswordEmailModel'] : null;
 $sponsorData = (isset($this->params['sponsorData'])) ? $this->params['sponsorData'] : null;
 $solution = (isset($this->params['solution'])) ? $this->params['solution'] : null;
+$signupModel->sponsor_login = $sponsorData->login;
 
 if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session->hasFlash('restore-password'))
 {
@@ -252,6 +252,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 				<!-- IF LOG UNSUCCESSFULL -->
 				<h6 class="error"></h6>
 				<div class="field-wrapper col-md-6">
+                    <?= Html::activeHiddenInput($signupModel, 'sponsor_login', ['id'=>'cf-last-name', 'class'=>'form-control input-box']); ?>
 					<?= Html::activeTextInput($signupModel, 'login', ['id'=>'cf-login', 'class'=>'form-control input-box', 'placeholder'=>Yii::t('form', 'Ваш логин')]); ?>
 				</div>
 				<div class="field-wrapper col-md-6">
