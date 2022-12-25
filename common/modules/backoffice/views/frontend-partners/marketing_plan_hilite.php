@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\HtmlPurifier;
+use common\components\ContentHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Content */
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="card-body">
 				<h4 class="card-title"><?= $this->title; ?></h4>
 				<p class="card-description">
-					<?= (isset($leftContent) && $leftContent != null) ? HtmlPurifier::process($leftContent->content) : ''; ?> 
+                    <?= ContentHelper::outPutContent($leftContent);?>
 				</p>
 			</div>
 		</div>

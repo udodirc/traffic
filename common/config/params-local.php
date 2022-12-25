@@ -1,7 +1,7 @@
 <?php
 $rootDir = true;
 Yii::setAlias('@root_path', $_SERVER['DOCUMENT_ROOT']);
-Yii::setAlias('@root_dir', 'traffic.local');
+Yii::setAlias('@root_dir', 'apractix.local');
 Yii::setAlias('@dashboard_theme', 'gentella');
 Yii::setAlias('@frontend_theme', 'frontend-landx');
 Yii::setAlias('@uploads_dir', Yii::getAlias('@root_path').(($rootDir) ? DIRECTORY_SEPARATOR.Yii::getAlias('@root_dir') : '').DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'uploads');
@@ -14,8 +14,6 @@ Yii::setAlias('@frontend_themes', (($rootDir) ? DIRECTORY_SEPARATOR.Yii::getAlia
 Yii::setAlias('@frontend_images', Yii::getAlias('@frontend_themes').DIRECTORY_SEPARATOR.'images');
 Yii::setAlias('@frontend_upload', Yii::getAlias('@frontend_themes').DIRECTORY_SEPARATOR.'upload');
 Yii::setAlias('@modules', (($rootDir) ? Yii::getAlias('@root_dir') : '').DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'modules');
-
-
 Yii::setAlias('@admin_uploads', 'admin/uploads');
 Yii::setAlias('@backend_uploads', realpath(dirname(__FILE__).'/../../admin'));
 Yii::setAlias('@backend_upload_dir', realpath(dirname(__FILE__).'/../../admin/uploads'));

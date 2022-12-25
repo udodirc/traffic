@@ -1,9 +1,8 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\HtmlPurifier;
+use common\components\ContentHelper;
 use yii\helpers\Url;
 use yii\grid\GridView;
-use yii\web\View;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Content */
@@ -20,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="card-body">
 					<h4 class="card-title"><?= Yii::t('form', 'Информация'); ?></h4>
 					<p class="card-description">
-						<?= (isset($newsAttention) && $newsAttention != null) ? HtmlPurifier::process($newsAttention->content) : ''; ?>
+                        <?= ContentHelper::outPutContent($newsAttention);?>
 					</p>
 				</div>
 		</div>

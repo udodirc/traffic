@@ -1,8 +1,5 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\HtmlPurifier;
-use yii\helpers\Url;
-use yii\grid\GridView;
 use common\components\ContentHelper;
 
 /* @var $this yii\web\View */

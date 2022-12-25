@@ -223,4 +223,5 @@ return [
 	],
 	'defaultTheme' => 'hilite',
 	'backofficeThemeLayout' => '@app/themes/backoffice-hilite/views/layouts/',
+    'html_purifier' => false,
 ];

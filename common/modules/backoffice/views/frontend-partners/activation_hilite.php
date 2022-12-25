@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\HtmlPurifier;
+use common\components\ContentHelper;
 use common\models\Service;
 
 /* @var $this yii\web\View */
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<div class="card">
 			<div class="card-body">
 				<h4 class="card-title"><?= Yii::t('form', 'Информация'); ?></h4>
-				<?= (isset($content) && $content != null) ? HtmlPurifier::process($content->content) : ''; ?>
+                <?= ContentHelper::outPutContent($content);?>
 			</div>
 		</div>
 	</div>
@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					<?php endif; ?>
 				</div>
 				<div class="panel-content">
-					<?= (isset($tile_content) && $tile_content != null) ? HtmlPurifier::process($tile_content->content) : ''; ?>     
+                    <?= ContentHelper::outPutContent($tile_content);?>
 				</div>
 			</div>
 		</div>
