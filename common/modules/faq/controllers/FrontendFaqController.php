@@ -32,6 +32,11 @@ class FrontendFaqController extends Controller
     */
     public function actionIndex()
     {
+	    if (!Yii::$app->user->isGuest)
+	    {
+		    return $this->goHome();
+	    }
+
 		$this->layout = 'main';
 		$faqList = Faq::find()->where(['type'=>1])->all();
 		$content = (!is_null(StaticContent::find()->where(['name'=>'faq']))) ? StaticContent::find()->where(['name'=>'faq'])->one() : null;

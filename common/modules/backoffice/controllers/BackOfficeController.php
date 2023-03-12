@@ -268,14 +268,25 @@ class BackOfficeController extends Controller
 				
 				if($mailResult)
 				{
-					$class = 'success';
-					$msg = Yii::t('messages', 'Вы зарегистрированы! Подверждение регистрации отправлено вам на почту.');
-					$content = (!is_null(StaticContent::find()->where(['name'=>'success_signup']))) ? StaticContent::find()->where(['name'=>'success_signup'])->one() : '';
-					\Yii::$app->getSession()->setFlash($class, $msg);
-							
-					return $this->render('success_signup', [
-						'content' => $content,
-					]);
+					$_POST['LoginForm']['login'] = $model->login;
+					$_POST['LoginForm']['password'] = $model->password;
+					$model = new LoginForm();
+
+					if($model->load($_POST) && $model->login())
+					{
+						return $this->redirect(\Yii::$app->request->BaseUrl.'/partners/structure');
+					}
+					else
+					{
+						$class = 'success';
+						$msg = Yii::t('messages', 'Вы зарегистрированы! Подверждение регистрации отправлено вам на почту.');
+						$content = (!is_null(StaticContent::find()->where(['name'=>'success_signup']))) ? StaticContent::find()->where(['name'=>'success_signup'])->one() : '';
+						\Yii::$app->getSession()->setFlash($class, $msg);
+
+						return $this->render('success_signup', [
+							'content' => $content,
+						]);
+					}
 				}
             }
             
