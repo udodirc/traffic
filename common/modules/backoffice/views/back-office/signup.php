@@ -36,7 +36,7 @@ $sponsorData = (isset($sponsorData)) ? $sponsorData : null;
 					'options' => [
 						'class' => 'contact-form', 
 					],
-						'id'=>'signup-form',
+						//'id'=>'signup-form',
 					]); ?>
 					<?php if($sponsorData !== null): ?>
 					<div class="form-group">
@@ -98,12 +98,12 @@ $sponsorData = (isset($sponsorData)) ? $sponsorData : null;
 						]])->passwordInput(['maxlength' => 32]);; 
 					?>
 					<?= $form->field($model, 'sponsor_id')->hiddenInput(['value' => ($sponsorData !== null) ? $sponsorData->id : 1])->label(false) ?>
-					<div class="form-group">
-						<?= $form->field($model, 'reCaptcha')->widget(
-							common\widgets\captcha\ReCaptcha::className(),
-							['siteKey' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
-						); ?>
-					</div>
+<!--					<div class="form-group">-->
+<!--						--><?php //= $form->field($model, 'reCaptcha')->widget(
+//							common\widgets\captcha\ReCaptcha::className(),
+//							['siteKey' => '6LeiwJ8UAAAAAHqZOLs1OC3qA4Y0HHap1YDIgDwT']
+//						); ?>
+<!--					</div>-->
 					<div class="form-group text-right">
 						<?= Html::submitButton(Yii::t('form', 'Регистрация'), ['class' => 'btn btn-primary']) ?>
 					</div>

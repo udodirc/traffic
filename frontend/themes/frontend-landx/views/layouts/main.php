@@ -22,7 +22,10 @@ $signupModel = (isset($this->params['signupModel'])) ? $this->params['signupMode
 $restorePasswordEmailModel = (isset($this->params['restorePasswordEmailModel'])) ? $this->params['restorePasswordEmailModel'] : null;
 $sponsorData = (isset($this->params['sponsorData'])) ? $this->params['sponsorData'] : null;
 $solution = (isset($this->params['solution'])) ? $this->params['solution'] : null;
-$signupModel->sponsor_login = $sponsorData->login;
+
+if(!is_null($sponsorData)){
+	$signupModel->sponsor_login = $sponsorData->login;
+}
 
 if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session->hasFlash('restore-password'))
 {
@@ -60,7 +63,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<meta name="format-detection" content="telephone=no"/>
-		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<!--		<link rel="icon" href="images/favicon.ico" type="image/x-icon">-->
 		<title><?= $this->title; ?></title>
 		<?php $this->head() ?>
 	</head>
@@ -88,16 +91,16 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
                             </div>
 							<!-- NAVIGATION LINKS -->
 							<div class="navbar-collapse collapse" id="landx-navigation">
-								<div class="navbar-right signup">
-									<?= Html::a('Вход', '#', ['id'=>'login-link']); ?>
-									<?= Html::a('Регистрация', '#', ['id'=>'signup-link']); ?>
-									<!-- ConveyThis button: -->
-									<div id="conveythis-wrapper-main">
-										<a href="https://www.conveythis.com" class="conveythis-no-translate notranslate" title="ConveyThis" >
-											ConveyThis
-										</a>
-									</div>
-								</div>
+<!--								<div class="navbar-right signup">-->
+<!--									--><?php //= Html::a('Вход', '#', ['id'=>'login-link']); ?>
+<!--									--><?php //= Html::a('Регистрация', '#', ['id'=>'signup-link']); ?>
+<!--									<!-- ConveyThis button: -->
+<!--									<div id="conveythis-wrapper-main">-->
+<!--										<a href="https://www.conveythis.com" class="conveythis-no-translate notranslate" title="ConveyThis" >-->
+<!--											ConveyThis-->
+<!--										</a>-->
+<!--									</div>-->
+<!--								</div>-->
 								<!-- #menu -->
 								<?= MenuWidget::widget([
 									'items' => FrontendMenu::getMenuList(2),
@@ -116,7 +119,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 					<div class="navbar non-sticky">
 						<div class="container">
 							<div class="navbar-header">
-								<img src="images/logo.png" alt="">
+<!--								<img src="images/logo.png" alt="">-->
 							</div>
 							<ul class="nav navbar-nav navbar-right social-navigation hidden-xs">
 								<li><a href="#"><i class="social_facebook_circle"></i></a></li>
@@ -183,7 +186,7 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 				'role'=>'form"',
 			],
 			'action'=>'login',
-			]); 
+			]);
 			?>
 				<!-- IF LOG SUCCESSFULLY -->
 				<h6 class="success">
@@ -375,13 +378,13 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 			'counter_name' => 'liveinternet',
 		]); ?>
 	</div>
-	<script src="//s2.conveythis.com/javascriptClassic/1/conveythis.js"></script>
-	<script src="//s2.conveythis.com/javascriptClassic/1/translate.js"></script>
-	<script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", function(e) {
-	conveythis.init({source_language_id: 771, languages: [{"id":"771","active":true},{"id":"703","active":false},{"id":"777","active":false}]})
-	});
-	</script>
+<!--	<script src="//s2.conveythis.com/javascriptClassic/1/conveythis.js"></script>-->
+<!--	<script src="//s2.conveythis.com/javascriptClassic/1/translate.js"></script>-->
+<!--	<script type="text/javascript">-->
+<!--	document.addEventListener("DOMContentLoaded", function(e) {-->
+<!--	conveythis.init({source_language_id: 771, languages: [{"id":"771","active":true},{"id":"703","active":false},{"id":"777","active":false}]})-->
+<!--	});-->
+<!--	</script>-->
 	<!-- End ConveyThis button code. -->
 	</body>
 </html>

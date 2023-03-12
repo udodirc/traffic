@@ -14,7 +14,9 @@ class Module extends \yii\base\Module
         {	
 			if(isset(\Yii::$app->params['backofficeThemeLayout']))
 			{
-				$this->layoutPath = \Yii::getAlias(\Yii::$app->params['backofficeThemeLayout']);
+				if(!\Yii::$app->user->isGuest) {
+					$this->layoutPath = \Yii::getAlias( \Yii::$app->params['backofficeThemeLayout'] );
+				}
 			}
 		}
 

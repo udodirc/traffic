@@ -17,6 +17,11 @@ class MenuController extends \yii\web\Controller
 {
 	public function actionIndex()
     {
+	    if (!Yii::$app->user->isGuest)
+	    {
+		    return $this->goHome();
+	    }
+
 		$this->layout = (!\Yii::$app->user->isGuest) ? 'back_office' : 'page';
 
 		if(\Yii::$app->user->isGuest)

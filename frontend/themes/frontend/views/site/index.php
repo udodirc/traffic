@@ -82,7 +82,7 @@ $this->registerJs($inlineScript,  View::POS_END);
                         </div>
                         <div class="col-sm-12">
                                 <div class="main-content">
-                                        <?= ($staticContent !== null) ? $staticContent->content : ''; ?>
+                                        <?= !empty($staticContent->content) ? $staticContent->content : ''; ?>
                                 </div>
                         </div>
                 </div>

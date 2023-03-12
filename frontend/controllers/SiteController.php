@@ -148,7 +148,7 @@ class SiteController extends Controller
 					'pageSize' => Service::getPageSize(),
 				],
 			]);
-			
+
 			return $this->render('backoffice_index'.$this->theme, [
 				'staticContent' => $staticContent,
 				'newsList' => $newsList,
@@ -162,7 +162,7 @@ class SiteController extends Controller
 			$partnersGeoDataList = Partners::getRandGeoDataList(100);
 			$sliderList = Slider::find()->all();
 			$contentList = Content::getContentList();
-			
+
 			return $this->render('index', [
 				'counterContent' => $counterContent,
 				'staticContent' => $staticContent,
@@ -180,10 +180,15 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    /*public function actionContacts()
+    public function actionContacts()
     {
+	    if (!Yii::$app->user->isGuest)
+	    {
+		    return $this->goHome();
+	    }
+
 		$model = new FeedbackForm();
-		
+
 		$this->view->params['model'] = new LoginForm();
         $this->view->params['feedbackModel'] = $model;
         $this->view->params['brand_slogan'] = (isset(Yii::$app->params['brand_slogan'])) ? Yii::$app->params['brand_slogan'] : '';
@@ -197,9 +202,9 @@ class SiteController extends Controller
 			'model' => $model,
 			'address' => $address
 		]);
-	}*/
+	}
 	
-	public function actionContacts()
+	/*public function actionContacts()
     {
 		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 		
@@ -236,7 +241,7 @@ class SiteController extends Controller
 		}
 		
 		return ['result' => $result, 'errors' => $errors, 'msg' => $msg];
-	}
+	}*/
 
     /**
      * Requests password reset.

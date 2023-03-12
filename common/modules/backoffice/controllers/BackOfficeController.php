@@ -86,8 +86,8 @@ class BackOfficeController extends Controller
 		
 		
 		//Set theme
-		$this->theme = (isset(\Yii::$app->params['defaultTheme'])) ? ('_'.\Yii::$app->params['defaultTheme']) : '';
-		
+		//$this->theme = (isset(\Yii::$app->params['defaultTheme'])) ? ('_'.\Yii::$app->params['defaultTheme']) : '';
+	    $this->theme = 'frontend';
         return parent::beforeAction($event);
     }
 
@@ -115,9 +115,14 @@ class BackOfficeController extends Controller
      *
      * @return mixed
      */
-    /*public function actionLogin()
+    public function actionLogin()
     {
-		$this->layout = 'frontend';
+	    if (!Yii::$app->user->isGuest)
+	    {
+		    return $this->goHome();
+	    }
+
+	    $this->layout = (!\Yii::$app->user->isGuest) ? 'back_office' : 'main';
 		$model = new LoginForm();
 		$this->view->params['model'] = $model;
 		$this->view->params['feedbackModel'] = new FeedbackForm();
@@ -127,12 +132,7 @@ class BackOfficeController extends Controller
 		$this->view->params['location'] = (!is_null(StaticContent::find()->where(['name'=>'location'])->one())) ? StaticContent::find()->where(['name'=>'location'])->one()->content : '';
 		$url = pathinfo(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), PATHINFO_BASENAME);
 		$this->view->params['bread_crumbs'] = Menu::createBreadCrumbs(null, $url, Yii::t('form', 'Вход'));
-			
-        if (!Yii::$app->user->isGuest) 
-        {
-            return $this->goHome();
-        }
-        
+
         if($model->load(Yii::$app->request->post()) && $model->login()) 
         {
 			return $this->redirect(\Yii::$app->request->BaseUrl.'/partners/structure');
@@ -143,15 +143,14 @@ class BackOfficeController extends Controller
                 'model' => $model,
             ]);
         }
-    }*/
-    
-    
+    }
+
     /**
      * Logs in a user.
      *
      * @return mixed
      */
-    public function actionLogin()
+    /*public function actionLogin()
     {
 		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 		$request = \Yii::$app->getRequest();
@@ -188,7 +187,7 @@ class BackOfficeController extends Controller
 		}
 		
 		return ['result' => $result, 'errors' => $errors, 'msg' => $msg, 'url' => $url];
-    }
+    }*/
 
     /**
      * Logs out the current user.
@@ -207,8 +206,13 @@ class BackOfficeController extends Controller
      *
      * @return mixed
      */
-    /*public function actionSignup()
+    public function actionSignup()
     {
+	    if (!Yii::$app->user->isGuest)
+	    {
+		    return $this->goHome();
+	    }
+
 		$this->layout = (!\Yii::$app->user->isGuest) ? 'back_office' : 'main';
 		$this->view->params['model'] = new LoginForm();
 		$this->view->params['feedbackModel'] = new FeedbackForm();
@@ -241,25 +245,25 @@ class BackOfficeController extends Controller
 				{
 					$url = Url::base(true);
 						
-					if(!strpos($url, 'localhost'))
-					{	
-						$emailFrom = (isset(\Yii::$app->params['email_from'])) ? \Yii::$app->params['email_from'] : '';
-						$mailResult = \Yii::$app->mailer->compose(['html' => 'signup-html'], ['partner_id' => $result['model'][0], 'first_name' => $result['model'][1], 'last_name' => $result['model'][2], 'email' => $result['model'][3], 'auth_key' => $result['model'][4], 'login' => $result['model'][5], 'site' => Url::base(true)])
-						->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
-						->setTo($model->email)
-						->setSubject('► '.Yii::t('messages', 'Подтверждение регистрации'))
-						->send();
-						
-						if($mailResult)
-						{
-							$mailResult = false;
-							$mailResult = \Yii::$app->mailer->compose(['html' => 'new-refferal-html'], ['first_name' => $sponsorData->first_name, 'last_name' => $sponsorData->last_name, 'refferal_name' => $result['model'][5], 'site' => Url::base(true)])
-							->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
-							->setTo($sponsorData->email)
-							->setSubject('► '.Yii::t('messages', 'Новый Реферал!'))
-							->send();
-						}
-					}
+//					if(!strpos($url, 'localhost'))
+//					{
+//						$emailFrom = (isset(\Yii::$app->params['email_from'])) ? \Yii::$app->params['email_from'] : '';
+//						$mailResult = \Yii::$app->mailer->compose(['html' => 'signup-html'], ['partner_id' => $result['model'][0], 'first_name' => $result['model'][1], 'last_name' => $result['model'][2], 'email' => $result['model'][3], 'auth_key' => $result['model'][4], 'login' => $result['model'][5], 'site' => Url::base(true)])
+//						->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
+//						->setTo($model->email)
+//						->setSubject('► '.Yii::t('messages', 'Подтверждение регистрации'))
+//						->send();
+//
+//						if($mailResult)
+//						{
+//							$mailResult = false;
+//							$mailResult = \Yii::$app->mailer->compose(['html' => 'new-refferal-html'], ['first_name' => $sponsorData->first_name, 'last_name' => $sponsorData->last_name, 'refferal_name' => $result['model'][5], 'site' => Url::base(true)])
+//							->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
+//							->setTo($sponsorData->email)
+//							->setSubject('► '.Yii::t('messages', 'Новый Реферал!'))
+//							->send();
+//						}
+//					}
 				}
 				
 				if($mailResult)
@@ -277,20 +281,20 @@ class BackOfficeController extends Controller
             
             \Yii::$app->getSession()->setFlash($class, $msg);
         }
-		
+
         return $this->render('signup', [
             'model' => $model,
             'sponsorData' => $sponsorData,
             'sponsorLogin' => $sposnorLogin,
         ]);
-    }*/
+    }
     
     /**
      * Signs user up.
      *
      * @return mixed
      */
-    public function actionSignup()
+    /*public function actionSignup()
     {
 		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 		$request = \Yii::$app->getRequest();
@@ -377,7 +381,7 @@ class BackOfficeController extends Controller
 		}
 		
 		return ['result' => $result, 'errors' => $errors,  'msg' => $msg];
-    }
+    }*/
     
     public function actionReferal($login)
     {
@@ -439,7 +443,7 @@ class BackOfficeController extends Controller
 		}*/
 	}
 	
-	 public function actionRestorePassword()
+	/*public function actionRestorePassword()
     {
 		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 		$request = \Yii::$app->getRequest();
@@ -516,9 +520,9 @@ class BackOfficeController extends Controller
 		}
 		
 		return ['result' => $result, 'errors' => $errors,  'msg' => $msg];
-	}
+	}*/
 	
-	/*public function actionRestorePassword()
+	public function actionRestorePassword()
     {
 		$this->layout = (!\Yii::$app->user->isGuest) ? 'back_office' : 'main';
 		$this->view->params['model'] = new LoginForm();
@@ -601,7 +605,7 @@ class BackOfficeController extends Controller
 		return $this->render('restore_password_email', [
             'model' => $formModel
         ]);
-	}*/
+	}
 	
 	public function actionRestorePasswordForm($id, $hash) 
 	{

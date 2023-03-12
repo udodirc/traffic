@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					'options' => [
 						'class' => 'contact-form', 
 					],
-						'id'=>'login-form',
+						//'id'=>'login-form',
 					]); ?>
 					<?= $form->field($model, 'login', [
 						'template' => '<div class="form-group">
