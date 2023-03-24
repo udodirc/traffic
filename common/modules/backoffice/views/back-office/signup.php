@@ -98,14 +98,14 @@ $sponsorData = (isset($sponsorData)) ? $sponsorData : null;
 						]])->passwordInput(['maxlength' => 32]);; 
 					?>
 					<?= $form->field($model, 'sponsor_id')->hiddenInput(['value' => ($sponsorData !== null) ? $sponsorData->id : 1])->label(false) ?>
-					<div class="form-group">
-	                    <?php if(isset(Yii::$app->params['captcha_site_key'])): ?>
+                    <?php if(isset(Yii::$app->params['captcha_site_key'])): ?>
+                    <div class="form-group">
 	                    <?= $form->field($model, 'reCaptcha')->widget(
 		                    common\widgets\captcha\ReCaptcha::className(),
 		                    ['siteKey' => Yii::$app->params['captcha_site_key']]
 	                    ) ?>
-	                    <?php endif; ?>
                     </div>
+                    <?php endif; ?>
 					<div class="form-group text-right">
 						<?= Html::submitButton(Yii::t('form', 'Регистрация'), ['class' => 'btn btn-primary']) ?>
 					</div>
