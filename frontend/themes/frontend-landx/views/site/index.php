@@ -56,10 +56,10 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
         <div style="padding: 20px 0 0 20px;">
             <?= isset($prelaunch) ? $prelaunch : ''; ?>
         </div>
-        <div class="container">	
+        <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <button type="button" id="signup-link" class="btn standard-button">Регистрация</button>
+                    <button type="button" id="signup-link" class="btn standard-button">123Регистрация</button>
                 </div>
             </div>
         </div>
