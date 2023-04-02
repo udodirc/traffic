@@ -22,12 +22,14 @@ use mihaildev\ckeditor\CKEditor;
 		],
 	])->label(false); ?>
     <?/*= $form->field($model, 'text')->textArea(['rows' => '6'])*/ ?>
-    <div class="form-group">
-	<?= $form->field($model, 'reCaptcha')->widget(
-		common\widgets\captcha\ReCaptcha::className(),
-		['siteKey' => '6Le3szsUAAAAAOMdQNGpbgKVumgxkm9cLBs5XPqP']
-	); ?>
-	</div>
+	<?php if(isset(Yii::$app->params['captcha_site_key'])): ?>
+        <div class="form-group">
+			<?= $form->field($model, 'reCaptcha')->widget(
+				common\widgets\captcha\ReCaptcha::className(),
+				['siteKey' => Yii::$app->params['captcha_site_key']]
+			) ?>
+        </div>
+	<?php endif; ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('form', 'Создать') : Yii::t('form', 'Редактировать'), ['class' => $model->isNewRecord ? 'button-blue' : 'button-blue']) ?>
     </div>
