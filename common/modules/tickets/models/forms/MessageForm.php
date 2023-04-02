@@ -22,7 +22,7 @@ class MessageForm extends Model
         return [
 			[['message'], 'required'],
 			[['message'], 'string'],
-			[['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => '6Le3szsUAAAAAGouzZl8qnqtVt8knTS41IDJNpy1']
+	        [['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => Yii::$app->params['captcha_secret']]
         ];
     }
     
