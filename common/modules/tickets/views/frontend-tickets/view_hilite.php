@@ -78,7 +78,7 @@ $this->title = (isset($ticketModel->subject)) ? $ticketModel->subject : '';
 					</div>
                     <?php if(isset(Yii::$app->params['captcha_site_key'])): ?>
                         <div class="form-group">
-                            <?= $form->field($model, 'reCaptcha')->widget(
+                            <?= $form->field($ticketModel, 'reCaptcha')->widget(
                                 common\widgets\captcha\ReCaptcha::className(),
                                 ['siteKey' => Yii::$app->params['captcha_site_key']]
                             ) ?>
