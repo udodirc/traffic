@@ -224,4 +224,6 @@ return [
 	'defaultTheme' => 'hilite',
 	'backofficeThemeLayout' => '@app/themes/backoffice-hilite/views/layouts/',
     'html_purifier' => false,
+    'is_login_captcha_allowed'=>false,
+    'is_signup_captcha_allowed'=>false,
 ];

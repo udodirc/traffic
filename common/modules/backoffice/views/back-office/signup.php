@@ -1,8 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use yii\helpers\Url;
-use yii\captcha\Captcha;
+use common\components\Captcha;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
@@ -98,13 +97,13 @@ $sponsorData = (isset($sponsorData)) ? $sponsorData : null;
 						]])->passwordInput(['maxlength' => 32]);; 
 					?>
 					<?= $form->field($model, 'sponsor_id')->hiddenInput(['value' => ($sponsorData !== null) ? $sponsorData->id : 1])->label(false) ?>
-                    <?php if(isset(Yii::$app->params['captcha_site_key'])): ?>
-                    <div class="form-group">
-	                    <?= $form->field($model, 'reCaptcha')->widget(
-		                    common\widgets\captcha\ReCaptcha::className(),
-		                    ['siteKey' => Yii::$app->params['captcha_site_key']]
-	                    ) ?>
-                    </div>
+                    <?php if(Captcha::isCaptchaAllowed('login')): ?>
+                        <div class="form-group">
+                            <?= $form->field($model, 'reCaptcha')->widget(
+                                common\widgets\captcha\ReCaptcha::className(),
+                                ['siteKey' => Yii::$app->params['captcha_site_key']]
+                            ) ?>
+                        </div>
                     <?php endif; ?>
 					<div class="form-group text-right">
 						<?= Html::submitButton(Yii::t('form', 'Регистрация'), ['class' => 'btn btn-primary']) ?>

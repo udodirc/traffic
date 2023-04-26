@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use common\components\Captcha;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
@@ -56,12 +57,14 @@ $this->params['breadcrumbs'][] = $this->title;
 					<div class="restore-password">
 						<a href="restore-password"><?= Yii::t('form', 'Забыли свой пароль?'); ?></a>
 					</div>
-					<div class="form-group">
-						<?/*= $form->field($model, 'reCaptcha')->widget(
-							common\widgets\captcha\ReCaptcha::className(),
-							['siteKey' => '6LewalwUAAAAAMSCSFELvzndwU7ksXxtROy93oOR']
-						);*/?>
-					</div>
+                    <?php if(Captcha::isCaptchaAllowed('login')): ?>
+                    <div class="form-group">
+                        <?= $form->field($model, 'reCaptcha')->widget(
+                            common\widgets\captcha\ReCaptcha::className(),
+                            ['siteKey' => Yii::$app->params['captcha_site_key']]
+                        ) ?>
+                    </div>
+                    <?php endif; ?>
 					<div class="form-group text-right">
 						<?= Html::submitButton(Yii::t('form', 'Вход'), ['class' => 'btn btn-primary']) ?>
 					</div>
