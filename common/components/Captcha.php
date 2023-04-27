@@ -5,6 +5,10 @@ class Captcha
 {
 	public static function isCaptchaAllowed($config)
 	{
-		return (isset(\Yii::$app->params['is_login_'.$config.'_allowed']) && isset(Yii::$app->params['captcha_site_key'])) ? \Yii::$app->params['is_login_'.$config.'_allowed'] : false;
+		if(isset(\Yii::$app->params['captcha_site_key'])){
+			return (isset(\Yii::$app->params['is_'.$config.'_captcha_allowed'])) ? \Yii::$app->params['is_'.$config.'_captcha_allowed'] : false;
+		}
+
+		return false;
 	}
 }
