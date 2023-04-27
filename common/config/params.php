@@ -1,9 +1,9 @@
 <?php
 return [
-    'adminEmail' => 'alphapractices.com@gmail.com',
-    'supportEmail' => 'alphapractices.com@gmail.com',
-    'email_from' => 'alphapractices.com',
-    'site_url' => 'alphapractices.com',
+    'adminEmail' => '29usd.com@gmail.com',
+    'supportEmail' => '29usd.com@gmail.com',
+    'email_from' => '29usd.com',
+    'site_url' => '29usd.com',
     'brand_slogan' => '',
     'user.passwordResetTokenExpire' => 3600,
     'payeer' => [
@@ -224,4 +224,6 @@ return [
 	'defaultTheme' => 'hilite',
 	'backofficeThemeLayout' => '@app/themes/backoffice-hilite/views/layouts/',
     'html_purifier' => false,
+    'is_login_captcha_allowed'=>false,
+    'is_signup_captcha_allowed'=>false,
 ];
