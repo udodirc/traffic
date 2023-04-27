@@ -1,9 +1,9 @@
 <?php
 return [
-    'adminEmail' => 'alphapractices.com@gmail.com',
-    'supportEmail' => 'alphapractices.com@gmail.com',
-    'email_from' => 'alphapractices.com',
-    'site_url' => 'alphapractices.com',
+    'adminEmail' => '29usd.com@gmail.com',
+    'supportEmail' => '29usd.com@gmail.com',
+    'email_from' => '29usd.com',
+    'site_url' => '29usd.com',
     'brand_slogan' => '',
     'user.passwordResetTokenExpire' => 3600,
     'payeer' => [
