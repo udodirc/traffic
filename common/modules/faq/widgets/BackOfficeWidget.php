@@ -3,9 +3,7 @@ namespace common\modules\faq\widgets;
 
 use Yii;
 use yii\base\Widget;
-use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
-use yii\helpers\Url;
 
 class BackOfficeWidget extends Widget
 {

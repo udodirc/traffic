@@ -260,7 +260,7 @@ class FrontendPartnersController extends Controller
 			'query' => $partnersList,
 			'sort' =>false,
 			'pagination' => [
-				'pageSize' => 10,
+				'pageSize' => 100,
 			],
 		]);
 		
