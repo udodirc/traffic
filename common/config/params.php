@@ -226,4 +226,5 @@ return [
     'html_purifier' => false,
     'is_login_captcha_allowed'=>true,
     'is_signup_captcha_allowed'=>true,
+    'is_ticket_captcha_allowed'=>true,
 ];

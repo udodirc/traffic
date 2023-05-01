@@ -97,7 +97,7 @@ $sponsorData = (isset($sponsorData)) ? $sponsorData : null;
 						]])->passwordInput(['maxlength' => 32]);; 
 					?>
 					<?= $form->field($model, 'sponsor_id')->hiddenInput(['value' => ($sponsorData !== null) ? $sponsorData->id : 1])->label(false) ?>
-                    <?php if(Captcha::isCaptchaAllowed('login')): ?>
+                    <?php if(Captcha::isCaptchaAllowed('signup')): ?>
                         <div class="form-group">
                             <?= $form->field($model, 'reCaptcha')->widget(
                                 common\widgets\captcha\ReCaptcha::className(),
