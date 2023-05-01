@@ -74,7 +74,7 @@ $ticketsMesagesCount = (isset($this->params['tickets_mesages_count'])) ? $this->
 						</div>
 					</li>
 				</ul>
-				<?php endif: ?>
+				<?php endif; ?>
 			</div>
 		</nav>
 		<!-- partial -->
