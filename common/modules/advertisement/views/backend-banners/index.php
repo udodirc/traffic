@@ -73,15 +73,15 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?=$this->render('partial/banners_list', [
 		'category' => $category
 	]);?>
-	<?/*= \yii\base\View::render(
-		'//../../common/modules/uploads/views/file-list/list-file',
-		[
-			'category'=>$category,
-			'id'=>0,
-			'thumbnail'=>$thumbnail,
-			'tmp'=>false,
-		]
-	);*/
-	?>
+<!--	--><?php //= \yii\base\View::render(
+//		'//../../common/modules/uploads/views/file-list/list-file',
+//		[
+//			'category'=>$category,
+//			'id'=>0,
+//			'thumbnail'=>$thumbnail,
+//			'tmp'=>false,
+//		]
+//	);
+//	?>
 	</div>
 </div>

@@ -34,14 +34,14 @@ $this->params['breadcrumbs'][] = Yii::t('form', 'Редактирование');
 				],
 			]); ?>
 		</div>
-		<?/*= $form->field($model, 'content')->widget(Redactor::className(), [ 'settings' => [ 
-				'lang'        => 'ru',
-				'minHeight'   => 200,
-				'imageManagerJson' => Url::to(['/content/images-get']),
-				'imageUpload' => Url::to(['/content/uploads']),
-				'plugins'     => ['fullscreen', 'table', 'video', 'imagemanager']
-			]
-		]); */?>
+<!--		--><?php //= $form->field($model, 'content')->widget(Redactor::className(), [ 'settings' => [
+//				'lang'        => 'ru',
+//				'minHeight'   => 200,
+//				'imageManagerJson' => Url::to(['/content/images-get']),
+//				'imageUpload' => Url::to(['/content/uploads']),
+//				'plugins'     => ['fullscreen', 'table', 'video', 'imagemanager']
+//			]
+//		]); ?>
 		<?= Html::a(Yii::t('form', 'Без wysywig'), '#', ['class' => 'no-wysywig']) ?>
 		<div class="form-no-wysywig">
 			<?php $model->content_no_wysywig = $model->content; ?>
