@@ -6,7 +6,7 @@ use Yii;
 use common\modules\tickets\models\Tickets;
 use common\modules\tickets\models\SearchTickets;
 use common\modules\tickets\models\TicketsMessages;
-use common\modules\tickets\models\forms\MessageForm;
+use common\modules\tickets\models\forms\AdminMessageForm;
 use common\modules\tickets\models\forms\MailingForm;
 use common\models\Service;
 use common\components\geo\IsoHelper;
@@ -76,7 +76,7 @@ class BackendTicketsController extends Controller
 		$this->permission = 'create';
 		
         $model = new Tickets();
-		
+
         if($model->load(Yii::$app->request->post())) 
         {
 			$class = 'error';
@@ -111,7 +111,7 @@ class BackendTicketsController extends Controller
 		
 		if(($ticketModel = Tickets::find()->with('partner')->where('id=:id', [':id' => $id])->one()) !== null) 
 		{
-			$messageForm = new MessageForm();
+			$messageForm = new AdminMessageForm();
 			$messageForm->scenario = ('backend');
 			$model = new TicketsMessages();
 			$dataProvider = new ActiveDataProvider([
@@ -138,7 +138,7 @@ class BackendTicketsController extends Controller
 		$this->permission = 'create';
 		
 		$userID = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
-		$model = new MessageForm();
+		$model = new AdminMessageForm();
 		$class = 'error';
 		$msg = Yii::t('messages', 'Ошибка!');
 			

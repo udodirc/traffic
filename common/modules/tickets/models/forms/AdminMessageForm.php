@@ -1,0 +1,70 @@
+<?php
+namespace common\modules\tickets\models\forms;
+
+use Yii;
+use yii\base\Model;
+use common\modules\tickets\models\Tickets;
+use common\modules\tickets\models\TicketsMessages;
+
+/**
+ * Message form
+ */
+class AdminMessageForm extends Model
+{
+	public $message;
+
+	/**
+	 * @inheritdoc
+	 */
+	public function rules()
+	{
+		return [
+			[['message'], 'required'],
+			[['message'], 'string'],
+		];
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function attributeLabels()
+	{
+		return [
+			'message' => Yii::t('form', 'Сообщение')
+		];
+	}
+
+	public function sendMessage($id, $type = 1, $userID = 0)
+	{
+		$result = false;
+
+		if(!$this->validate())
+		{
+			return false;
+		}
+
+		$ticketsModel = Tickets::findOne($id);
+
+		if($ticketsModel !== null)
+		{
+			$model = new TicketsMessages();
+			$model->ticket_id = $id;
+			$model->user_id = ($userID > 0) ? $userID : 1;
+			$model->type = $type;
+			$model->text = $this->message;
+			$model->created_at = time();
+
+			if($model->save(false))
+			{
+				$ticketsModel->status = ($type > 1) ? 1 : 0;
+
+				if($ticketsModel->save(false))
+				{
+					$result = true;
+				}
+			}
+		}
+
+		return $result;
+	}
+}

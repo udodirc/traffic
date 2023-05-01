@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
+use common\components\Captcha;
 
 /* @var $this yii\web\View */
 /* @var $model common\modules\tickets\models\Tickets */
@@ -50,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							'class'=>'error mt-2 text-danger'
 						]); ?>
 					</div>
-                    <?php if(isset(Yii::$app->params['captcha_site_key'])): ?>
+                    <?php if(Captcha::isCaptchaAllowed('ticket')): ?>
                         <div class="form-group">
                             <?= $form->field($model, 'reCaptcha')->widget(
                                 common\widgets\captcha\ReCaptcha::className(),
