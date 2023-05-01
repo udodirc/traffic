@@ -2,14 +2,10 @@
 namespace common\modules\backoffice\controllers;
 
 use Yii;
-use yii\base\InvalidParamException;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 use common\modules\backoffice\models\forms\LoginForm;
 use frontend\models\FeedbackForm;
 use common\modules\backoffice\models\Partners;
@@ -19,6 +15,7 @@ use common\modules\backoffice\models\forms\SignupForm;
 use common\modules\backoffice\models\forms\RestorePasswordEmailForm;
 use common\modules\backoffice\models\forms\RestorePasswordForm;
 use common\modules\backoffice\models\forms\RestorePassword;
+use common\components\Captcha;
 
 /**
  * BackOfficeController
@@ -124,6 +121,7 @@ class BackOfficeController extends Controller
 
 	    $this->layout = (!\Yii::$app->user->isGuest) ? 'back_office' : 'main';
 		$model = new LoginForm();
+	    $model->scenario = Captcha::getScenario('login');
 		$this->view->params['model'] = $model;
 		$this->view->params['feedbackModel'] = new FeedbackForm();
 		$this->view->params['contacts'] = (!is_null(StaticContent::find()->where(['name'=>'contacts']))) ? StaticContent::find()->where(['name'=>'contacts'])->one() : '';
@@ -225,6 +223,7 @@ class BackOfficeController extends Controller
 				
 		$post = Yii::$app->request->post('SignupForm');
 		$model = new SignupForm();
+	    $model->scenario = Captcha::getScenario('signup');
 		$sposnorLogin = SignupForm::getSponsorLogin();
         $sponsorData = ($sposnorLogin != '') ? Partners::findByUsername($sposnorLogin) : Partners::find()->where(['id'=>1])->one();
         $model->sponsor_id = (isset($post['sponsor_id'])) ? intval($post['sponsor_id']) : 0;

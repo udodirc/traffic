@@ -35,6 +35,22 @@ class MessageForm extends Model
 			'message' => Yii::t('form', 'Сообщение')
         ];
     }
+
+	/**
+	 * Scenarios
+	 *
+	 * @return mixed
+	 */
+	public function scenarios()
+	{
+		$scenarios = parent::scenarios();
+
+		$scenarios['with_captcha'] = ['message', 'reCaptcha'];
+
+		$scenarios['without_captcha'] = ['message'];
+
+		return $scenarios;
+	}
     
     public function sendMessage($id, $type = 1, $userID = 0)
     {

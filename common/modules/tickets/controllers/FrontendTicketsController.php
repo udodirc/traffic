@@ -2,6 +2,7 @@
 
 namespace common\modules\tickets\controllers;
 
+use common\components\Captcha;
 use Yii;
 use common\modules\tickets\models\Tickets;
 use common\modules\tickets\models\SearchTickets;
@@ -118,7 +119,7 @@ class FrontendTicketsController extends Controller
 		{
 			$this->view->params['title'] = $ticketModel->subject;
 			$messageForm = new MessageForm();
-			$messageForm->scenario = ('frontend');
+			$messageForm->scenario = Captcha::getScenario('ticket');
 			$model = new TicketsMessages();
 			$dataProvider = new ActiveDataProvider([
 				'query' => $model->getMessagesList($id),
@@ -147,6 +148,7 @@ class FrontendTicketsController extends Controller
 		$id = Yii::$app->request->get('id');
 		
 		$model = new MessageForm();
+	    $model->scenario = Captcha::getScenario('ticket');
 		$class = 'error';
 		$msg = Yii::t('messages', 'Ошибка!');
 	
@@ -176,6 +178,7 @@ class FrontendTicketsController extends Controller
 		$this->identity_id = $id;
 		
         $model = new Tickets();
+	    $model->scenario = Captcha::getScenario('ticket');
 		$this->view->params['title'] = Yii::t('form', 'Запрос');
 		
         if($model->load(Yii::$app->request->post())) 

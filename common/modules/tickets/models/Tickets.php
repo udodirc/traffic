@@ -68,6 +68,22 @@ class Tickets extends \yii\db\ActiveRecord
         ];
     }
 
+	/**
+	 * Scenarios
+	 *
+	 * @return mixed
+	 */
+	public function scenarios()
+	{
+		$scenarios = parent::scenarios();
+
+		$scenarios['with_captcha'] = ['subject', 'text', 'reCaptcha'];
+
+		$scenarios['without_captcha'] = ['subject', 'text'];
+
+		return $scenarios;
+	}
+
     /**
      * @return \yii\db\ActiveQuery
      */

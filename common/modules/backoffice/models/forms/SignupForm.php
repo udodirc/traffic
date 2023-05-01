@@ -73,7 +73,6 @@ class SignupForm extends Model
             'phone' => Yii::t('form', 'Телефон'),
             'rules_agree' => Yii::t('form', 'С правилами сайта согласен'),
             'reCaptcha' => Yii::t('form', 'Введите проверочный код'),
-            //'verifyCode' => Yii::t('form', 'captcha'),
         ];
     }
     
@@ -97,7 +96,11 @@ class SignupForm extends Model
         $scenarios['front_register'] = ['login', 'first_name', 'last_name', 'email', 'password', 're_password'];
 		
 		$scenarios['backend_register'] = ['sponsor_login', 'login', 'first_name', 'last_name', 'email', 'password', 're_password'];
-        
+
+		$scenarios['with_captcha'] = ['login', 'first_name', 'last_name', 'email', 'password', 're_password', 'reCaptcha'];
+
+		$scenarios['without_captcha'] = ['login', 'first_name', 'last_name', 'email', 'password', 're_password'];
+
 		return $scenarios;
     }
 

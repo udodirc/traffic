@@ -47,7 +47,11 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
                     <?=
                     RunningGeoDataWidget::widget([
                         'item_list' => $partnersGeoDataList,
-                        'options' => ['duration' => 10000, 'hover' => 'false']
+                        'options' =>
+                        [
+                            'duration' => (isset(\Yii::$app->params['geo_duration'])) ? \Yii::$app->params['geo_duration'] : 100000,
+                            'hover' => 'false'
+                        ]
                     ]);
                     ?>
                 </div>
