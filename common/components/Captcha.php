@@ -11,4 +11,13 @@ class Captcha
 
 		return false;
 	}
+
+	public static function getScenario($config)
+	{
+		if(isset(\Yii::$app->params['captcha_site_key']) && isset(\Yii::$app->params['is_'.$config.'_captcha_allowed'])){
+			return (\Yii::$app->params['is_'.$config.'_captcha_allowed']) ? 'with_captcha' : 'without_captcha';
+		}
+
+		return 'without_captcha';
+	}
 }

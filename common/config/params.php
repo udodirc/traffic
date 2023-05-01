@@ -227,4 +227,5 @@ return [
     'is_login_captcha_allowed'=>true,
     'is_signup_captcha_allowed'=>true,
     'is_ticket_captcha_allowed'=>true,
+    'geo_duration'=>100000,
 ];

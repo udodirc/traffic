@@ -31,6 +31,22 @@ class LoginForm extends Model
 	        [['reCaptcha'], \common\widgets\captcha\ReCaptchaValidator::className(), 'secret' => Yii::$app->params['captcha_secret']]
         ];
     }
+
+	/**
+	 * Scenarios
+	 *
+	 * @return mixed
+	 */
+	public function scenarios()
+	{
+		$scenarios = parent::scenarios();
+
+		$scenarios['with_captcha'] = ['login', 'password', 'reCaptcha'];
+
+		$scenarios['without_captcha'] = ['login', 'password'];
+
+		return $scenarios;
+	}
     
     /**
      * @inheritdoc
