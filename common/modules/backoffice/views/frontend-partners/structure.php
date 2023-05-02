@@ -101,7 +101,9 @@ $this->params['breadcrumbs'][] = $this->title;
 							'format'=>'raw',//raw, html
 							'content'=>function ($model)
 							{
-								return (strlen($model['sponsor_name']) > 3) ? '****'.Html::encode(substr($model['sponsor_name'], 3)) : '**'.Html::encode(substr($model['sponsor_name'], 1));
+								return ($model['sponsor_name'])
+                                    ? (strlen($model['sponsor_name']) > 3) ? '****'.Html::encode(substr($model['sponsor_name'], 3)) : '**'.Html::encode(substr($model['sponsor_name'], 1))
+                                    : "admin";
 							},
 						],
 						[
