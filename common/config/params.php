@@ -223,6 +223,7 @@ return [
 	],
 	'defaultTheme' => 'hilite',
 	'backofficeThemeLayout' => '@app/themes/backoffice-hilite/views/layouts/',
+    'confirm_signup_allowed'=>false,
     'html_purifier' => false,
     'is_login_captcha_allowed'=>true,
     'is_signup_captcha_allowed'=>true,

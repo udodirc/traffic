@@ -16,6 +16,7 @@ use common\modules\backoffice\models\forms\RestorePasswordEmailForm;
 use common\modules\backoffice\models\forms\RestorePasswordForm;
 use common\modules\backoffice\models\forms\RestorePassword;
 use common\components\Captcha;
+use common\components\Settings;
 
 /**
  * BackOfficeController
@@ -134,13 +135,11 @@ class BackOfficeController extends Controller
         if($model->load(Yii::$app->request->post()) && $model->login()) 
         {
 			return $this->redirect(\Yii::$app->request->BaseUrl.'/partners/structure');
-        } 
-        else 
-        {
-			return $this->render('login', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('login', [
+           'model' => $model
+        ]);
     }
 
     /**
@@ -231,62 +230,48 @@ class BackOfficeController extends Controller
 		
         if($model->load(Yii::$app->request->post()) && $sponsorData != null) 
         {	
-			$mailResult = false;
 			$class = 'error';
 			$msg = Yii::t('messages', 'Ошибка!');
 			$result = $model->signup();
 			
 			if($result['result']) 
-            {	
-				$mailResult = true;
-				
-				if(isset(\Yii::$app->params['supportEmail']))
+            {
+				if(Settings::getParams("confirm_signup_allowed"))
 				{
-					$url = Url::base(true);
-						
-//					if(!strpos($url, 'localhost'))
-//					{
-//						$emailFrom = (isset(\Yii::$app->params['email_from'])) ? \Yii::$app->params['email_from'] : '';
-//						$mailResult = \Yii::$app->mailer->compose(['html' => 'signup-html'], ['partner_id' => $result['model'][0], 'first_name' => $result['model'][1], 'last_name' => $result['model'][2], 'email' => $result['model'][3], 'auth_key' => $result['model'][4], 'login' => $result['model'][5], 'site' => Url::base(true)])
-//						->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
-//						->setTo($model->email)
-//						->setSubject('► '.Yii::t('messages', 'Подтверждение регистрации'))
-//						->send();
-//
-//						if($mailResult)
-//						{
-//							$mailResult = false;
-//							$mailResult = \Yii::$app->mailer->compose(['html' => 'new-refferal-html'], ['first_name' => $sponsorData->first_name, 'last_name' => $sponsorData->last_name, 'refferal_name' => $result['model'][5], 'site' => Url::base(true)])
-//							->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
-//							->setTo($sponsorData->email)
-//							->setSubject('► '.Yii::t('messages', 'Новый Реферал!'))
-//							->send();
-//						}
-//					}
-				}
-				
-				if($mailResult)
-				{
-					$_POST['LoginForm']['login'] = $model->login;
-					$_POST['LoginForm']['password'] = $model->password;
-					$model = new LoginForm();
-
-					if($model->load($_POST) && $model->login())
+					if(isset(\Yii::$app->params['supportEmail']))
 					{
-						return $this->redirect(\Yii::$app->request->BaseUrl.'/partners/structure');
-					}
-					else
-					{
-						$class = 'success';
-						$msg = Yii::t('messages', 'Вы зарегистрированы! Подверждение регистрации отправлено вам на почту.');
-						$content = (!is_null(StaticContent::find()->where(['name'=>'success_signup']))) ? StaticContent::find()->where(['name'=>'success_signup'])->one() : '';
-						\Yii::$app->getSession()->setFlash($class, $msg);
+						$url = Url::base(true);
 
-						return $this->render('success_signup', [
-							'content' => $content,
-						]);
+						if(!strpos($url, 'localhost'))
+						{
+							$emailFrom = (isset(\Yii::$app->params['email_from'])) ? \Yii::$app->params['email_from'] : '';
+							$mailResult = \Yii::$app->mailer->compose(['html' => 'signup-html'], ['partner_id' => $result['model'][0], 'first_name' => $result['model'][1], 'last_name' => $result['model'][2], 'email' => $result['model'][3], 'auth_key' => $result['model'][4], 'login' => $result['model'][5], 'site' => Url::base(true)])
+							->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
+							->setTo($model->email)
+							->setSubject('► '.Yii::t('messages', 'Подтверждение регистрации'))
+							->send();
+
+							if($mailResult)
+							{
+								$mailResult = false;
+								$mailResult = \Yii::$app->mailer->compose(['html' => 'new-refferal-html'], ['first_name' => $sponsorData->first_name, 'last_name' => $sponsorData->last_name, 'refferal_name' => $result['model'][5], 'site' => Url::base(true)])
+								->setFrom([\Yii::$app->params['supportEmail'] => $emailFrom])
+								->setTo($sponsorData->email)
+								->setSubject('► '.Yii::t('messages', 'Новый Реферал!'))
+								->send();
+							}
+						}
 					}
 				}
+
+				$class = 'success';
+				$msg = Yii::t('messages', 'Вы зарегистрированы! Вход в личный кабинет');
+				$content = (!is_null(StaticContent::find()->where(['name'=>'success_signup']))) ? StaticContent::find()->where(['name'=>'success_signup'])->one() : '';
+				\Yii::$app->getSession()->setFlash($class, $msg);
+
+				return $this->render('success_signup', [
+					'content' => $content,
+				]);
             }
             
             \Yii::$app->getSession()->setFlash($class, $msg);
