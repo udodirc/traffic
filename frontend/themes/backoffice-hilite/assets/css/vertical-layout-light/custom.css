@@ -344,6 +344,18 @@ ul.levels
 	color:#000000;
 }
 
+.tr_top_10
+{
+	background-color:#ffaead!important;
+	color:#000000;
+}
+
+.tr_top_50
+{
+	background-color:#feefaa!important;
+	color:#000000;
+}
+
 .ticket-header
 {
 	font-size: 14px;
