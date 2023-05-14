@@ -33,6 +33,18 @@ class BackofficeFaqController extends Controller
     
     public function beforeAction($event)
     {
+	    if($this->user_id > 0 && $this->identity_id > 0)
+	    {
+		    if($this->user_id != $this->identity_id)
+		    {
+			    throw new NotFoundHttpException(Yii::t('messages', 'У вас нет прав!'));
+		    }
+	    }
+	    else
+	    {
+		    throw new NotFoundHttpException(Yii::t('messages', 'У вас нет прав!'));
+	    }
+
 		$id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
 		
 		$this->view->params['tickets_list'] = Tickets::find()->where('partner_id=:id AND status=:status', [':id' => $id, ':status' => Tickets::STATUS_ADMIN_ANSWER])->all();
@@ -44,27 +56,6 @@ class BackofficeFaqController extends Controller
 		$this->theme = (isset(\Yii::$app->params['defaultTheme'])) ? ('_'.\Yii::$app->params['defaultTheme']) : '';
 		
         return parent::beforeAction($event);
-    }
-    
-    /**
-     * Check permission's rights
-     * @return mixed
-    */
-    public function afterAction($action, $result)
-    {
-		if($this->user_id > 0 && $this->identity_id > 0)
-		{
-			if($this->user_id != $this->identity_id) 
-			{
-				throw new NotFoundHttpException(Yii::t('messages', 'У вас нет прав!'));
-			}
-		}
-		else
-		{
-			throw new NotFoundHttpException(Yii::t('messages', 'У вас нет прав!'));
-		}
-		
-        return parent::afterAction($action, $result);
     }
     
     /**
