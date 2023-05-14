@@ -51,6 +51,21 @@ $this->params['breadcrumbs'][] = $this->title;
 						'lastPageCssClass'=>'last',    // Set CSS class for the "last" page button
 						'maxButtonCount'=>10,    // Set maximum number of page buttons that can be displayed
 					],
+					'rowOptions' => function ($model, $key, $index, $grid)
+					{
+						if($index <= 10)
+						{
+							return ['class' => 'tr_top_10'];
+						}
+                        elseif ($index > 10 && $index <= 50)
+                        {
+	                        return ['class' => 'tr_top_50'];
+                        }
+						else
+						{
+							return [];
+						}
+					},
 					'columns' => [
 						//['class' => 'yii\grid\SerialColumn'],
 						[
@@ -78,6 +93,20 @@ $this->params['breadcrumbs'][] = $this->title;
 							'attribute'=>'referals_count',
 							'label' => Yii::t('form', 'Кол-во рефералов'),
 							'format'=>'raw',//raw, html
+						],
+						[
+							'attribute'=>'active_partners_count',
+							'label' => Yii::t('form', 'Из них активных'),
+							'format'=>'raw',//raw, html
+						],
+						[
+							'attribute' => 'efficiency',
+							'label' => Yii::t('form', 'КПД'),
+							'format'=>'raw',//raw, html
+							'content'=>function ($model)
+							{
+								return round($model->active_partners_count / ($model->referals_count / 100), 2).'%';
+							},
 						],
 							//['class' => 'yii\grid\ActionColumn'],
 					],

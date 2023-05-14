@@ -18,6 +18,7 @@ class TopReferals extends \yii\db\ActiveRecord
 	public $login;
 	public $email;
 	public $referals_count;
+	public $active_partners_count;
 	public $iso;
 	
     /**
@@ -63,7 +64,9 @@ class TopReferals extends \yii\db\ActiveRecord
     public function getTopLeaders($front = false, $limit = 100)
     {
 		$select = ($front) ? '`partners`.`id`, `partners`.`login`, `partners`.`iso`, `top_referals`.`count` AS `referals_count`' : '`partners`.`id`, `partners`.`login`, `partners`.`iso`, `partners`.`email`, `top_referals`.`count` AS `referals_count`';
-		
+		$select.= ', (select count(`partners`.`id`) as `active_partners`
+        from `partners`
+        where `sponsor_id` = `top_referals`.`partner_id` and `matrix_1` > 0) as `active_partners_count`';
 		return self::find()
 		->select($select)
 		->leftJoin('partners', 'partners.id = top_referals.partner_id')
