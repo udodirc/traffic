@@ -1,18 +1,12 @@
 <?php
 namespace common\modules\backoffice\controllers;
 
-use common\models\Content;
-use common\models\Menu;
 use Yii;
-use yii\base\InvalidParamException;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\data\ActiveDataProvider;
-use yii\data\ArrayDataProvider;
 use yii\helpers\ArrayHelper;
 use common\modules\structure\models\Matrix;
-use common\modules\structure\models\Matrix1;
 use common\modules\structure\models\MatrixPayments;
 use common\modules\structure\models\MatrixPaymentsSearch;
 use common\modules\structure\models\DemoMatrixPayments;
@@ -22,34 +16,24 @@ use common\modules\structure\models\DemoInvitePayOffSearch;
 use common\modules\structure\models\InvitePayOff;
 use common\modules\structure\models\InvitePayOffSearch;
 use common\modules\structure\models\TopReferals;
-use common\modules\structure\models\RegisterStats;
 use common\modules\structure\models\DemoLevelsPayment;
 use common\modules\structure\models\LevelsPayment;
 use common\modules\structure\models\LevelsPecentage;
-use common\modules\structure\models\MatricesSettings;
-use common\modules\structure\models\DemoBalls;
-use common\modules\structure\models\Balls;
 use common\modules\structure\models\BallsSearch;
 use common\modules\structure\models\GoldToken;
-use common\modules\structure\models\PaymentsInvoices;
-use common\modules\structure\models\Withdrawal;
 use common\modules\structure\models\forms\ReserveForm;
 use common\modules\structure\models\Payment;
 use common\modules\tickets\models\Tickets;
 use common\modules\tickets\models\TicketsMessages;
-use common\components\geo\Sypexgeo;
 use common\components\geo\IsoHelper;
-use common\components\advacash\Merchant;
 use common\modules\backoffice\models\forms\RequestForm;
 use common\modules\backoffice\models\forms\ChangePasswordForm;
-use common\modules\backoffice\components\PartnersHelper;
 use common\modules\backoffice\models\Partners;
-use common\modules\backoffice\models\forms\LoginForm;
-use common\modules\backoffice\models\forms\PaymentForm;
-use common\modules\backoffice\models\Payments;
 use common\modules\advertisement\models\SponsorAdvert;
 use common\models\Service;
 use common\models\StaticContent;
+use common\models\Content;
+use common\models\Menu;
 use frontend\models\FeedbackForm;
 
 /**
