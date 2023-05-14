@@ -23,29 +23,22 @@ class BackofficeFaqController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ]
+	            'class' => VerbFilter::className(),
+	            'actions' => [
+		            'delete' => ['post'],
+	            ],
+            ],
         ];
     }
     
     public function beforeAction($event)
     {
-	    if($this->user_id > 0 && $this->identity_id > 0)
-	    {
-		    if($this->user_id != $this->identity_id)
-		    {
-			    throw new NotFoundHttpException(Yii::t('messages', 'У вас нет прав!'));
-		    }
-	    }
-	    else
+		$id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
+
+	    if(!$id)
 	    {
 		    throw new NotFoundHttpException(Yii::t('messages', 'У вас нет прав!'));
 	    }
-
-		$id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
 		
 		$this->view->params['tickets_list'] = Tickets::find()->where('partner_id=:id AND status=:status', [':id' => $id, ':status' => Tickets::STATUS_ADMIN_ANSWER])->all();
 		$ticketsModel = new TicketsMessages();
@@ -64,11 +57,7 @@ class BackofficeFaqController extends Controller
     */
     public function actionIndex()
     {
-		$id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
-		$this->user_id = $id;
-		$this->identity_id = $id;
-		
-        $faqList = Faq::find()->where(['type'=>2])->all();
+		$faqList = Faq::find()->where(['type'=>2])->all();
 		
         return $this->render('index'.$this->theme, [
             'faqList'=>$faqList,
