@@ -25,15 +25,16 @@ use common\modules\structure\models\forms\ReserveForm;
 use common\modules\structure\models\Payment;
 use common\modules\tickets\models\Tickets;
 use common\modules\tickets\models\TicketsMessages;
-use common\components\geo\IsoHelper;
 use common\modules\backoffice\models\forms\RequestForm;
 use common\modules\backoffice\models\forms\ChangePasswordForm;
 use common\modules\backoffice\models\Partners;
 use common\modules\advertisement\models\SponsorAdvert;
+use common\modules\structure\models\TopReferalsSearch;
 use common\models\Service;
 use common\models\StaticContent;
 use common\models\Content;
 use common\models\Menu;
+use common\components\geo\IsoHelper;
 use frontend\models\FeedbackForm;
 
 /**
@@ -415,22 +416,20 @@ class FrontendPartnersController extends Controller
 		$this->user_id = $id;
 		$this->identity_id = $id;
 		
-		$model = new TopReferals;
 		$isoList = IsoHelper::getIsoList('en');
-		$dataProvider = new ActiveDataProvider([
-			'query' => $model->getTopLeaders(true),
-			'pagination' => [
-				'pageSize' => 100,
-			],
-		]);
+	    $searchModel = new TopReferalsSearch();
+	    $dataProvider = $searchModel->search(Yii::$app->request->post());
 		$dataProvider->pagination = false;
 		$content = (!is_null(StaticContent::find()->where(['name'=>'top_leaders']))) ? StaticContent::find()->where(['name'=>'top_leaders'])->one() : null;
+		$months = TopReferals::monthList();
 		$this->view->params['title'] = Yii::t('form', 'TOP Активных');
-		
+
 		return $this->render('top_leaders'.$this->theme, [
 			'dataProvider' => $dataProvider,
+			'model' => $searchModel,
 			'isoList' => $isoList,
 			'content' => $content,
+			'months' => $months,
 		]);
 	}
 	

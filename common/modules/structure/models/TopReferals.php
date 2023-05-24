@@ -17,8 +17,6 @@ class TopReferals extends \yii\db\ActiveRecord
 	public $id;
 	public $login;
 	public $email;
-	public $referals_count;
-	public $active_partners_count;
 	public $iso;
 	
     /**
@@ -61,16 +59,31 @@ class TopReferals extends \yii\db\ActiveRecord
         return $this->hasOne(Partners::className(), ['id' => 'partner_id']);
     }
     
-    public function getTopLeaders($front = false, $limit = 100)
+    public function getTopLeaders($front = false)
     {
 		$select = ($front) ? '`partners`.`id`, `partners`.`login`, `partners`.`iso`, `top_referals`.`count` AS `referals_count`' : '`partners`.`id`, `partners`.`login`, `partners`.`iso`, `partners`.`email`, `top_referals`.`count` AS `referals_count`';
-		$select.= ', (select count(`partners`.`id`) as `active_partners`
-        from `partners`
-        where `sponsor_id` = `top_referals`.`partner_id` and `matrix_1` > 0) as `active_partners_count`';
+
 		return self::find()
 		->select($select)
-		->leftJoin('partners', 'partners.id = top_referals.partner_id')
-		->orderBy('`top_referals`.`count` DESC')
-		->limit($limit);
+		->leftJoin('partners', 'partners.id = top_referals.partner_id');
+	}
+
+	public static function monthList()
+	{
+		return [
+			0 => 'Все месяцы',
+			1 => 'Январь',
+			2 => 'Февраль',
+			3 => 'Март',
+			4 => 'Апрель',
+			5 => 'Май',
+			6 => 'Июнь',
+			7 => 'Июль',
+			8 => 'Август',
+			9 => 'Сентябрь',
+			10 => 'Октябрь',
+			11 => 'Ноябрь',
+			12 => 'Декабрь',
+		];
 	}
 }
