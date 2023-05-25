@@ -1,8 +1,10 @@
 <?php
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 use yii\helpers\Url;
 use yii\grid\GridView;
 use common\components\ContentHelper;
+use conquer\select2\Select2Widget;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Content */
@@ -24,6 +26,31 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 </div>
 <div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><?= Yii::t('form', 'ТОП лидеры по месяцам'); ?></h4>
+	            <?php $form = ActiveForm::begin([
+		            'action' => ['/partners/top-leaders'],
+		            'method' => 'post',
+		            'options' => ['class' => 'forms-sample'],
+	            ]); ?>
+                    <div class="form-group row">
+                        <label for="top-leader-month" class="col-sm-3 col-form-label"><?= Yii::t('form', 'Месяц'); ?></label>
+                        <div class="col-sm-9">
+                            <?= $form->field($model, 'month')->widget(
+	                            Select2Widget::className(),
+	                            [
+		                            'items'=>$months
+	                            ]
+                            ); ?>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Поиск</button>
+                <?php ActiveForm::end(); ?>
+            </div>
+        </div>
+    </div>
 	<div class="col-md-6 offset-md-3 grid-margin stretch-card">
 		<div class="card">
 			<?php if (Yii::$app->session->hasFlash('success')): ?>
@@ -53,11 +80,11 @@ $this->params['breadcrumbs'][] = $this->title;
 					],
 					'rowOptions' => function ($model, $key, $index, $grid)
 					{
-						if($index <= 10)
+						if($index < 10)
 						{
 							return ['class' => 'tr_top_10'];
 						}
-                        elseif ($index > 10 && $index <= 50)
+                        elseif ($index >= 10 && $index < 50)
                         {
 	                        return ['class' => 'tr_top_50'];
                         }
@@ -90,7 +117,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							'filter'=>false,
 						],
 						[
-							'attribute'=>'referals_count',
+							'attribute'=>'referrals_count',
 							'label' => Yii::t('form', 'Кол-во рефералов'),
 							'format'=>'raw',//raw, html
 						],
@@ -105,7 +132,10 @@ $this->params['breadcrumbs'][] = $this->title;
 							'format'=>'raw',//raw, html
 							'content'=>function ($model)
 							{
-								return round($model->active_partners_count / ($model->referals_count / 100), 2).'%';
+                                if($model->active_partners_count > 0 && $model->referals_count > 0){
+	                                return round($model->active_partners_count / ($model->referals_count / 100), 2).'%';
+                                }
+								return 0;
 							},
 						],
 							//['class' => 'yii\grid\ActionColumn'],

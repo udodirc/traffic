@@ -62,6 +62,8 @@ class Partners extends ActiveRecord implements IdentityInterface
 	public $wallet;
 	public $open_date;
 	public $ref_count;
+	public $referrals_count;
+	public $active_partners_count;
 
     /**
      * @inheritdoc
@@ -1047,5 +1049,26 @@ class Partners extends ActiveRecord implements IdentityInterface
 		}
 		
 		return $result;
+	}
+
+	public function getTopLeaders($month)
+	{
+		$query = self::find()
+			->select(['COUNT(`active_partners`.`id`)'])
+		    ->from('`partners` `active_partners`')
+		    ->where('`active_partners`.`sponsor_id` = `partners`.`id`')
+		    ->andWhere('`active_partners`.`matrix_1` > 0');
+
+		if($month > 0)
+		{
+			$query->andWhere("MONTH(FROM_UNIXTIME(`partners`.`created_at`, '%y-%m-%d')) = :month", [':month' => $month]);
+		}
+		return self::find()
+			->select(['`partners`.`id`', '`partners`.`login`', '`partners`.`iso`', 'count(`referral_partners`.`id`) AS `referrals_count`',
+				'active_partners_count' => $query
+			])
+		    ->from('`partners`')
+		    ->leftJoin('`partners` `referral_partners`', '`referral_partners`.`sponsor_id` = `partners`.`id`')
+			->groupBy('`partners`.`id`');
 	}
 }

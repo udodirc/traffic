@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ede23baea683d1d4ee60f3ca7154b5c",
+    "content-hash": "f7b8b1e2bd2e5970f33c7411cfed7747",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -380,6 +380,46 @@
             "type": "bower-asset"
         },
         {
+            "name": "bower-asset/select2",
+            "version": "4.1.0-beta.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:ivaynberg/select2.git",
+                "reference": "1c0c2a94d1b70a185baff5b13c654411e2c01339"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivaynberg/select2/zipball/1c0c2a94d1b70a185baff5b13c654411e2c01339",
+                "reference": "1c0c2a94d1b70a185baff5b13c654411e2c01339"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "bower-asset/select2-bootstrap-theme",
+            "version": "0.1.0-beta.10",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:fk/select2-bootstrap-theme.git",
+                "reference": "7ad6e79f01dbb67c5f77ef102f9570266eca1aea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fk/select2-bootstrap-theme/zipball/7ad6e79f01dbb67c5f77ef102f9570266eca1aea",
+                "reference": "7ad6e79f01dbb67c5f77ef102f9570266eca1aea"
+            },
+            "require": {
+                "bower-asset/bootstrap": ">=3.3.4,<4.0.0",
+                "bower-asset/select2": ">=4.0.0,<5.0.0"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "bower-asset/yii2-pjax",
             "version": "2.0.8",
             "source": {
@@ -512,6 +552,118 @@
                 "wiki": "https://ckeditor.com/docs/ckeditor4/latest/"
             },
             "time": "2023-03-22T10:37:38+00:00"
+        },
+        {
+            "name": "conquer/helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/borodulin/yii2-helpers.git",
+                "reference": "fce7205b0e7f9d2673ddb21702ad858287ab8fa3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/borodulin/yii2-helpers/zipball/fce7205b0e7f9d2673ddb21702ad858287ab8fa3",
+                "reference": "fce7205b0e7f9d2673ddb21702ad858287ab8fa3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": ">=2.0.13"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.13.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "conquer\\helpers\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Borodulin",
+                    "email": "borodulin@gmail.com"
+                }
+            ],
+            "description": "Yii2 helpers",
+            "homepage": "https://github.com/borodulin/yii2-helpers",
+            "keywords": [
+                "extension",
+                "helpers",
+                "widget",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/borodulin/yii2-helpers/issues",
+                "source": "https://github.com/borodulin/yii2-helpers"
+            },
+            "time": "2018-03-14T04:09:25+00:00"
+        },
+        {
+            "name": "conquer/select2",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/borodulin/yii2-select2.git",
+                "reference": "bd072e006163555423b6d035763e8d2b042a9343"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/borodulin/yii2-select2/zipball/bd072e006163555423b6d035763e8d2b042a9343",
+                "reference": "bd072e006163555423b6d035763e8d2b042a9343",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/select2": ">=4.0.0",
+                "bower-asset/select2-bootstrap-theme": "*",
+                "conquer/helpers": ">=2.0.7",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": ">=2.0.6"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.5.x-dev",
+                    "dev-release": "1.4.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "conquer\\select2\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Borodulin",
+                    "email": "borodulin@gmail.com"
+                }
+            ],
+            "description": "Yii2 Select2 widget",
+            "homepage": "https://github.com/borodulin/yii2-select2",
+            "keywords": [
+                "extension",
+                "select2",
+                "widget",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/borodulin/yii2-select2/issues",
+                "source": "https://github.com/borodulin/yii2-select2"
+            },
+            "time": "2017-10-27T14:04:40+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -1278,12 +1430,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "f646082b9e3888333d9d2b11749bb965738575a4"
+                "reference": "7b5d2121858cd6efbed778abce9cfdd7ab1f62ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/f646082b9e3888333d9d2b11749bb965738575a4",
-                "reference": "f646082b9e3888333d9d2b11749bb965738575a4",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/7b5d2121858cd6efbed778abce9cfdd7ab1f62ad",
+                "reference": "7b5d2121858cd6efbed778abce9cfdd7ab1f62ad",
                 "shasum": ""
             },
             "require": {
@@ -1353,7 +1505,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-24T14:22:26+00:00"
+            "time": "2023-04-28T15:57:00+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
@@ -2443,12 +2595,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "1a735f050e3246fadccdf8f684122b1f97e4bddb"
+                "reference": "f85772abd508bd04e20bb4b1bbe260a68d0066d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/1a735f050e3246fadccdf8f684122b1f97e4bddb",
-                "reference": "1a735f050e3246fadccdf8f684122b1f97e4bddb",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/f85772abd508bd04e20bb4b1bbe260a68d0066d2",
+                "reference": "f85772abd508bd04e20bb4b1bbe260a68d0066d2",
                 "shasum": ""
             },
             "require": {
@@ -2504,7 +2656,7 @@
                 "issues": "https://github.com/FakerPHP/Faker/issues",
                 "source": "https://github.com/FakerPHP/Faker/tree/main"
             },
-            "time": "2023-04-21T22:02:22+00:00"
+            "time": "2023-05-14T12:31:37+00:00"
         },
         {
             "name": "phpspec/php-diff",
@@ -2883,5 +3035,5 @@
         "php": ">=5.4.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
