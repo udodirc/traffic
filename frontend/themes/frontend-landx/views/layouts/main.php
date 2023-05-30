@@ -119,8 +119,8 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 					<div class="navbar non-sticky">
 						<div class="container">
 							<div class="navbar-header">
-<!--								<img src="images/logo.png" alt="">-->
-							</div>
+                                <?= Html::img(\Yii::getAlias('@web').DIRECTORY_SEPARATOR.Url::to('@frontend_images'.DIRECTORY_SEPARATOR.'logo.jpg'), ['alt'=>'logo', 'title'=>'logo']) ?>
+                            </div>
 							<ul class="nav navbar-nav navbar-right social-navigation hidden-xs">
 								<li><a href="#"><i class="social_facebook_circle"></i></a></li>
 								<li><a href="#"><i class="social_twitter_circle"></i></a></li>
