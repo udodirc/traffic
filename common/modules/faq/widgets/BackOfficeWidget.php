@@ -75,7 +75,7 @@ class BackOfficeWidget extends Widget
 						</a>
 					</h5>
 				</div>
-				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion-1">
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion-{number}">
 					<div class="card-body">
 						<p class="mb-0">{answer}</p>
 					</div>
