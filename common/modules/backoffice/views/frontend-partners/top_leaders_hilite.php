@@ -41,7 +41,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= $form->field($model, 'month')->widget(
 	                            Select2Widget::className(),
 	                            [
-		                            'items'=>$months
+		                            'items'=>$months,
+		                            'bootstrap'=>false
 	                            ]
                             ); ?>
                         </div>
