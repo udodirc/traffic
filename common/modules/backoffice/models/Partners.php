@@ -1064,7 +1064,7 @@ class Partners extends ActiveRecord implements IdentityInterface
 			$query->andWhere("MONTH(FROM_UNIXTIME(`partners`.`created_at`, '%y-%m-%d')) = :month", [':month' => $month]);
 		}
 		return self::find()
-			->select(['`partners`.`id`', '`partners`.`login`', '`partners`.`iso`', 'count(`referral_partners`.`id`) AS `referrals_count`',
+			->select(['`partners`.`id`', '`partners`.`login`', '`partners`.`email`', '`partners`.`iso`', 'count(`referral_partners`.`id`) AS `referrals_count`',
 				'active_partners_count' => $query
 			])
 		    ->from('`partners`')
