@@ -1,6 +1,7 @@
 <?php
 namespace common\modules\backoffice\controllers;
 
+use common\modules\structure\models\TopReferalsSearch;
 use Yii;
 use common\modules\structure\models\MatrixStructureSearch;
 use common\modules\structure\models\TopReferals;
@@ -628,16 +629,23 @@ class BackendPartnersController extends Controller
     {
 		$this->permission = 'view';
 		
-		$model = new TopReferals;
-		$dataProvider = new ActiveDataProvider([
-			'query' => $model->getTopLeaders(),
-			'pagination' => [
-				'pageSize' => 100,
-			],
-		]);
+//		$model = new TopReferals;
+//		$dataProvider = new ActiveDataProvider([
+//			'query' => $model->getTopLeaders(),
+//			'pagination' => [
+//				'pageSize' => 100,
+//			],
+//		]);
+
+		$searchModel = new TopReferalsSearch();
+		$dataProvider = $searchModel->search(Yii::$app->request->post());
+		$dataProvider->pagination->pageSize = 100;
+		$months = TopReferals::monthList();
 		
 		return $this->render('top_leaders', [
 			'dataProvider' => $dataProvider,
+			'model' => $searchModel,
+			'months' => $months,
 		]);
 	}
 	

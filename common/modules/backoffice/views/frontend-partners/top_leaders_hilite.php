@@ -97,6 +97,15 @@ $this->params['breadcrumbs'][] = $this->title;
 					'columns' => [
 						//['class' => 'yii\grid\SerialColumn'],
 						[
+							'attribute' => 'index',
+							'label' => Yii::t('form', '#'),
+							'format'=>'raw',//raw, html
+							'content'=>function ($model, $key, $index)
+							{
+								return $index + 1;
+							},
+						],
+						[
 							'attribute' => 'login', 
 							//'label' => Yii::t('form', 'Логин спонсора'),
 							'format'=>'raw',//raw, html
@@ -133,8 +142,8 @@ $this->params['breadcrumbs'][] = $this->title;
 							'format'=>'raw',//raw, html
 							'content'=>function ($model)
 							{
-                                if($model->active_partners_count > 0 && $model->referals_count > 0){
-	                                return round($model->active_partners_count / ($model->referals_count / 100), 2).'%';
+                                if($model->active_partners_count > 0 && $model->referrals_count > 0){
+	                                return round($model->active_partners_count / ($model->referrals_count / 100), 2).'%';
                                 }
 								return 0;
 							},

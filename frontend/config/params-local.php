@@ -1,5 +1,6 @@
 <?php
-Yii::setAlias('@frontend_theme', 'frontend_neon');
+Yii::setAlias('@frontend_theme', 'frontend-landx');
+Yii::setAlias('@frontend_images', 'frontend/themes/'.Yii::getAlias('@frontend_theme').'/assets/images');
 Yii::setAlias('@backoffice_theme', 'backoffice-hilite/assets');
 Yii::setAlias('@backoffice_images', 'frontend/themes/'.Yii::getAlias('@backoffice_theme').'/images');
 Yii::setAlias('@backoffice_css', 'frontend/themes/'.Yii::getAlias('@backoffice_theme').'/css');

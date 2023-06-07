@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Content */
@@ -10,6 +11,35 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="partner-info-view">
+    <div class="filter-form">
+		<?php $form = ActiveForm::begin([
+			'action'=>['backend-partners/top-leaders/index'],
+			'method' => 'post',
+			'id' => 'filter-form',
+			'fieldConfig' =>
+				[
+					'options' => [
+						'tag'=>'span'
+					]
+				],
+		]);?>
+        <div class="form-group" style="overflow:hidden;">
+			<?= Html::submitButton(Yii::t('form', 'Очистить поиск'), ['class' => 'button-blue', 'onClick'=>'reset_form();']) ?>
+        </div>
+        <div class="selector">
+			<?= $form->field($model, 'month', [
+				'template' => '<div class="col-md-6">
+				{label}{input}{hint}{error}
+			</div>',
+				'inputOptions' => []])->dropDownList($months, ['prompt'=>'Выбрать', 'style'=>'width:200px;'])->label(Yii::t('form', 'Месяц')); ?>
+        </div>
+        <div class="form-group" style="overflow:hidden;">
+            <div style="float:right;">
+				<?= Html::submitButton(Yii::t('form', 'Поиск'), ['class' => 'button-blue']) ?>
+            </div>
+        </div>
+		<?php ActiveForm::end(); ?>
+    </div>
 	<h1><?= Html::encode($this->title) ?></h1>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -36,10 +66,27 @@ $this->params['breadcrumbs'][] = $this->title;
 			],
 			'email',
 			[
-				'attribute'=>'referals_count',
+				'attribute'=>'referrals_count',
 				'label' => Yii::t('form', 'Кол-во рефералов'),
 				'format'=>'raw',//raw, html
 			],
+	        [
+		        'attribute'=>'active_partners_count',
+		        'label' => Yii::t('form', 'Из них активных'),
+		        'format'=>'raw',//raw, html
+	        ],
+	        [
+		        'attribute' => 'efficiency',
+		        'label' => Yii::t('form', 'КПД'),
+		        'format'=>'raw',//raw, html
+		        'content'=>function ($model)
+		        {
+			        if($model->active_partners_count > 0 && $model->referrals_count > 0){
+				        return round($model->active_partners_count / ($model->referrals_count / 100), 2).'%';
+			        }
+			        return 0;
+		        },
+	        ],
             //['class' => 'yii\grid\ActionColumn'],
         ],
     ]);
