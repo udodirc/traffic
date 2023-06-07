@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				],
 		]);?>
         <div class="form-group" style="overflow:hidden;">
-			<?= Html::submitButton(Yii::t('form', 'Очистить поиск'), ['class' => 'button-blue', 'onClick'=>'reset_form();']) ?>
+			<?= Html::submitButton(Yii::t('form', 'Очистить поиск123'), ['class' => 'button-blue', 'onClick'=>'reset_form();']) ?>
         </div>
         <div class="selector">
 			<?= $form->field($model, 'month', [
