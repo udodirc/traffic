@@ -175,10 +175,12 @@ return [
 	'demo_structure_count' => 100,
 	'demo_structure_type' => true,
 	'demo_structure_activation' => false,
+    'demo_activation' => false,
 	'structure_type' => 2,
+    'partners_count' => true,
 	'activation_amount' => 50,
 	'activate_matrices'=>[
-		'1'=>Yii::t('form', 'Матрица').' 1', 
+		'1'=>Yii::t('form', 'Матрица').' 1',
 		'2'=>Yii::t('form', 'Матрица'.' 2'), 
 	],
 	'level_structure_percentage'=>[
@@ -189,8 +191,8 @@ return [
 		5 => 1,
 	],
 	'structures'=>[
-		'1'=>Yii::t('form', 'Короткие матрицы'), 
-		/*'2'=>Yii::t('form', 'Глубокие матрицы'), 
+		'1'=>Yii::t('form', 'Глубокие матрицы'),
+		/*'2'=>Yii::t('form', 'Короткие матрицы'),
 		'3'=>Yii::t('form', 'Структура 3'),*/
 	],
 	'payments_csv_dir'=>[

@@ -949,33 +949,40 @@ class Matrix extends Model
 		return $result;
 	}
 	
-	public function createDemoStructure($partnersCount, $demo = true)
+	public function createDemoStructure()
     {
 		$result = false;
 		$structureType = (isset(\Yii::$app->params['structure_type'])) ? \Yii::$app->params['structure_type'] : 0;
 				
 		if($structureType > 0)
 		{
+			$demo = (isset(\Yii::$app->params['demo_activation'])) ? \Yii::$app->params['demo_activation'] : false;
+			$partnersCount = (isset(\Yii::$app->params['partners_count'])) ? \Yii::$app->params['partners_count'] : false;
+			$partnersCount = ($partnersCount) ? Partners::find()->count() : 100;
+
+			echo $partnersCount;
+			var_dump($demo);
+
 			$where = '';
 			$where.= ($demo) ? 'demo_' : '';
 			echo $where.'matrix'.'<br/>';
 			$partnersList = ArrayHelper::index(Partners::find()->select(['id', 'sponsor_id', 'created_at'])->where([$where.'matrix_1' => 0])->limit($partnersCount)->orderBY('`created_at` ASC')->asArray()->all(), 'id');
-		
+
 			echo $partnersCount.' - partnersCount'.'<br/>';
 			echo '<pre>';
 			print_r($partnersList);
 			echo '</pre>';
-		
+
 			if(!empty($partnersList))
 			{
 				$time_start = microtime(true);
-				
+
 				foreach($partnersList as $partnerID => $partnerData)
 				{
 					echo $partnerID.'<br/>';
 					echo $partnerData['sponsor_id'].'<br/>';
 					echo $partnerData['created_at'].'<br/>';
-						
+
 					if($structureType > 1)
 					{
 						$result = $this->addPartnerInStructure($partnerData['sponsor_id'], $partnerID, 1, 1, $partnerData['created_at'], $demo, 1);
@@ -989,7 +996,7 @@ class Matrix extends Model
 					{
 						$model = (Partners::findOne($partnerID) !== null) ? Partners::findOne($partnerID) : null;
 						$result = $this->activateLevelMatrix($model, true);
-							
+
 						if(!$result)
 						{
 							echo 'Bug! - '.$partnerID.'<br/>';
@@ -997,7 +1004,7 @@ class Matrix extends Model
 						}
 					}
 				}
-				
+
 				$time_end = microtime(true);
 
 				//dividing with 60 will give the execution time in minutes other wise seconds
