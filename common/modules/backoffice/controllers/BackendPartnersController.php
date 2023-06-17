@@ -1068,7 +1068,7 @@ class BackendPartnersController extends Controller
     public function actionCreateDemoStructure()
     {
         $matrix = new Matrix();
-        $matrix->createDemoStructure(100, false);
+        $matrix->createDemoStructure();
     }
     
     /**
