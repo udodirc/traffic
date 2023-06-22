@@ -33,6 +33,8 @@ phpunit.phar
 /frontend/runtime
 /backend/runtime
 /frontend/config/main.php
+/frontend/web/assets
+/backend/web/assets
 /assets
 /frontend/config/main.php
 /admin/uploads
