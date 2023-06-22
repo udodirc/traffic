@@ -564,7 +564,7 @@ class FrontendPartnersController extends Controller
 		
 		$data = Matrix::getMatrixDataByLevel($structure, $matrix, $matrix_id, $level, $demo);
 		
-		return $this->render('matrix_by_level', [
+		return $this->render('matrix_by_level'.$this->theme, [
 			'data' => $data,
 			'id' => $id,
 			'structure_number' => $structure,
@@ -589,7 +589,7 @@ class FrontendPartnersController extends Controller
 			$goldTokenList = (!empty($goldTokenList)) ? ArrayHelper::map($goldTokenList, 'matrix_id', 'amount') : [];
 			$data = (!empty($matricesSettings)) ? Matrix::getMatrixDataByID($structure, $number, $matrix_id, $demo) : [];
 			
-			return $this->render('matrix_by_id', [
+			return $this->render('matrix_by_id'.$this->theme, [
 				'data' => $data,
 				'model' => $partnerModel,
 				'id' => $matrix_id,
