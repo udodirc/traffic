@@ -969,9 +969,9 @@ class Matrix extends Model
 			$partnersList = ArrayHelper::index(Partners::find()->select(['id', 'sponsor_id', 'created_at'])->where([$where.'matrix_1' => 0])->limit($partnersCount)->orderBY('`created_at` ASC')->asArray()->all(), 'id');
 
 			echo $partnersCount.' - partnersCount'.'<br/>';
-			echo '<pre>';
+			/*echo '<pre>';
 			print_r($partnersList);
-			echo '</pre>';
+			echo '</pre>';*/
 
 			if(!empty($partnersList))
 			{

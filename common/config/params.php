@@ -175,7 +175,7 @@ return [
 	'demo_structure_count' => 100,
 	'demo_structure_type' => true,
 	'demo_structure_activation' => false,
-    'demo_activation' => false,
+    'demo_activation' => true,
 	'structure_type' => 2,
     'partners_count' => true,
 	'activation_amount' => 50,
