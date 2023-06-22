@@ -108,12 +108,13 @@ class FrontendTextAdvertController extends Controller
         return $this->render('partner-advert-list', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'content' => $content
+            'content' => $content,
+            'user' => true
         ]);
     }
     
     /**
-     * Creates a new Tickets model.
+     * Creates a new Text Advert model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -130,8 +131,8 @@ class FrontendTextAdvertController extends Controller
         {
 			$class = 'error';
 			$msg = Yii::t('messages', 'Ошибка!');
-			
-			if($model->save())
+
+			if($model->save(false))
 			{
 				$class = 'success';
 				$msg = Yii::t('messages', 'Запись добавлена');
@@ -144,6 +145,47 @@ class FrontendTextAdvertController extends Controller
         
         return $this->render('create', [
 			'model' => $model,
+			'id' => $id,
         ]);
     }
+
+	/**
+	 * Creates a new Text Advert model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 * @return mixed
+	 */
+	public function actionUpdate($id) {
+		$this->user_id     = $id;
+		$this->identity_id = $id;
+
+		$model = $this->findModel($id);
+
+		if($model->load(Yii::$app->request->post()) && $model->save())
+		{
+			return $this->redirect(['index']);
+		}
+		else
+		{
+			return $this->render('update', [
+				'model' => $model,
+				'id' => $id,
+			]);
+		}
+	}
+
+	/**
+	 * Finds the News model based on its primary key value.
+	 * If the model is not found, a 404 HTTP exception will be thrown.
+	 * @param integer $id
+	 * @return TextAdvert the loaded model
+	 * @throws NotFoundHttpException if the model cannot be found
+	 */
+	protected function findModel($id)
+	{
+		if (($model = TextAdvert::findOne($id)) !== null) {
+			return $model;
+		} else {
+			throw new NotFoundHttpException(Yii::t('messages', 'Эта страница не существует!'));
+		}
+	}
 }

@@ -74,7 +74,7 @@ class TextAdvertSearch extends TextAdvert
      */
     public function search($id, $params)
     {
-        $query = TextAdvert::find()->with('partner')->where('`status` > 0 AND `id` = :id', [':id' => $id]);
+        $query = TextAdvert::find()->with('partner')->where('`status` > 0 AND `partner_id` = :id', [':id' => $id]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -88,23 +88,23 @@ class TextAdvertSearch extends TextAdvert
             return $dataProvider;
         }
         
-        $query->andFilterWhere([
-            '`partners`.`login`' => trim($this->login)
-        ]);
-
-        $query->andFilterWhere([
-            '`text_advert`.`id`' => $this->id,
-            '`text_advert`.`balls`' => $this->balls,
-            '`text_advert`.`status`' => $this->status
-        ]);
-
-        $query->andFilterWhere(['like', '`text_advert`.`title`', $this->title])
-            ->andFilterWhere(['like', '`text_advert`.`link`', $this->link]);
-            
-        if($this->date_from != '' && $this->date_to != '') 
-		{
-			$query->andFilterWhere(['between', '`text_advert`.`created_at`', strtotime($this->date_from), strtotime($this->date_to)]);
-		}
+//        $query->andFilterWhere([
+//            '`partners`.`login`' => trim($this->login)
+//        ]);
+//
+//        $query->andFilterWhere([
+//            '`text_advert`.`id`' => $this->id,
+//            '`text_advert`.`balls`' => $this->balls,
+//            '`text_advert`.`status`' => $this->status
+//        ]);
+//
+//        $query->andFilterWhere(['like', '`text_advert`.`title`', $this->title])
+//            ->andFilterWhere(['like', '`text_advert`.`link`', $this->link]);
+//
+//        if($this->date_from != '' && $this->date_to != '')
+//		{
+//			$query->andFilterWhere(['between', '`text_advert`.`created_at`', strtotime($this->date_from), strtotime($this->date_to)]);
+//		}
         
         $query->orderBy('`text_advert`.`created_at` DESC');
 

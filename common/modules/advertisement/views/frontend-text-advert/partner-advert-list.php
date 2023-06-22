@@ -61,8 +61,8 @@ $this->params['breadcrumbs'][] = $this->title;
 				'dataProvider' => $dataProvider,
 				'options' => [],
 				'layout' => "{pager}\n{items}\n",
-				'itemView' => function ($model, $key, $index, $widget) {
-					return $this->render('partial/_advert_list_item',['model' => $model]);
+				'itemView' => function ($model, $key, $index, $widget) use ($user) {
+					return $this->render('partial/_advert_list_item'.(($user) ? '_user' : ''),['model' => $model]);
 				},
 				'pager' => [
 					'maxButtonCount' => 10,

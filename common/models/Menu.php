@@ -327,7 +327,7 @@ class Menu extends \yii\db\ActiveRecord
 				]
 			];
 			
-			/*$result[] = [
+			$result[] = [
 				'label' => Yii::t('menu', 'Текстовая реклама'),
 				'options'=>['class'=>'has-child-item close-item'],
 				'template' => '<a>
@@ -346,7 +346,7 @@ class Menu extends \yii\db\ActiveRecord
 						'template' => '<a href="{url}">{label}</a>'
 					],
 				]
-			];*/
+			];
 		}
 		
 		$access = true;
