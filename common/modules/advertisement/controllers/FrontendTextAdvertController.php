@@ -98,9 +98,9 @@ class FrontendTextAdvertController extends Controller
 		$id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
 		$this->user_id = $id;
 		$this->identity_id = $id;
-		
-        $searchModel = new TextAdvertSearch();
-        $dataProvider = $searchModel->search($id, Yii::$app->request->queryParams);
+
+		$searchModel = new TextAdvertSearch();
+        $dataProvider = $searchModel->search($id, Yii::$app->request->post());
         $dataProvider->pagination->pageSize = Service::getPageSize();
         $content = (!is_null(StaticContent::find()->where(['name'=>'partner-text-advert']))) ? StaticContent::find()->where(['name'=>'partner-text-advert'])->one() : null;
 		$this->view->params['title'] = Yii::t('form', 'Текстовая реклама партнера');
@@ -145,32 +145,49 @@ class FrontendTextAdvertController extends Controller
         
         return $this->render('create', [
 			'model' => $model,
-			'id' => $id,
+			'partnerID' => $id
         ]);
     }
 
 	/**
-	 * Creates a new Text Advert model.
+	 * Update a sText Advert model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 * @return mixed
 	 */
 	public function actionUpdate($id) {
-		$this->user_id     = $id;
-		$this->identity_id = $id;
+		$partnerID = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
+		$this->user_id = $partnerID;
+		$this->identity_id = $partnerID;
 
 		$model = $this->findModel($id);
 
 		if($model->load(Yii::$app->request->post()) && $model->save())
 		{
-			return $this->redirect(['index']);
+			return $this->redirect(['partner-advert-list']);
 		}
 		else
 		{
 			return $this->render('update', [
 				'model' => $model,
 				'id' => $id,
+				'partnerID' => $partnerID,
 			]);
 		}
+	}
+
+	/**
+	 * Deletes an existing Text Advert model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 * @return mixed
+	 */
+	public function actionDelete($id) {
+		$partnerID = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
+		$this->user_id = $partnerID;
+		$this->identity_id = $partnerID;
+
+		$this->findModel($id)->delete();
+
+		return $this->redirect(['partner-advert-list']);
 	}
 
 	/**

@@ -22,9 +22,9 @@ class TextAdvertSearch extends TextAdvert
     public function rules()
     {
         return [
-            [['id', 'partner_id', 'status', 'balls'], 'integer'],
+            //[['id', 'partner_id', 'status', 'balls'], 'integer'],
             [['title', 'link'], 'string'],
-            [['date_from', 'date_to'], 'checkDate', 'skipOnEmpty' => false, 'skipOnError' => false],
+            //[['date_from', 'date_to'], 'checkDate', 'skipOnEmpty' => false, 'skipOnError' => false],
         ];
     }
     
@@ -98,8 +98,8 @@ class TextAdvertSearch extends TextAdvert
 //            '`text_advert`.`status`' => $this->status
 //        ]);
 //
-//        $query->andFilterWhere(['like', '`text_advert`.`title`', $this->title])
-//            ->andFilterWhere(['like', '`text_advert`.`link`', $this->link]);
+        $query->andFilterWhere(['like', '`text_advert`.`title`', $this->title])
+            ->andFilterWhere(['like', '`text_advert`.`link`', $this->link]);
 //
 //        if($this->date_from != '' && $this->date_to != '')
 //		{

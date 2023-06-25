@@ -11,7 +11,7 @@ use yii\helpers\Url;
 			</div>
 			<!-- panel body -->
 			<div class="panel-body">
-				<?= Html::a($model->text, 'https://'.$model->link, [
+				<?= Html::a($model->text, $model->link, [
 					'title'=>$model->title,
 					'target'=>'_blank'
 				]); ?>

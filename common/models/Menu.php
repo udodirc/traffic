@@ -326,25 +326,20 @@ class Menu extends \yii\db\ActiveRecord
 					],*/
 				]
 			];
-			
+
 			$result[] = [
 				'label' => Yii::t('menu', 'Текстовая реклама'),
-				'options'=>['class'=>'has-child-item close-item'],
-				'template' => '<a>
-				<i class="fa fa-files-o" aria-hidden="true"></i>
-				<span>{label}</span>
-				</a>',
+				'url' => '#text-advert',
+				'ui' => 'text-advert',
 				'items' => [
 					[
-						'label' => Yii::t('menu', 'Вся реклама'), 
+						'label' => Yii::t('menu', 'Вся реклама'),
 						'url' => ['/partners/text-advert-list'],
-						'template' => '<a href="{url}">{label}</a>'
 					],
 					[
-						'label' => Yii::t('menu', 'Моя реклама'), 
+						'label' => Yii::t('menu', 'Моя реклама'),
 						'url' => ['/partners/partner-text-advert'],
-						'template' => '<a href="{url}">{label}</a>'
-					],
+					]
 				]
 			];
 		}

@@ -43,6 +43,6 @@ use yii\widgets\ActiveForm;
 			'class'=>'error mt-2 text-danger'
 		]); ?>
 	</div>
-<?= Html::activehiddenInput($model, 'partner_id', ['value'=>$id]); ?>
+<?= Html::activehiddenInput($model, 'partner_id', ['value'=>$partnerID]); ?>
 <?= Html::submitButton($model->isNewRecord ? Yii::t('form', 'Создать') : Yii::t('form', 'Обновить'), ['class' => 'btn btn-primary mr-2']) ?>
 <?php ActiveForm::end(); ?>
