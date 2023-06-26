@@ -72,9 +72,11 @@ class TextAdvertSearch extends TextAdvert
      *
      * @return ActiveDataProvider
      */
-    public function search($id, $params)
+    public function search($id, $params, $admin = false)
     {
-        $query = TextAdvert::find()->with('partner')->where('`status` > 0 AND `partner_id` = :id', [':id' => $id]);
+        $query = ($admin)
+	        ? TextAdvert::find()->with('partner')
+	        : TextAdvert::find()->with('partner')->where('`status` > 0 AND `partner_id` = :id', [':id' => $id]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

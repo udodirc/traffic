@@ -221,6 +221,8 @@ return [
                 'payments-settings/index'=>'settings/payments-settings',
                 'modules-settings/index'=>'settings/modules-settings',
                 'modules-settings'=>'settings/modules-settings',
+				'advert/text-advert'=>'advertisement/backend-text-advert/index',
+				'advert/backend-text-advert/status'=>'advertisement/backend-text-advert/status',
                 'seo/backend-seo/index-page/index'=>'seo/backend-seo/index-page',
                 'test/create-demo-structure'=>'backoffice/backend-partners/create-demo-structure'
             ]
