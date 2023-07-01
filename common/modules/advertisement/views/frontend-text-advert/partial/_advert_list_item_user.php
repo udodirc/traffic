@@ -13,10 +13,19 @@ use yii\helpers\Html;
 	                    ]); ?>
                     </div>
                     <div style="margin-left: auto;">
-                        <i class="mdi mdi-cellphone-link icon-sm align-self-center mr-3">
+                        <i class="align-self-center mr-3">
+                            Общее количество баллов:<?= $model->balls; ?>
+                        </i>
+                        <i class="align-self-center mr-3">
+                            Остаток баллов:<?= $model->counter; ?>
+                        </i>
+                        <i class="align-self-center mr-3">
+                            Количество показов:<?= $model->clickCount; ?>
+                        </i>
+                        <i class="align-self-center mr-3">
                             <?= Html::a('Редактировать', \Yii::$app->request->BaseUrl.'/partners/text-advert/edit/'.$model->id, []); ?>
                         </i>
-                        <i class="mdi mdi-cellphone-link icon-sm align-self-center mr-3">
+                        <i class="align-self-center mr-3">
                             <?= Html::a('Удалить', \Yii::$app->request->BaseUrl.'/partners/text-advert/delete/'.$model->id, []); ?>
                         </i>
                     </div>

@@ -76,7 +76,15 @@ class TextAdvertSearch extends TextAdvert
     {
         $query = ($admin)
 	        ? TextAdvert::find()->with('partner')
-	        : TextAdvert::find()->with('partner')->where('`status` > 0 AND `partner_id` = :id', [':id' => $id]);
+	        : TextAdvert::find()
+			    ->select([
+					'{{text_advert}}.*',
+				    'COUNT({{text_advert_balls}}.id) AS clickCount'
+			    ])
+			    ->joinWith('advertBalls')
+		        ->joinWith('partner')
+		        ->where('`text_advert`.`status` > 0 AND `text_advert`.`partner_id` = :id', [':id' => $id])
+			    ->groupBy('{{text_advert}}.id');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -109,7 +117,8 @@ class TextAdvertSearch extends TextAdvert
 //		}
         
         $query->orderBy('`text_advert`.`created_at` DESC');
-
+//		echo $query->createCommand()->getRawSql();
+//		die();
         return $dataProvider;
     }
 }

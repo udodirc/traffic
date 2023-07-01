@@ -1,6 +1,7 @@
 <?php
 namespace common\modules\backoffice\models;
 
+use common\modules\advertisement\models\TextAdvert;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -531,6 +532,12 @@ class Partners extends ActiveRecord implements IdentityInterface
 	public function getWithdrawal()
 	{
 		return $this->hasMany(Withdrawal::className(), ['partner_id' => 'id']);
+	}
+
+	public function getTextAdverts()
+	{
+		return $this->hasMany(TextAdvert::class, ['id' => 'advert_id'])
+			->viaTable('text_advert_balls', ['user_id' => 'id']);
 	}
     
     public function registerPartner($structureNumber, $model, $demo_structure = true)

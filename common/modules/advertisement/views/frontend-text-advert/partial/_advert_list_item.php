@@ -11,7 +11,7 @@ use yii\helpers\Url;
 			</div>
 			<!-- panel body -->
 			<div class="panel-body">
-				<?= Html::a($model->text, $model->link, [
+				<?= Html::a($model->text, \Yii::$app->request->BaseUrl.'/partners/text-advert/link/'.$model->id, [
 					'title'=>$model->title,
 					'target'=>'_blank'
 				]); ?>

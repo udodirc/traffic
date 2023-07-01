@@ -1,17 +1,21 @@
 <?php
 namespace common\modules\advertisement\controllers;
 
+use common\modules\advertisement\repositories\TextAdvertBallsRepository;
+use common\modules\advertisement\services\TextAdvertRequestService;
+use common\modules\backoffice\models\Partners;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 use common\models\Service;
 use common\models\StaticContent;
 use common\modules\tickets\models\Tickets;
 use common\modules\tickets\models\TicketsMessages;
 use common\modules\advertisement\models\TextAdvert;
 use common\modules\advertisement\models\TextAdvertSearch;
+use common\modules\advertisement\repositories\TextAdvertRepository;
+use common\models\DbBase;
 
 /**
  * FrontendTextAdvertController
@@ -21,6 +25,17 @@ class FrontendTextAdvertController extends Controller
 	public $layout = 'back_office';
 	protected $user_id;
 	protected $identity_id;
+	private TextAdvertRepository $textAdvertRepository;
+	private TextAdvertRequestService $textAdvertRequestService;
+
+//	public function __construct
+//	(
+//		//TextAdvertRequestService $textAdvertRequestService
+//	)
+//	{
+//		//$this->textAdvertRequestService = $textAdvertRequestService;
+//		$this->textAdvertRepository = new TextAdvertRepository(new TextAdvert, new DbBase);
+//	}
 	
     /**
      * @inheritdoc
@@ -78,7 +93,10 @@ class FrontendTextAdvertController extends Controller
 		$this->identity_id = $id;
 		
         $advertList = new ActiveDataProvider([
-			'query' => TextAdvert::find()->where('status > 0')->orderBy('created_at DESC'),
+			'query' => TextAdvert::find()
+			           ->where('status > 0')
+			           ->andWhere('counter > 0')
+			           ->orderBy('created_at DESC'),
 			'pagination' => [
 				'pageSize' => Service::getPageSize(),
 			],
@@ -129,10 +147,11 @@ class FrontendTextAdvertController extends Controller
 		
         if($model->load(Yii::$app->request->post())) 
         {
+	        $model->counter = $model->balls;
 			$class = 'error';
 			$msg = Yii::t('messages', 'Ошибка!');
 
-			if($model->save(false))
+			if($model->save())
 			{
 				$class = 'success';
 				$msg = Yii::t('messages', 'Запись добавлена');
@@ -188,6 +207,44 @@ class FrontendTextAdvertController extends Controller
 		$this->findModel($id)->delete();
 
 		return $this->redirect(['partner-advert-list']);
+	}
+
+	/**
+	 * Redirect to link.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 * @return mixed
+	 */
+	public function actionLink($id) {
+		$partnerID = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
+		$this->user_id = $partnerID;
+		$this->identity_id = $partnerID;
+
+		$model = $this->findModel($id);
+		$textAdvertBalls = (isset(\Yii::$app->params['text_advert_balls']))
+			? Yii::$app->params['text_advert_balls']
+			: 0;
+		$textAdvertStructureBalls = (isset(\Yii::$app->params['text_advert_balls']))
+			? Yii::$app->params['text_advert_structure_balls']
+			: 0;
+
+		if($textAdvertBalls > 0 && $textAdvertStructureBalls > 0)
+		{
+			$container = \Yii::$container;
+
+			if($container->get(TextAdvertRequestService::class)->isTextAdvertShowed($id, $partnerID))
+			{
+				$advertUserID = $model->partner->id;
+				$container->get(TextAdvertRepository::class)->setBalls(
+					$partnerID,
+					$advertUserID,
+					$id,
+					$textAdvertBalls,
+					$textAdvertStructureBalls
+				);
+			}
+		}
+
+		return $this->redirect($model->link);
 	}
 
 	/**
