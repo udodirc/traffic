@@ -28,7 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div><!-- /.flash-success -->
 	<?php endif; ?>
     <p>
-        <?= Html::a(Yii::t('form', 'Редактировать'), ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
         <?= Html::a(Yii::t('form', 'Удалить'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -41,18 +40,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            [
-				'label'  => Yii::t('form', 'Контроллер'),
-				'value'  => isset($controler_list[$model->controller_id]) ? $controler_list[$model->controller_id] : '',
-			],
             'title',
-            'content',
+            'link',
+	        'text',
+	        'balls',
             [
 				'attribute' => 'created_at', 
 				'format' => ['date', 'php:Y-m-d H:i:s'],
 				'filter'=>false,
 			],
         ],
-        'template' => "<tr><th style='width: 20%;'>{label}</th><td>{value}</td></tr>"
+        'template' => "<tr><th style='width: 15%;'>{label}</th><td>{value}</td></tr>"
     ]) ?>
 </div>

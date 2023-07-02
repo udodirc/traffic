@@ -22,9 +22,9 @@ class TextAdvertSearch extends TextAdvert
     public function rules()
     {
         return [
-            [['id', 'partner_id', 'status', 'balls'], 'integer'],
+            //[['id', 'partner_id', 'status', 'balls'], 'integer'],
             [['title', 'link'], 'string'],
-            [['date_from', 'date_to'], 'checkDate', 'skipOnEmpty' => false, 'skipOnError' => false],
+            //[['date_from', 'date_to'], 'checkDate', 'skipOnEmpty' => false, 'skipOnError' => false],
         ];
     }
     
@@ -72,9 +72,19 @@ class TextAdvertSearch extends TextAdvert
      *
      * @return ActiveDataProvider
      */
-    public function search($id, $params)
+    public function search($id, $params, $admin = false)
     {
-        $query = TextAdvert::find()->with('partner')->where('`status` > 0 AND `id` = :id', [':id' => $id]);
+        $query = ($admin)
+	        ? TextAdvert::find()->with('partner')
+	        : TextAdvert::find()
+			    ->select([
+					'{{text_advert}}.*',
+				    'COUNT({{text_advert_balls}}.id) AS clickCount'
+			    ])
+			    ->joinWith('advertBalls')
+		        ->joinWith('partner')
+		        ->where('`text_advert`.`status` > 0 AND `text_advert`.`partner_id` = :id', [':id' => $id])
+			    ->groupBy('{{text_advert}}.id');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -88,26 +98,27 @@ class TextAdvertSearch extends TextAdvert
             return $dataProvider;
         }
         
-        $query->andFilterWhere([
-            '`partners`.`login`' => trim($this->login)
-        ]);
-
-        $query->andFilterWhere([
-            '`text_advert`.`id`' => $this->id,
-            '`text_advert`.`balls`' => $this->balls,
-            '`text_advert`.`status`' => $this->status
-        ]);
-
+//        $query->andFilterWhere([
+//            '`partners`.`login`' => trim($this->login)
+//        ]);
+//
+//        $query->andFilterWhere([
+//            '`text_advert`.`id`' => $this->id,
+//            '`text_advert`.`balls`' => $this->balls,
+//            '`text_advert`.`status`' => $this->status
+//        ]);
+//
         $query->andFilterWhere(['like', '`text_advert`.`title`', $this->title])
             ->andFilterWhere(['like', '`text_advert`.`link`', $this->link]);
-            
-        if($this->date_from != '' && $this->date_to != '') 
-		{
-			$query->andFilterWhere(['between', '`text_advert`.`created_at`', strtotime($this->date_from), strtotime($this->date_to)]);
-		}
+//
+//        if($this->date_from != '' && $this->date_to != '')
+//		{
+//			$query->andFilterWhere(['between', '`text_advert`.`created_at`', strtotime($this->date_from), strtotime($this->date_to)]);
+//		}
         
         $query->orderBy('`text_advert`.`created_at` DESC');
-
+//		echo $query->createCommand()->getRawSql();
+//		die();
         return $dataProvider;
     }
 }

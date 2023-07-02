@@ -231,4 +231,6 @@ return [
     'is_signup_captcha_allowed'=>true,
     'is_ticket_captcha_allowed'=>true,
     'geo_duration'=>100000,
+    'text_advert_balls'=>1,
+    'text_advert_structure_balls'=>1,
 ];
