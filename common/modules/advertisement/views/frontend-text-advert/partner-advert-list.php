@@ -78,9 +78,9 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="panel-title"><?= Html::encode($this->title); ?></div>
 				<div class="panel-options"></div>
 			</div>
-			<div class="panel-body right">
+			<div class="panel-body" align="right">
                 <?= Html::a(Yii::t('form', 'Создать'), \Yii::$app->request->BaseUrl.'/partners/text-advert/create', ['class' => 'btn btn-success']) ?>
-			</div>
+            </div>
 			<!-- panel body -->
 			<div class="panel-body text-advert">
 			<?= ListView::widget([

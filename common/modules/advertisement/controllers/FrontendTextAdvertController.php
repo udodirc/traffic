@@ -102,7 +102,7 @@ class FrontendTextAdvertController extends Controller
 			],
 		]);
         
-        $content = (!is_null(StaticContent::find()->where(['name'=>'text-advert']))) ? StaticContent::find()->where(['name'=>'text-advert'])->one() : null;
+        $content = (!is_null(StaticContent::find()->where(['name'=>'text_advert']))) ? StaticContent::find()->where(['name'=>'text_advert'])->one() : null;
 		$this->view->params['title'] = Yii::t('form', 'Текстовая реклама');
 		
         return $this->render('index', [

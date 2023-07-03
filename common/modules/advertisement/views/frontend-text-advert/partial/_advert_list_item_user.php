@@ -18,9 +18,9 @@ use yii\helpers\Html;
                             Одобрено
                         </i>
 	                    <?php else: ?>
-                        <i class="align-self-center mr-3 text-advert-action red">
-                            На рассмотрении
-                        </i>|
+                            <i class="align-self-center mr-3 text-advert-action red">
+                                На рассмотрении
+                            </i>|
 	                    <?php endif; ?>
                         <i class="align-self-center mr-3 text-advert-action">
                             Общее количество баллов:&nbsp;<span class="green"><?= $model->balls; ?></span>
@@ -31,9 +31,9 @@ use yii\helpers\Html;
                         <i class="align-self-center mr-3 text-advert-action">
                             Количество показов:&nbsp;<span class="red"><?= $model->clickCount; ?></span>
                         </i>|
-<!--                        <i class="align-self-center mr-3" style="padding-right: 10px; font-weight: bold;">-->
-<!--                            --><?php //= Html::a('Редактировать', \Yii::$app->request->BaseUrl.'/partners/text-advert/edit/'.$model->id, []); ?>
-<!--                        </i>-->
+                        <!--                        <i class="align-self-center mr-3" style="padding-right: 10px; font-weight: bold;">-->
+                        <!--                            --><?php //= Html::a('Редактировать', \Yii::$app->request->BaseUrl.'/partners/text-advert/edit/'.$model->id, []); ?>
+                        <!--                        </i>-->
                         <i class="align-self-center mr-3 text-advert-action blue">
                             <?= Html::a('Удалить', \Yii::$app->request->BaseUrl.'/partners/text-advert/delete/'.$model->id, []); ?>
                         </i>

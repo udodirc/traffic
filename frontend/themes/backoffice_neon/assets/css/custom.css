@@ -359,15 +359,11 @@ ul.levels
 {
 	margin-left: auto;
 }
+
 .text-advert .text-advert-actions .text-advert-action
 {
 	padding-right: 10px;
 	font-weight: bold;
-}
-
-.green
-{
-	color: #107005;
 }
 
 .red
@@ -378,9 +374,4 @@ ul.levels
 .blue a
 {
 	color: #082cf8;
-}
-
-.right
-{
-	float: right;
 }
