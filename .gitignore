@@ -30,14 +30,10 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-<<<<<<< HEAD
-/frontend/runtime
-=======
->>>>>>> parent of d1d6538... fix(gitignore): Fix .gitignore
+
+/frontend/runtim
 /backend/runtime
-/frontend/config/main.php
 /assets
-/frontend/config/main.php
 /admin/uploads
 /common/modules/test
 /admin/uploads
