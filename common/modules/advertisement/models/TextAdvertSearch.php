@@ -83,7 +83,7 @@ class TextAdvertSearch extends TextAdvert
 			    ])
 			    ->joinWith('advertBalls')
 		        ->joinWith('partner')
-		        ->where('`text_advert`.`status` > 0 AND `text_advert`.`partner_id` = :id', [':id' => $id])
+		        ->where('`text_advert`.`partner_id` = :id', [':id' => $id])
 			    ->groupBy('{{text_advert}}.id');
 
         $dataProvider = new ActiveDataProvider([
