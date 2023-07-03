@@ -335,10 +335,52 @@ ul.levels
 
 .list-title
 {
-	height:25px;
+	height:27px;
 }
 
 .panel-content.activation
 {
 	margin: 20px 0 30px 0;
+}
+
+.text-advert
+{
+	font-size: 14px;
+}
+
+.text-advert .text-advert-actions-block
+{
+	display: flex !important;
+	height: 37px;
+	padding: 10px
+}
+
+.text-advert .text-advert-actions
+{
+	margin-left: auto;
+}
+.text-advert .text-advert-actions .text-advert-action
+{
+	padding-right: 10px;
+	font-weight: bold;
+}
+
+.green
+{
+	color: #107005;
+}
+
+.red
+{
+	color: #e83f0e;
+}
+
+.blue a
+{
+	color: #082cf8;
+}
+
+.right
+{
+	float: right;
 }

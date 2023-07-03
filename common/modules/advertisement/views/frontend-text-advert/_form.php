@@ -18,9 +18,9 @@ use yii\widgets\ActiveForm;
 	</div>
 	<div class="form-group <?= isset($model->errors['link']) ? 'has-danger' : ''?>">
 		<?= Html::activeLabel($model, 'link', [
-			'label' => Yii::t('form', 'Ссылка').' ('.Yii::t('form', 'это поле должно быть заполнено').')'
+			'label' => Yii::t('form', 'Ссылка').' ('.Yii::t('form', 'это поле должно быть заполнено, обязательно ввести https://').')'
 		]); ?>
-		<?= Html::activeTextInput($model, 'link', ['class'=>'form-control form-control-danger']); ?>
+		<?= Html::activeTextInput($model, 'link', ['class'=>'form-control form-control-danger', 'placeholder' => 'https://']); ?>
 		<?= Html::error($model, 'link', [
 			'class'=>'error mt-2 text-danger'
 		]); ?>

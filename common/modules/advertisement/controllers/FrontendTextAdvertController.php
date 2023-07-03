@@ -120,7 +120,7 @@ class FrontendTextAdvertController extends Controller
 		$searchModel = new TextAdvertSearch();
         $dataProvider = $searchModel->search($id, Yii::$app->request->post());
         $dataProvider->pagination->pageSize = Service::getPageSize();
-        $content = (!is_null(StaticContent::find()->where(['name'=>'partner-text-advert']))) ? StaticContent::find()->where(['name'=>'partner-text-advert'])->one() : null;
+        $content = (!is_null(StaticContent::find()->where(['name'=>'text_advert']))) ? StaticContent::find()->where(['name'=>'text_advert'])->one() : null;
 		$this->view->params['title'] = Yii::t('form', 'Текстовая реклама партнера');
 		
         return $this->render('partner-advert-list', [
@@ -159,7 +159,7 @@ class FrontendTextAdvertController extends Controller
 			
             \Yii::$app->getSession()->setFlash($class, $msg);
             
-			return $this->redirect(['index']);
+			return $this->redirect(['partner-advert-list']);
         } 
         
         return $this->render('create', [

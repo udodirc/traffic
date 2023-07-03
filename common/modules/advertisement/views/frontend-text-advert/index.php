@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="panel-options"></div>
 			</div>
 			<!-- panel body -->
-			<div class="panel-body">
+			<div class="panel-body text-advert">
 			<?= ListView::widget([
 				'dataProvider' => $advertList,
 				'options' => [],

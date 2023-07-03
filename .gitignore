@@ -30,11 +30,9 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-/frontend/runtime
 /backend/runtime
 /frontend/config/main.php
 /assets
-/frontend/config/main.php
 /admin/uploads
 /common/modules/test
 /admin/uploads

@@ -434,7 +434,7 @@ class Menu extends \yii\db\ActiveRecord
 		{
 			$result[] = 
 			[
-				'label' => Yii::t('menu', 'Маркетинг план'),
+				'label' => Yii::t('menu', 'Вознаграждение'),
 				'url' => ['/partners/marketing-plan']
 			];
 			$result[] =
