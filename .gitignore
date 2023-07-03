@@ -31,6 +31,7 @@ phpunit.phar
 /phpunit.xml
 
 /backend/runtime
+/frontend/runtime
 /frontend/config/main.php
 /assets
 /admin/uploads
