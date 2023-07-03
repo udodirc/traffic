@@ -17230,3 +17230,819 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1688397498.1177
     'REQUEST_TIME' => 1688397498
 ]
+2023-07-03 18:21:19 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/logo@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:19 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397679.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440879
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397679.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/text-advert-list'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50120'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/logo@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397679.6962
+    'REQUEST_TIME' => 1688397679
+]
+2023-07-03 18:21:19 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:19 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397679.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440879
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397679.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/text-advert-list'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50106'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397679.696
+    'REQUEST_TIME' => 1688397679
+]
+2023-07-03 18:21:23 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/logo@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:23 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397683.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440883
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397683.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/partner-text-advert'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50106'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/logo@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397683.4007
+    'REQUEST_TIME' => 1688397683
+]
+2023-07-03 18:21:23 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:23 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397683.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440883
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397683.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/partner-text-advert'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50100'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397683.4008
+    'REQUEST_TIME' => 1688397683
+]
+2023-07-03 18:21:28 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/logo@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:28 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397688.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440888
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397688.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/text-advert-list'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50106'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/logo@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397688.8089
+    'REQUEST_TIME' => 1688397688
+]
+2023-07-03 18:21:28 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:28 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397688.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440888
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397688.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/text-advert-list'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50100'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397688.8089
+    'REQUEST_TIME' => 1688397688
+]
+2023-07-03 18:21:30 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:30 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397690.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440890
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397690.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/partner-text-advert'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50100'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397690.8002
+    'REQUEST_TIME' => 1688397690
+]
+2023-07-03 18:21:30 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/logo@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:30 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397690.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440890
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397690.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/partner-text-advert'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50106'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/logo@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397690.8001
+    'REQUEST_TIME' => 1688397690
+]
+2023-07-03 18:21:35 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:35 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397695.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440895
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397695.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/text-advert/create'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50100'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397695.4391
+    'REQUEST_TIME' => 1688397695
+]
+2023-07-03 18:21:35 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/logo@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:35 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397695.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440895
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397695.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/text-advert/create'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50106'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/logo@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397695.439
+    'REQUEST_TIME' => 1688397695
+]
+2023-07-03 18:21:40 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:40 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397700.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440900
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397700.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/partner-text-advert'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50100'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/thumb-1@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397700.519
+    'REQUEST_TIME' => 1688397700
+]
+2023-07-03 18:21:40 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "frontend/themes/backoffice-hilite/assets/images/logo@2x.png". in /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /var/www/html/apractix.local/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/html/apractix.local/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /var/www/html/apractix.local/index.php(23): yii\base\Application->run()
+#2 {main}
+2023-07-03 18:21:40 [127.0.0.1][1][hna5fotbq079lqcn9spt8gb4bc][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'hna5fotbq079lqcn9spt8gb4bc'
+    '_ga_VDNWQ402F9' => 'GS1.1.1688396691.4.1.1688397700.0.0.0'
+    '_ga' => 'GA1.1.664767220.1688376249'
+    '_userIdentity' => '8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a:2:{i:0;s:13:\"_userIdentity\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf' => 'af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eIHBiICILlGfGGQTk9mbF00hAttvtQK3\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => ''
+    '__expire' => 1688440900
+]
+
+$_SERVER = [
+    'USER' => 'www-data'
+    'HOME' => '/var/www'
+    'HTTP_COOKIE' => 'PHPSESSID=hna5fotbq079lqcn9spt8gb4bc; _ga_VDNWQ402F9=GS1.1.1688396691.4.1.1688397700.0.0.0; _ga=GA1.1.664767220.1688376249; _userIdentity=8589e856b5d9331cdd09efd9e9c7462d06cfa6c81dab35d76b5b0f18aab85e31a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_userIdentity%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf=af5ba2c608e2f5b8c050408da33fd45a621991c31506f56404c1d52c0ead16dfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eIHBiICILlGfGGQTk9mbF00hAttvtQK3%22%3B%7D'
+    'HTTP_REFERER' => 'http://apractix.local/partners/partner-text-advert'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'image/avif,image/webp,*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0'
+    'HTTP_HOST' => 'apractix.local'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'apractix.local'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.4.1'
+    'REMOTE_PORT' => '50106'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.18.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/var/www/html/apractix.local'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/frontend/themes/backoffice-hilite/assets/images/logo@2x.png'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/var/www/html/apractix.local/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1688397700.5189
+    'REQUEST_TIME' => 1688397700
+]
