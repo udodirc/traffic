@@ -7,42 +7,19 @@ use yii\widgets\ActiveForm;
 		'class'=>'forms-sample',
 	],
 ]); ?>
+    <?= $form->errorSummary($model) ?>
 	<div class="form-group <?= isset($model->errors['title']) ? 'has-danger' : ''?>">
-		<?= Html::activeLabel($model, 'title', [
-			'label' => Yii::t('form', 'Заголовок').' ('.Yii::t('form', 'это поле должно быть заполнено').')'
-		]); ?>
-		<?= Html::activeTextInput($model, 'title', ['class'=>'form-control form-control-danger']); ?>
-		<?= Html::error($model, 'title', [
-			'class'=>'error mt-2 text-danger'
-		]); ?>
+		<?= $form->field($model, 'title')->textInput(['maxlength' => true])->label(Yii::t('form', 'Заголовок').' ('.Yii::t('form', 'это поле должно быть заполнено')) ?>
 	</div>
 	<div class="form-group <?= isset($model->errors['link']) ? 'has-danger' : ''?>">
-		<?= Html::activeLabel($model, 'link', [
-			'label' => Yii::t('form', 'Ссылка').' ('.Yii::t('form', 'это поле должно быть заполнено, обязательно ввести https://').')'
-		]); ?>
-		<?= Html::activeTextInput($model, 'link', ['class'=>'form-control form-control-danger', 'placeholder' => 'https://']); ?>
-		<?= Html::error($model, 'link', [
-			'class'=>'error mt-2 text-danger'
-		]); ?>
-	</div>
-	<div class="form-group <?= isset($model->errors['text']) ? 'has-danger' : ''?>">
-		<?= Html::activeLabel($model, 'text', [
-			'label' => Yii::t('form', 'Текст').' ('.Yii::t('form', 'это поле должно быть заполнено').')'
-		]); ?>
-		<?= Html::activeTextarea($model, 'text', ['class'=>'form-control form-control-danger']); ?>
-		<?= Html::error($model, 'text', [
-			'class'=>'error mt-2 text-danger'
-		]); ?>
-	</div>
-	<div class="form-group <?= isset($model->errors['balls']) ? 'has-danger' : ''?>">
-		<?= Html::activeLabel($model, 'balls', [
-			'label' => Yii::t('form', 'Баллы').' ('.Yii::t('form', 'это поле должно быть заполнено').')'
-		]); ?>
-		<?= Html::activeTextInput($model, 'balls', ['class'=>'form-control form-control-danger']); ?>
-		<?= Html::error($model, 'balls', [
-			'class'=>'error mt-2 text-danger'
-		]); ?>
-	</div>
+		<?= $form->field($model, 'link')->textInput(['maxlength' => true])->label(Yii::t('form', 'Ссылка').' ('.Yii::t('form', 'это поле должно быть заполнено, обязательно ввести https://').')') ?>
+    </div>
+    <div class="form-group <?= isset($model->errors['text']) ? 'has-danger' : ''?>">
+		<?= $form->field($model, 'text')->textInput(['maxlength' => true])->label(Yii::t('form', 'Текст').' ('.Yii::t('form', 'это поле должно быть заполнено').')') ?>
+    </div>
+    <div class="form-group <?= isset($model->errors['text']) ? 'has-danger' : ''?>">
+		<?= $form->field($model, 'balls')->textInput(['maxlength' => true])->label(Yii::t('form', 'Баллы').' ('.Yii::t('form', 'это поле должно быть заполнено').')') ?>
+    </div>
 <?= Html::activehiddenInput($model, 'partner_id', ['value'=>$partnerID]); ?>
 <?= Html::submitButton($model->isNewRecord ? Yii::t('form', 'Создать') : Yii::t('form', 'Обновить'), ['class' => 'btn btn-primary mr-2']) ?>
 <?php ActiveForm::end(); ?>
