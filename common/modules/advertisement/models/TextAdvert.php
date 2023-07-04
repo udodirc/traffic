@@ -94,6 +94,11 @@ class TextAdvert extends \yii\db\ActiveRecord
  		{
 			$this->addError('balls', Yii::t('form', 'У вас недостаточно баллов!'));
 		}
+
+	    if(($model->getTextAdvert()->sum('balls') + $this->balls) > $totalBalls)
+	    {
+		    $this->addError('balls', Yii::t('form', 'У вас недостаточно баллов!'));
+	    }
 	}
 
     /**

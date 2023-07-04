@@ -37,8 +37,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             'id',
+	        [
+		        'attribute'=>'login',
+		        'label' => Yii::t('form', 'Логин'),
+		        'format'=>'raw',//raw, html
+		        'value'=>function ($model) {
+			        return $model->partner->login;
+		        },
+	        ],
             'title',
 	        'link',
+	        'balls',
 	        [
 		        'class' => 'yii\grid\ActionColumn',
 		        'template' => '{activate}',
