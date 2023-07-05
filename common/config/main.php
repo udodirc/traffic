@@ -67,4 +67,11 @@ return [
 		//'common\config\admin_top_menu',
 		//'common\config\admin_left_menu',
 	],
+    'container' => [
+	    'singletons' => [
+		    'TextAdvertRepository' => ['class' => 'common\modules\advertisement\repositories\TextAdvertRepository'],
+		    'TextAdvertBallsRepository' => ['class' => 'common\modules\advertisement\repositories\TextAdvertBallsRepository'],
+		    'TextAdvertRequestService' => ['class' => 'common\modules\advertisement\services\TextAdvertRequestService'],
+	    ],
+    ],
 ];

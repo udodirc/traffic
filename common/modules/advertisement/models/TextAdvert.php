@@ -5,7 +5,6 @@ namespace common\modules\advertisement\models;
 use Yii;
 use common\modules\backoffice\models\Partners;
 use yii\behaviors\TimestampBehavior;
-use yii\db\Expression;
 
 /**
  * This is the model class for table "text_advert".
@@ -22,6 +21,8 @@ use yii\db\Expression;
  */
 class TextAdvert extends \yii\db\ActiveRecord
 {
+	public $clickCount;
+
     /**
      * @inheritdoc
      */
@@ -52,7 +53,7 @@ class TextAdvert extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'link', 'text', 'balls'], 'required'],
-            [['partner_id', 'balls', 'status', 'created_at'], 'integer'],
+            [['partner_id', 'balls', 'counter', 'status', 'created_at'], 'integer'],
             ['link', 'url'],
             [['title', 'link', 'text'], 'string', 'max' => 100],
             ['balls', 'checkBalls'],
@@ -78,17 +79,26 @@ class TextAdvert extends \yii\db\ActiveRecord
     public function checkBalls()
     {
 		$model = Partners::findOne($this->partner_id);
-		$totalBalls = (!is_null($model)) ? $model->total_balls : 0;
-		
+	    $textAdvertStructureBalls = (isset(\Yii::$app->params['text_advert_balls']))
+		    ? Yii::$app->params['text_advert_structure_balls']
+		    : 0;
+		$balls = 'total_balls_'.$textAdvertStructureBalls;
+		$totalBalls = (!is_null($model)) ? $model->$balls : 0;
+
 		if($totalBalls <= 0)
  		{
 			$this->addError('balls', Yii::t('form', 'У вас недостаточно баллов!'));
 		}
 		
-		/*if($totalBalls < $this->balls)
+		if($totalBalls < $this->balls)
  		{
 			$this->addError('balls', Yii::t('form', 'У вас недостаточно баллов!'));
-		}*/
+		}
+
+	    if(($model->getTextAdvert()->sum('balls') + $this->balls) > $totalBalls)
+	    {
+		    $this->addError('balls', Yii::t('form', 'У вас недостаточно баллов!'));
+	    }
 	}
 
     /**
@@ -98,7 +108,12 @@ class TextAdvert extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Partners::className(), ['id' => 'partner_id']);
     }
-    
+
+	public function getAdvertBalls()
+	{
+		return $this->hasMany(TextAdvertBalls::class, ['advert_id' => 'id']);
+	}
+
     public static function getAdvertsList($limit)
     {
 		$sql = "SELECT * 
