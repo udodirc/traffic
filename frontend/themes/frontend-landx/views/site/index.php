@@ -71,11 +71,11 @@ $feedbackModel = (isset($this->params['feedbackModel'])) ? $this->params['feedba
         </div>
     </div>
 </section>
-    <?php foreach ($contentList as $i => $content): ?>
-    <section class="<?= isset($content->style) ? ($content->url . (isset($content->style) ? ' ' . Html::encode($content->style) : '')) : ''; ?>" id="<?= isset($content->url) ? Html::encode($content->url) : ''; ?>">
-    <?= isset($content->content) ? HtmlPurifier::process($content->content) : ''; ?>
-    </section>
-<?php endforeach; ?>
+<?php //foreach ($contentList as $i => $content): ?>
+<!--    <section class="--><?php //= isset($content->style) ? ($content->url . (isset($content->style) ? ' ' . Html::encode($content->style) : '')) : ''; ?><!--" id="--><?php //= isset($content->url) ? Html::encode($content->url) : ''; ?><!--">-->
+<!--    --><?php //= isset($content->content) ? HtmlPurifier::process($content->content) : ''; ?>
+<!--    </section>-->
+<?php //endforeach; ?>
 <?php if ($feedbackModel !== null): ?>
     <section class="contact-us" id="contacts">
         <div class="container">	
