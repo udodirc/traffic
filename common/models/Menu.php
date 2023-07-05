@@ -137,7 +137,7 @@ class Menu extends \yii\db\ActiveRecord
 		->one();
 	}
 	
-	public static function getSubmenuList($categoryID, $backoffice)
+	public static function getSubmenuList($categoryID, $backoffice = false)
     {
 		$result = array();
 		$submenuList = self::find()->select(['parent_id', 'name', 'url'])->where('parent_id > 0 AND category_id = :category_id AND status != :status', [':category_id'=>$categoryID, ':status'=>0])->asArray()->all();
@@ -205,10 +205,11 @@ class Menu extends \yii\db\ActiveRecord
 		return ($data !== null) ? $data->id : 0;
 	}
 	
-	public static function getMenuList($categoryID, $backoffice = false, $image = 'frontend_images')
+	public static function getMenuList($categoryID, $backoffice = false, $front = true, $image = 'frontend_images')
     {
 		$result = [];
 		$menuList = self::find()->select(['id', 'parent_id', 'name', 'partner_status',  'url',  'iso'])->where('parent_id = 0 AND category_id = :category_id AND status != :status', ['category_id'=>$categoryID, 'status'=>0])->asArray()->all();
+
 		$submenuList = self::getSubmenuList($categoryID, $backoffice);
 		
 		if($backoffice)
@@ -495,44 +496,47 @@ class Menu extends \yii\db\ActiveRecord
 		}
 		else
 		{
-			$result[] = [
-				'label' => Yii::t('menu', 'F.A.Q'), 
-				'url' => ['/faq'], 
-				//'options'=> ['class' => 'iceMenuLiLevel_1'],
-				'template' => '<a href="{url}">
+			if($front)
+			{
+				$result[] = [
+					'label' => Yii::t('menu', 'F.A.Q'),
+					'url' => ['/faq'],
+					//'options'=> ['class' => 'iceMenuLiLevel_1'],
+					'template' => '<a href="{url}">
+						<span class="icemega_title icemega_nosubtitle">{label}</span>
+					</a>',
+				];
+				$result[] = [
+					'label' => Yii::t('menu', 'Контакты'),
+					'url' => ['/contacts'],
+					//'options'=> ['class' => 'iceMenuLiLevel_1'],
+					'template' => '<a href="{url}">
 					<span class="icemega_title icemega_nosubtitle">{label}</span>
-				</a>',
-			];
-			$result[] = [
-				'label' => Yii::t('menu', 'Контакты'), 
-				'url' => ['/contacts'],
-				//'options'=> ['class' => 'iceMenuLiLevel_1'],
-				'template' => '<a href="{url}">
-				<span class="icemega_title icemega_nosubtitle">{label}</span>
-				</a>',
-			];
-			$result[] = [
-				'label' => Yii::t('menu', 'Регистрация'),
-				'url' => ['/signup'],
-				'template' => '<a href="#" data-toggle="modal" data-target="#authModalCenter">{label}</a>',
-				//'options'=> ['class' => 'iceMenuLiLevel_1'],
-				'template' => '<a href="{url}">
-					<span class="icemega_title icemega_nosubtitle">{label}</span>
-				</a>',
-			];
-			/*$result[] = [
-				'label' => Yii::t('menu', 'Отзывы'), 
-				'url' => ['/feedbacks'], 
-				'options'=> ['class' => 'iceMenuLiLevel_1'],
-				/*'template' => '<a href="{url}" class="iceMenuTitle">
-					<span class="icemega_title icemega_nosubtitle">{label}</span>
-				</a>',
-			];*/
-			$result[] = [
-				'label' => Yii::t('menu', 'Вход'), 
-				'url' => '/login',
-				'template' => '<a href="{url}" id="login-link">{label}</a>',
-			];
+					</a>',
+				];
+				$result[] = [
+					'label' => Yii::t('menu', 'Регистрация'),
+					'url' => ['/signup'],
+					'template' => '<a href="#" data-toggle="modal" data-target="#authModalCenter">{label}</a>',
+					//'options'=> ['class' => 'iceMenuLiLevel_1'],
+					'template' => '<a href="{url}">
+						<span class="icemega_title icemega_nosubtitle">{label}</span>
+					</a>',
+				];
+				/*$result[] = [
+					'label' => Yii::t('menu', 'Отзывы'),
+					'url' => ['/feedbacks'],
+					'options'=> ['class' => 'iceMenuLiLevel_1'],
+					/*'template' => '<a href="{url}" class="iceMenuTitle">
+						<span class="icemega_title icemega_nosubtitle">{label}</span>
+					</a>',
+				];*/
+				$result[] = [
+					'label' => Yii::t('menu', 'Вход'),
+					'url' => '/login',
+					'template' => '<a href="{url}" id="login-link">{label}</a>',
+				];
+			}
 		}
 		
 		return $result;

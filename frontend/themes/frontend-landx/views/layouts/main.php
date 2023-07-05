@@ -152,6 +152,16 @@ if(\Yii::$app->session->hasFlash('confirm-registration') || \Yii::$app->session-
 		<footer class="bgcolor-2">
 			<div class="container">
 				<div class="footer-logo">
+					<?= MenuWidget::widget([
+						'items' => FrontendMenu::getMenuList(3, false, false),
+						'options' => [
+							'class'=>'nav navbar-nav navbar-right main-navigation footer',
+						],
+						'linkTemplate' => '<a href="{url}">
+                            {label}<span class="footer-menu-divider"></span>
+                        </a>',
+					]);
+					?>
                 </div>
 				<div class="copyright">
 					 ©<?= date("Y"); ?> <?= Html::encode(Yii::$app->name); ?>.
