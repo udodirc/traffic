@@ -79,11 +79,11 @@ class InvitePayOffSearch extends InvitePayOff
 		}*/
 		
 		$query->andFilterWhere([
-            '`partners`.`login`' => trim($this->payer_login)
+            '`partners`.`login`' => trim((string) $this->payer_login)
         ]);
         
         $query->andFilterWhere([
-            '`p2`.`login`' => trim($this->benefit_login)
+            '`p2`.`login`' => trim((string) $this->benefit_login)
         ]);
 		
         $query->andFilterWhere([

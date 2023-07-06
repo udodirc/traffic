@@ -62,27 +62,27 @@ class MatrixPaymentsSearch extends MatrixPayments
         }
         
         $query->andFilterWhere([
-            '`partners`.`login`' => trim($this->benefit_login)
+            '`partners`.`login`' => trim((string) $this->benefit_login)
         ]);
         
         $query->andFilterWhere([
-            '`p2`.`login`' => trim($this->payer_login)
+            '`p2`.`login`' => trim((string) $this->payer_login)
         ]);
         
         $query->andFilterWhere([
-            '`matrix_payments`.`id`' => trim($this->id)
+            '`matrix_payments`.`id`' => trim((string) $this->id)
         ]);
         
         $query->andFilterWhere([
-            '`matrix_payments`.`matrix_number`' => trim($this->matrix_number)
+            '`matrix_payments`.`matrix_number`' => trim((string) $this->matrix_number)
         ]);
         
         $query->andFilterWhere([
-            '`matrix_payments`.`matrix_id`' => trim($this->matrix_id)
+            '`matrix_payments`.`matrix_id`' => trim((string) $this->matrix_id)
         ]);
         
         $query->andFilterWhere([
-            '`matrix_payments`.`amount`' => trim($this->amount)
+            '`matrix_payments`.`amount`' => trim((string) $this->amount)
         ]);
         
         $query->orderBy('`matrix_payments`.`created_at` DESC');

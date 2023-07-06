@@ -35,6 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a(Yii::t('form', ($model->status) ? 'Деактивировать' : 'Активировать'), ['status', 'id' => $model->id, 'status' => ($model->status) ? $model->status : 0], [
+	        'class' => 'btn btn-success'
+        ]) ?>
     </p>
     <?= DetailView::widget([
         'model' => $model,
