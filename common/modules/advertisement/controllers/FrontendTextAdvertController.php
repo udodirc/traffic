@@ -204,7 +204,9 @@ class FrontendTextAdvertController extends Controller
 		$this->user_id = $partnerID;
 		$this->identity_id = $partnerID;
 
-		$this->findModel($id)->delete();
+		$model = $this->findModel($id);
+		$model->deleted = 1;
+		$model->save(false);
 
 		return $this->redirect(['partner-advert-list']);
 	}
