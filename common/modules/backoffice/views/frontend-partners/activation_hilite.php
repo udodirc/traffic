@@ -38,15 +38,18 @@ $this->params['breadcrumbs'][] = $this->title;
 				<h4 class="card-title"><?= $this->title; ?></h4>
 				<div class="panel-content activation">
 					<?php if (Service::isActionAllowed('is_activation_allowed')): ?>
-						<?php if ($model->matrix_1 > 0): ?>
-						<div class="activation_btn">
-							<?= Html::a(Yii::t('form', 'Оплатить короткие матрицы'), ['reserve-places', 'id' => $id, 'payment_type' => 2, 'structure' => 1], ['class' => 'btn btn-wide btn-success']) ?>
-						</div>
-						<?php else: ?>
-						<div class="activation_btn">
+                        <div class="activation_btn">
 							<?= Html::a(Yii::t('form', 'Оплатить'), ['pay', 'id' => $id, 'payment_type' => 2, 'structure' => 1, 'matrix' => 1, 'places' => 1], ['class' => 'btn btn-wide btn-success']) ?>
-						</div>
-						<?php endif; ?>
+                        </div>
+<!--						--><?php //if ($model->matrix_1 > 0): ?>
+<!--						<div class="activation_btn">-->
+<!--							--><?php //= Html::a(Yii::t('form', 'Оплатить короткие матрицы'), ['reserve-places', 'id' => $id, 'payment_type' => 2, 'structure' => 1], ['class' => 'btn btn-wide btn-success']) ?>
+<!--						</div>-->
+<!--						--><?php //else: ?>
+<!--						<div class="activation_btn">-->
+<!--							--><?php //= Html::a(Yii::t('form', 'Оплатить'), ['pay', 'id' => $id, 'payment_type' => 2, 'structure' => 1, 'matrix' => 1, 'places' => 1], ['class' => 'btn btn-wide btn-success']) ?>
+<!--						</div>-->
+<!--						--><?php //endif; ?>
 					<?php endif; ?>
 				</div>
 				<div class="panel-content">
