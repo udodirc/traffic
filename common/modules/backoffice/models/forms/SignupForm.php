@@ -145,7 +145,15 @@ class SignupForm extends Model
                 $select = '@p'.count($procedureInData);
                 $procedureInData[] = $select;
                 $procedureOutData = [$select => 'VAR_OUT_RESULT'];
-                
+
+				echo '<pre>';
+				print_r($procedureInData);
+	            echo '</pre>';
+				echo '<pre>';
+	            print_r($procedureOutData);
+	            echo '</pre>';
+				die();
+
                 $procedureResult = $dbModel->callProcedure('add_partner_in_structure', $procedureInData, $procedureOutData);
 		
 		if(!empty($procedureResult))
