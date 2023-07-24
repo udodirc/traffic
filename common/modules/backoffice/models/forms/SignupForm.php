@@ -142,19 +142,11 @@ class SignupForm extends Model
 		$dbModel = new DbBase();
 		$demoActivation = (isset(\Yii::$app->params['demo_structure_activation']) && (\Yii::$app->params['demo_structure_activation'])) ? 1 : 0;
 		$procedureInData = [$structureNumber, $sponsorID, $model->login, $model->first_name, $model->last_name, $model->email, $model->phone, $model->password_hash, $model->created_at, $model->auth_key, $model->status, $demoActivation];
-                $select = '@p'.count($procedureInData);
-                $procedureInData[] = $select;
-                $procedureOutData = [$select => 'VAR_OUT_RESULT'];
+        $select = '@p'.count($procedureInData);
+        $procedureInData[] = $select;
+        $procedureOutData = [$select => 'VAR_OUT_RESULT'];
 
-				echo '<pre>';
-				print_r($procedureInData);
-	            echo '</pre>';
-				echo '<pre>';
-	            print_r($procedureOutData);
-	            echo '</pre>';
-				die();
-
-                $procedureResult = $dbModel->callProcedure('add_partner_in_structure', $procedureInData, $procedureOutData);
+		$procedureResult = $dbModel->callProcedure('add_partner_in_structure', $procedureInData, $procedureOutData);
 		
 		if(!empty($procedureResult))
 		{
