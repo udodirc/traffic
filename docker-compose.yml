@@ -1,0 +1,57 @@
+version: '3.2'
+
+services:
+
+  nginx:
+    container_name: mlm-nginx
+    image: nginx:latest
+    ports:
+      - '8080:80'
+    volumes:
+      - ./docker/nginx/conf:/etc/nginx/conf.d
+      - ./:/var/www/mlm
+      - ./docker/nginx/log:/var/log/nginx
+    links:
+      - php
+
+  php:
+    container_name: mlm-php
+    build: ./docker/php
+    environment:
+      PROJECT_DIR: /var/www/mlm
+      PHP_IDE_CONFIG: "serverName=Docker"
+    volumes:
+      - ./:/var/www/mlm
+    links:
+      - mysql
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: mlm-mysql
+    image: mysql:8.0
+    ports:
+      - '33061:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=verysecret
+      - MYSQL_DATABASE=mlm
+      - MYSQL_USER=mlmuser
+      - MYSQL_PASSWORD=mlmpassword
+    command:
+      --sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+    volumes:
+      - mlm-db-vol:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+#  phpmyadmin:
+#    container_name: mlm-phpmyadmin
+#    image: phpmyadmin/phpmyadmin
+#    ports:
+#      - '8081:80'
+#    environment:
+#      - PMA_ARBITRARY=1
+#      - PMA_HOST=mysql
+#    depends_on:
+#      - mysql
+volumes:
+  mlm-db-vol:

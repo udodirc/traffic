@@ -80,7 +80,7 @@ class SearchFaq extends Faq
             'type' => $type,
         ]);
 
-        $query->andFilterWhere(['like', 'question', trim($this->question)]);
+        $query->andFilterWhere(['like', 'question', trim((string)$this->question)]);
 
         return $dataProvider;
     }
