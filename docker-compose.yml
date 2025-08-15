@@ -6,7 +6,7 @@ services:
     container_name: mlm-nginx
     image: nginx:latest
     ports:
-      - '8080:80'
+      - '8083:80'
     volumes:
       - ./docker/nginx/conf:/etc/nginx/conf.d
       - ./:/var/www/mlm
@@ -31,7 +31,7 @@ services:
     container_name: mlm-mysql
     image: mysql:8.0
     ports:
-      - '33061:3306'
+      - '33063:3306'
     environment:
       - MYSQL_ROOT_PASSWORD=verysecret
       - MYSQL_DATABASE=mlm

@@ -1,1 +1,3 @@
-SET GLOBAL sql_mode = (SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));
+USE mysql;
+UPDATE user SET Password=PASSWORD('root') WHERE User='root';
+FLUSH PRIVILEGES;
