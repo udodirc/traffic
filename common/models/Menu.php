@@ -235,7 +235,7 @@ class Menu extends \yii\db\ActiveRecord
 				],
 				[
 					'label' => Yii::t('menu', 'Новости'),
-					'url' => ['/']
+					'url' => ['/news']
 				],
 				[
 					'label' => Yii::t('menu', 'Профиль'),

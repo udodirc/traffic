@@ -141,7 +141,7 @@ class Image
 		$fileName = '';
 		
 		if(@is_uploaded_file($_FILES[$model]['tmp_name'])) 
-		{	
+		{
 			if($this->validateFile($model))
 			{	
 				$fileName = self::renameFileInHash(basename($_FILES[$model]["name"]));
@@ -335,7 +335,7 @@ class Image
 	* @param $quality passes quality of image in jpeg format.
 	* @return bool.
 	*/
-	public function createRealImageFromImageSource($filetmp, $uploadfile, $ext, $size = array(), $imageSize = array(), $quality)
+	public function createRealImageFromImageSource($filetmp, $uploadfile, $ext, $size = array(), $imageSize = array(), $quality = 90)
 	{
 		$result = false;
 		

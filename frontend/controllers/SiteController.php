@@ -102,10 +102,10 @@ class SiteController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {	
+    {
         if((!\Yii::$app->user->isGuest))
         {
-			$this->layout = 'backoffice'.$this->theme;
+            $this->layout = 'backoffice'.$this->theme;
             $id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
 			$partnerData = Partners::findOne(['id' => $id]);
 			$this->view->params['title'] = Yii::t('form', 'Новости');
@@ -149,8 +149,7 @@ class SiteController extends Controller
 					'pageSize' => Service::getPageSize(),
 				],
 			]);
-//            var_dump('backoffice_index'.$this->theme);
-//            die();
+
 			return $this->render('backoffice_index'.$this->theme, [
 				'staticContent' => $staticContent,
 				'newsList' => $newsList,
