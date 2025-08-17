@@ -149,7 +149,7 @@ class Image
 				if($fileName != '')
 				{	
 					$file = \Yii::getAlias('@content').DIRECTORY_SEPARATOR.$fileName;
-					
+
 					if(@move_uploaded_file($_FILES[$model]['tmp_name'], $file))
 					{	
 						$result = true;

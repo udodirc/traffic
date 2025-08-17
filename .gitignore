@@ -39,3 +39,4 @@ phpunit.phar
 /admin/uploads
 /common/modules/test
 /admin/uploads
+/common/runtime/logs/app.log
