@@ -58,15 +58,15 @@ class PartnersSearch extends Partners
         }
 		
 		$query->andFilterWhere([
-            'partners_2.id' => trim($this->id)
+            'partners_2.id' => trim((string)$this->id)
         ]);
         
         $query->andFilterWhere([
             'partners_2.iso' => $this->country
         ]);
 
-        $query->andFilterWhere(['like', 'partners_2.login', trim($this->login)])
-            ->andFilterWhere(['like', 'partners_2.email', trim($this->email)]);
+        $query->andFilterWhere(['like', 'partners_2.login', trim((string)$this->login)])
+            ->andFilterWhere(['like', 'partners_2.email', trim((string)$this->email)]);
            
         if($this->wallet != '')
 		{

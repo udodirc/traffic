@@ -235,7 +235,7 @@ class Menu extends \yii\db\ActiveRecord
 				],
 				[
 					'label' => Yii::t('menu', 'Новости'),
-					'url' => ['/']
+					'url' => ['/news']
 				],
 				[
 					'label' => Yii::t('menu', 'Профиль'),
@@ -536,7 +536,7 @@ class Menu extends \yii\db\ActiveRecord
 		return $result;
 	}
 	
-	public static function createBreadCrumbs($data = null, $url, $menuName = '')
+	public static function createBreadCrumbs($data, $url, $menuName = '')
     {
 		$result = [];
 		

@@ -1202,7 +1202,7 @@ class Matrix extends Model
 		return $result;
 	}
 	
-	public function setBonus($sponsorID, $partnerID, $structureNumber, $matrixNumber, $amount = 0, $bonusAmount, $root = false, $date = '', $demo = false, $status = 2, $reserve = 2)
+	public function setBonus($sponsorID, $partnerID, $structureNumber, $matrixNumber, $bonusAmount, $amount = 0, $root = false, $date = '', $demo = false, $status = 2, $reserve = 2)
     {
 		$result = false;
 		$demo = ($demo) ? 1 : 0;

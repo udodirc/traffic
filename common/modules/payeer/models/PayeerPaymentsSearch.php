@@ -99,19 +99,19 @@ class PayeerPaymentsSearch extends PayeerPayments
 		}
         
         $query->andFilterWhere([
-            '`partners`.`login`' => trim($this->login)
+            '`partners`.`login`' => trim((string)$this->login)
         ]);
         echo $this->type;
         $query->andFilterWhere([
-            '`payeer_payments`.`id`' => trim($this->id),
+            '`payeer_payments`.`id`' => $this->id,
             '`payeer_payments`.`partner_id`' => $partner_id,
-			'`payeer_payments`.`matrix_number`' => trim($this->matrix_number),
-            '`payeer_payments`.`matrix_id`' => trim($this->matrix_id),
-            '`payeer_payments`.`currency`' => trim($this->currency),
-            '`payeer_payments`.`places`' => trim($this->places),
-            '`payeer_payments`.`order_id`' => trim($this->order_id),
-            '`payeer_payments`.`operation_id`' => trim($this->operation_id),
-            '`payeer_payments`.`amount`' => trim($this->amount),
+			'`payeer_payments`.`matrix_number`' => trim((string)$this->matrix_number),
+            '`payeer_payments`.`matrix_id`' => trim((string)$this->matrix_id),
+            '`payeer_payments`.`currency`' => trim((string)$this->currency),
+            '`payeer_payments`.`places`' => trim((string)$this->places),
+            '`payeer_payments`.`order_id`' => trim((string)$this->order_id),
+            '`payeer_payments`.`operation_id`' => trim((string)$this->operation_id),
+            '`payeer_payments`.`amount`' => trim((string)$this->amount),
         ]);
         
         if($this->structure_number > 0)

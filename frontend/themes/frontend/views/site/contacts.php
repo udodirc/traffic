@@ -62,12 +62,12 @@ $this->params['breadcrumbs'][] = $this->title;
 							'class' => 'form-control',
 						]])->textArea(['rows' => '6', 'id' => 'message_text']); 
 					?>
-					<div class="form-group">
-						<?= $form->field($model, 'reCaptcha')->widget(
-							common\widgets\captcha\ReCaptcha::className(),
-							['siteKey' => '6LewalwUAAAAAMSCSFELvzndwU7ksXxtROy93oOR']
-						);?>
-					</div>
+<!--					<div class="form-group">-->
+<!--						--><?php //= $form->field($model, 'reCaptcha')->widget(
+//							common\widgets\captcha\ReCaptcha::className(),
+//							['siteKey' => '6LewalwUAAAAAMSCSFELvzndwU7ksXxtROy93oOR']
+//						);?>
+<!--					</div>-->
 					<div class="form-group text-right">
 						<?= Html::submitButton(Yii::t('form', 'Отправить'), ['class' => 'btn btn-primary']) ?>
 					</div>
