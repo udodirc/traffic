@@ -159,15 +159,15 @@ class SiteController extends Controller
         else
         {
 			$counterContent = (!is_null(StaticContent::find()->where(['name'=>'counter_content'])->one())) ? StaticContent::find()->where(['name'=>'counter_content'])->one()->content : '';
-			$prelaunch = (!is_null(StaticContent::find()->where(['name'=>'prelaunch'])->one())) ? StaticContent::find()->where(['name'=>'prelaunch'])->one()->content : '';
+            $staticContent = (!is_null(StaticContent::find()->where(['name'=>'prelaunch']))) ? StaticContent::find()->where(['name'=>'prelaunch'])->one() : null;
 			$partnersGeoDataList = Partners::getRandGeoDataList(100);
 			$sliderList = Slider::find()->all();
 			$contentList = Content::getContentList();
+            $content = (!is_null(StaticContent::find()->where(['name'=>'prelaunch']))) ? StaticContent::find()->where(['name'=>'prelaunch'])->one() : null;
 
 			return $this->render('index', [
 				'counterContent' => $counterContent,
 				'staticContent' => $staticContent,
-				'prelaunch' => $prelaunch,
 				'contentList' => $contentList,
 				'partnersGeoDataList' => $partnersGeoDataList,
 				'sliderList' => $sliderList,
