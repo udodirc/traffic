@@ -76,6 +76,7 @@ class TextAdvertSearch extends TextAdvert
     {
         $query = ($admin)
 	        ? TextAdvert::find()->with('partner')
+		        ->where('`text_advert`.`deleted` < 1')
 	        : TextAdvert::find()
 			    ->select([
 					'{{text_advert}}.*',
@@ -84,6 +85,7 @@ class TextAdvertSearch extends TextAdvert
 			    ->joinWith('advertBalls')
 		        ->joinWith('partner')
 		        ->where('`text_advert`.`partner_id` = :id', [':id' => $id])
+		        ->andWhere('`text_advert`.`deleted` < 1')
 			    ->groupBy('{{text_advert}}.id');
 
         $dataProvider = new ActiveDataProvider([

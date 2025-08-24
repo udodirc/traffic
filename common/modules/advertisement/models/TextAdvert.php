@@ -53,7 +53,7 @@ class TextAdvert extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'link', 'text', 'balls'], 'required'],
-            [['partner_id', 'balls', 'counter', 'status', 'created_at'], 'integer'],
+            [['partner_id', 'balls', 'counter', 'status', 'deleted', 'created_at'], 'integer'],
             ['link', 'url'],
             [['title', 'link', 'text'], 'string', 'max' => 100],
             ['balls', 'checkBalls'],
