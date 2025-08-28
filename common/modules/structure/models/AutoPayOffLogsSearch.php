@@ -98,16 +98,16 @@ class AutoPayOffLogsSearch extends AutoPayOffLogs
 		}
         
         $query->andFilterWhere([
-            '`partners`.`login`' => trim($this->login)
+            '`partners`.`login`' => trim((string)$this->login)
         ]);
         echo $this->type;
         $query->andFilterWhere([
-            '`auto_pay_off_logs`.`id`' => trim($this->id),
+            '`auto_pay_off_logs`.`id`' => $this->id,
             '`auto_pay_off_logs`.`partner_id`' => $partner_id,
-			'`auto_pay_off_logs`.`matrix_number`' => trim($this->matrix_number),
-            '`auto_pay_off_logs`.`matrix_id`' => trim($this->matrix_id),
-            '`auto_pay_off_logs`.`paid_off`' => trim($this->paid_off),
-            '`auto_pay_off_logs`.`amount`' => trim($this->amount),
+			'`auto_pay_off_logs`.`matrix_number`' => trim((string)$this->matrix_number),
+            '`auto_pay_off_logs`.`matrix_id`' => trim((string)$this->matrix_id),
+            '`auto_pay_off_logs`.`paid_off`' => trim((string)$this->paid_off),
+            '`auto_pay_off_logs`.`amount`' => trim((string)$this->amount),
         ]);
         
         if($this->structure_number > 0)

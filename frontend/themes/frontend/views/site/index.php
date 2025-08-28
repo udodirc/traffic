@@ -1,4 +1,6 @@
 <?php
+
+use common\components\ContentHelper;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\bootstrap\ActiveForm;
@@ -72,9 +74,6 @@ $this->registerJs($inlineScript,  View::POS_END);
                                         </div>
                                 </div>
                         </div>
-			<div class="col-sm-12">
-				<h2 style="text-align:center"><span style="font-size:40px"><span style="color:#FF0000"><strong>PRE-LAUNCH !&nbsp; Start&nbsp; &nbsp;2018.07.25</strong></span></span></h2>
-			</div>
                         <div class="col-sm-12" align="center">
 			
                                 	<div id="count_down"></div>

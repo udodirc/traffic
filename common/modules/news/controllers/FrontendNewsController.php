@@ -2,6 +2,7 @@
 
 namespace common\modules\news\controllers;
 
+use common\modules\news\models\SearchNews;
 use Yii;
 use common\modules\news\models\News;
 use common\modules\tickets\models\Tickets;
@@ -68,6 +69,24 @@ class FrontendNewsController extends Controller
 		
         return parent::afterAction($action, $result);
     }
+
+    /**
+     * Lists all News models.
+     * @return mixed
+     */
+    public function actionIndex()
+    {
+        $partnerID = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
+        $this->user_id = $partnerID;
+        $this->identity_id = $partnerID;
+        $searchModel = new SearchNews();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index'.$this->theme, [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
     
     /**
      * Displays a single News model.
@@ -80,7 +99,7 @@ class FrontendNewsController extends Controller
 		$this->user_id = $partnerID;
 		$this->identity_id = $partnerID;
 		$this->view->params['title'] = Yii::t('form', 'Новость');
-		
+
         return $this->render('news'.$this->theme, [
             'model' => $this->findModel($id),
         ]);

@@ -22,25 +22,27 @@ $this->params['breadcrumbs'][] = Html::encode($this->title);
 		</div>
 	</div>
 </div>
-<?php foreach($structures_list as $number=>$data): ?>
-<div class="row">
-	<div class="col-12 grid-margin">
-		<div class="card">
-			<div class="row">
-				<div class="col-md-6">
-                    <div class="card-body">
-						<h4 class="card-title"><?= Yii::t('form', 'Площадки').'&nbsp;-&nbsp;'.Yii::t('form', 'ожидаемый'); ?></h4>
-						<?= $this->render('partial/matrices'.$theme, ['matrices' => $model['demo_matrix_'.$number], 'structure' => $number, 'id' => $id, 'demo' => true, 'list_view_count' => $list_view_count, 'levels' => ((isset($matrices_settings_list[$number])) ? $matrices_settings_list[$number] : [])]); ?>
-					</div>
-				</div>
-				<div class="col-md-6">
-                    <div class="card-body">
-						<h4 class="card-title"><?= Yii::t('form', 'Площадки').'&nbsp;-&nbsp;'.Yii::t('form', 'реальный'); ?></h4>
-						<?= $this->render('partial/matrices'.$theme, ['matrices' => $model['matrix_'.$number], 'structure' => $number, 'id' => $id, 'demo' => false, 'list_view_count' => $list_view_count, 'levels' => ((isset($matrices_settings_list[$number])) ? $matrices_settings_list[$number] : [])]); ?>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<?php endforeach; ?>
+<?php if($demoLevels): ?>
+    <?php foreach($structures_list as $number=>$data): ?>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h4 class="card-title"><?= Yii::t('form', 'Площадки').'&nbsp;-&nbsp;'.Yii::t('form', 'ожидаемый'); ?></h4>
+                            <?= $this->render('partial/matrices'.$theme, ['matrices' => $model['demo_matrix_'.$number], 'structure' => $number, 'id' => $id, 'demo' => true, 'list_view_count' => $list_view_count, 'levels' => ((isset($matrices_settings_list[$number])) ? $matrices_settings_list[$number] : [])]); ?>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h4 class="card-title"><?= Yii::t('form', 'Площадки').'&nbsp;-&nbsp;'.Yii::t('form', 'реальный'); ?></h4>
+                            <?= $this->render('partial/matrices'.$theme, ['matrices' => $model['matrix_'.$number], 'structure' => $number, 'id' => $id, 'demo' => false, 'list_view_count' => $list_view_count, 'levels' => ((isset($matrices_settings_list[$number])) ? $matrices_settings_list[$number] : [])]); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+<?php endif; ?>

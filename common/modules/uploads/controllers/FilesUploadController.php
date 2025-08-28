@@ -9,6 +9,8 @@ use common\modules\uploads\models\Image;
 
 class FilesUploadController extends Controller
 {
+    public $enableCsrfValidation = false;
+
     public function actionUpload()
     {
 		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -42,43 +44,35 @@ class FilesUploadController extends Controller
 		
 		return $result;
     }
-    
+
     public function actionContentFileUpload()
     {
-		//\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-		
-		$model = new Files();
-		
-		if(Yii::$app->request->isPost) 
-		{	
-			$image = new Image;
-			$result = $image->singleRawUpload('upload');
-			
-			// Required: anonymous function reference number as explained above.
-			$funcNum = $_GET['CKEditorFuncNum'] ;
-				
-			// Optional: instance name (might be used to load a specific configuration file or anything else).
-			$CKEditor = $_GET['CKEditor'] ;
-			
-			// Optional: might be used to provide localized messages.
-			$langCode = $_GET['langCode'] ;
-				 
-			// Check the $_FILES array and save the file. Assign the correct path to a variable ($url).
-			$url = '';
-			
-			// Usually you will only assign something here if the file could not be uploaded.
-			$message = Yii::t('messages', 'Файл не загружен!');
-            
-            if($result[0])
-            {
-				$url = \Yii::getAlias('@web').((!strpos(\Yii::getAlias('@web'), 'admin')) ? DIRECTORY_SEPARATOR.'admin' : '').DIRECTORY_SEPARATOR.\Yii::getAlias('@content_uploads').DIRECTORY_SEPARATOR.$result[2];
-				$message = Yii::t('messages', 'Файл загружен!');
-			}
-			
-			echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction('".$funcNum."', '".$url."', '".$message."');</script>";
+        $model = new Files();
+
+        if (Yii::$app->request->isPost) {
+            $image = new Image;
+            $result = $image->singleRawUpload('upload');
+
+            $funcNum = Yii::$app->request->get('CKEditorFuncNum');
+            $CKEditor = Yii::$app->request->get('CKEditor');
+            $langCode = Yii::$app->request->get('langCode');
+
+            $url = '';
+            $message = Yii::t('messages', 'Файл не загружен!');
+
+            if ($result[0]) {
+                $url = \Yii::getAlias('@web')
+                    .((!strpos(\Yii::getAlias('@web'), 'admin')) ? DIRECTORY_SEPARATOR.'admin' : '')
+                    .DIRECTORY_SEPARATOR.\Yii::getAlias('@content_uploads')
+                    .DIRECTORY_SEPARATOR.$result[2];
+                $message = Yii::t('messages', 'Файл загружен!');
+            }
+
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+            return "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction('{$funcNum}', '{$url}', '{$message}');</script>";
         }
-	}
-    
+    }
+
     public function actionDeleteFile()
     {
 		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;

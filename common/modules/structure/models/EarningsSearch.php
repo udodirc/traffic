@@ -63,15 +63,15 @@ class EarningsSearch extends Partners
         }
         
         $query->andFilterWhere([
-            'id' => trim($this->id)
+            'id' => $this->id
         ]);
         
        /* $query->andFilterWhere([
             'matrix' => $this->matrix
         ]);*/
 
-        $query->andFilterWhere(['like', 'login', trim($this->login)])
-            ->andFilterWhere(['like', 'email', trim($this->email)]);
+        $query->andFilterWhere(['like', 'login', trim((string)$this->login)])
+            ->andFilterWhere(['like', 'email', trim((string)$this->email)]);
         
         return $dataProvider;
 	}

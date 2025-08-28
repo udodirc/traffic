@@ -102,11 +102,11 @@ class SiteController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {	
+    {
         if((!\Yii::$app->user->isGuest))
-        {	
-			$this->layout = 'backoffice'.$this->theme;
-			$id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
+        {
+            $this->layout = 'backoffice'.$this->theme;
+            $id = (!is_null(\Yii::$app->user->identity)) ? \Yii::$app->user->identity->id : 0;
 			$partnerData = Partners::findOne(['id' => $id]);
 			$this->view->params['title'] = Yii::t('form', 'Новости');
 			$this->view->params['tickets_list'] = Tickets::find()->where('partner_id=:id AND status=:status', [':id' => $id, ':status' => Tickets::STATUS_ADMIN_ANSWER])->all();
@@ -116,6 +116,7 @@ class SiteController extends Controller
 		}
 		else
 		{
+
 			$this->layout = 'main';
 			$this->view->params['signupModel'] = new SignupForm();
 			$this->view->params['feedbackModel'] = new FeedbackForm();
@@ -158,15 +159,15 @@ class SiteController extends Controller
         else
         {
 			$counterContent = (!is_null(StaticContent::find()->where(['name'=>'counter_content'])->one())) ? StaticContent::find()->where(['name'=>'counter_content'])->one()->content : '';
-			$prelaunch = (!is_null(StaticContent::find()->where(['name'=>'prelaunch'])->one())) ? StaticContent::find()->where(['name'=>'prelaunch'])->one()->content : '';
+            $staticContent = (!is_null(StaticContent::find()->where(['name'=>'prelaunch']))) ? StaticContent::find()->where(['name'=>'prelaunch'])->one() : null;
 			$partnersGeoDataList = Partners::getRandGeoDataList(100);
 			$sliderList = Slider::find()->all();
 			$contentList = Content::getContentList();
+            $content = (!is_null(StaticContent::find()->where(['name'=>'prelaunch']))) ? StaticContent::find()->where(['name'=>'prelaunch'])->one() : null;
 
 			return $this->render('index', [
 				'counterContent' => $counterContent,
 				'staticContent' => $staticContent,
-				'prelaunch' => $prelaunch,
 				'contentList' => $contentList,
 				'partnersGeoDataList' => $partnersGeoDataList,
 				'sliderList' => $sliderList,
@@ -197,7 +198,7 @@ class SiteController extends Controller
 		$url = pathinfo(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), PATHINFO_BASENAME);
 		$this->view->params['bread_crumbs'] = Menu::createBreadCrumbs(null, $url, Yii::t('form', 'Контакты'));
 		$address = StaticContent::find()->where(['name'=>'address'])->one();
-       
+
 		return $this->render('contacts', [
 			'model' => $model,
 			'address' => $address

@@ -57,11 +57,11 @@ class PaidPartnersSearch extends Partners
         }
         
         $query->andFilterWhere([
-            'partners.id' => trim($this->id)
+            'partners.id' => trim((int)$this->id)
         ]);
         
-        $query->andFilterWhere(['like', 'partners.login', trim($this->login)])
-            ->andFilterWhere(['like', 'partners.email', trim($this->email)]);
+        $query->andFilterWhere(['like', 'partners.login', trim((string)$this->login)])
+            ->andFilterWhere(['like', 'partners.email', trim((string)$this->email)]);
         
         return $dataProvider;
 	}

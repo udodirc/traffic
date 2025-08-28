@@ -30,7 +30,7 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-
+/runtime
 /frontend/runtime
 /backend/runtime
 /frontend/web/assets
@@ -39,3 +39,4 @@ phpunit.phar
 /admin/uploads
 /common/modules/test
 /admin/uploads
+/common/runtime/logs/app.log

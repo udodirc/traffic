@@ -235,7 +235,7 @@ class Menu extends \yii\db\ActiveRecord
 				],
 				[
 					'label' => Yii::t('menu', 'Новости'),
-					'url' => ['/']
+					'url' => ['/news']
 				],
 				[
 					'label' => Yii::t('menu', 'Профиль'),
@@ -254,7 +254,7 @@ class Menu extends \yii\db\ActiveRecord
 					'url' => ['/partners/structure']
 				],
 				[
-					'label' => Yii::t('menu', 'Актив-ть место'),
+					'label' => Yii::t('menu', 'Купить курс'),
 					'url' => ['/partners/activation'],
 				],
 				[
@@ -327,21 +327,21 @@ class Menu extends \yii\db\ActiveRecord
 				]
 			];
 
-			$result[] = [
-				'label' => Yii::t('menu', 'Текстовая реклама'),
-				'url' => '#text-advert',
-				'ui' => 'text-advert',
-				'items' => [
-					[
-						'label' => Yii::t('menu', 'Вся реклама'),
-						'url' => ['/partners/text-advert-list'],
-					],
-					[
-						'label' => Yii::t('menu', 'Моя реклама'),
-						'url' => ['/partners/partner-text-advert'],
-					]
-				]
-			];
+//			$result[] = [
+//				'label' => Yii::t('menu', 'Текстовая реклама'),
+//				'url' => '#text-advert',
+//				'ui' => 'text-advert',
+//				'items' => [
+//					[
+//						'label' => Yii::t('menu', 'Вся реклама'),
+//						'url' => ['/partners/text-advert-list'],
+//					],
+//					[
+//						'label' => Yii::t('menu', 'Моя реклама'),
+//						'url' => ['/partners/partner-text-advert'],
+//					]
+//				]
+//			];
 		}
 		
 		$access = true;
@@ -536,7 +536,7 @@ class Menu extends \yii\db\ActiveRecord
 		return $result;
 	}
 	
-	public static function createBreadCrumbs($data = null, $url, $menuName = '')
+	public static function createBreadCrumbs($data, $url, $menuName = '')
     {
 		$result = [];
 		

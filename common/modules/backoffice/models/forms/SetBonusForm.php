@@ -52,7 +52,7 @@ class SetBonusForm extends Model
 		{	
 			$matrixModel = new Matrix();
 			
-			if($matrixModel->setBonus($id, $id, $structureNumber, $this->matrix, $this->bonus, $bonusAmount))
+			if($matrixModel->setBonus($id, $id, $structureNumber, $this->matrix, $bonusAmount, $this->bonus))
 			{	
 				$result = true;
 			}
