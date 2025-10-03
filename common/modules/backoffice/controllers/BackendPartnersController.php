@@ -873,6 +873,8 @@ class BackendPartnersController extends Controller
     {
 		$this->permission = 'create';
 		$model = new ActivatePartnersForm();
+        var_dump(true);
+        die();
 		
         if($model->load(Yii::$app->request->post())) 
         {	
@@ -1069,6 +1071,12 @@ class BackendPartnersController extends Controller
     {
         $matrix = new Matrix();
         $matrix->createDemoStructure();
+    }
+
+    public function actionCreateDemoPartners()
+    {
+        $matrix = new Partners();
+        $matrix->createDemoPartners();
     }
     
     /**

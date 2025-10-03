@@ -2,6 +2,7 @@
 namespace common\modules\backoffice\models;
 
 use common\modules\advertisement\models\TextAdvert;
+use common\modules\backoffice\models\forms\SignupForm;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -1083,4 +1084,53 @@ class Partners extends ActiveRecord implements IdentityInterface
 		    ->leftJoin('`partners` `referral_partners`', '`referral_partners`.`sponsor_id` = `partners`.`id`')
 			->groupBy('`partners`.`id`');
 	}
+
+    public function createDemoPartners(int $count)
+    {
+        $user = mb_strtolower('user'.$count, 'UTF-8');
+
+        $model = new Partners();
+        $model->sponsor_id = $this->sponsor_id;
+        $model->login = $user;
+        $model->first_name = $user;
+        $model->last_name = $user;
+        $model->email = $user."@test.test";
+        $model->phone = "777711111".$user;
+        $model->group_id = 0;
+        $model->status = (isset(\Yii::$app->params['is_email_verification_allowed']) && (\Yii::$app->params['is_email_verification_allowed'])) ? SignupForm::STATUS_ACTIVE : SignupForm::STATUS_CONFIRMED;
+        $model->created_at = 0;
+        $model->setPassword('12345678');
+        $model->generateAuthKey();
+        $structureNumber = 1;
+
+        $sponsorID = Partners::find()
+            ->orderBy(new Expression('RAND()'))
+            ->one();
+
+        $dbModel = new DbBase();
+        $demoActivation = (isset(\Yii::$app->params['demo_structure_activation']) && (\Yii::$app->params['demo_structure_activation'])) ? 1 : 0;
+        $procedureInData = [$structureNumber, $sponsorID, $model->login, $model->first_name, $model->last_name, $model->email, $model->phone, $model->password_hash, $model->created_at, $model->auth_key, $model->status, $demoActivation];
+        $select = '@p'.count($procedureInData);
+
+        $procedureInData[] = $select;
+        $procedureOutData = [$select => 'VAR_OUT_RESULT'];
+
+        $procedureResult = $dbModel->callProcedure('add_partner_in_structure', $procedureInData, $procedureOutData);
+
+        if(!empty($procedureResult))
+        {
+            $outResult = ((isset($procedureResult['output']['VAR_OUT_RESULT'])) && $procedureResult['output']['VAR_OUT_RESULT'] > 0) ? true : false;
+
+            if($outResult)
+            {
+                $partnerID = ((isset($procedureResult['output']['VAR_OUT_RESULT'])) && $procedureResult['output']['VAR_OUT_RESULT'] > 0) ? $procedureResult['output']['VAR_OUT_RESULT'] : 0;
+                $result = ['result' => $outResult, 'model' => [$partnerID, $model->first_name, $model->last_name, $model->email, $model->auth_key, $model->login, $this->password]];
+            }
+        }
+
+        //return $result;
+
+        var_dump($result);
+        die();
+    }
 }
