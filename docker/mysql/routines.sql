@@ -72,7 +72,7 @@ BEGIN
 
 	SELECT `type`, `pay` INTO @VAR_TYPE, @VAR_PAY
 	FROM `matrices_settings_1`
-	WHERE `number` = 1;	
+	WHERE `number` = 1;
 	SET VAR_OUT_RESULT2 = CONCAT(VAR_OUT_RESULT2,'01',';;;;',@VAR_TYPE,';;;;',@VAR_PAY,';;;;');
 			
 	IF @VAR_TYPE > 0 
