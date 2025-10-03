@@ -1087,6 +1087,7 @@ class Partners extends ActiveRecord implements IdentityInterface
 
     public function createDemoPartners(int $count)
     {
+        $result = [];
         $user = mb_strtolower('user'.$count, 'UTF-8');
 
         $model = new Partners();
@@ -1095,7 +1096,7 @@ class Partners extends ActiveRecord implements IdentityInterface
         $model->first_name = $user;
         $model->last_name = $user;
         $model->email = $user."@test.test";
-        $model->phone = "777711111".$user;
+        $model->phone = "777711111".$count;
         $model->group_id = 0;
         $model->status = (isset(\Yii::$app->params['is_email_verification_allowed']) && (\Yii::$app->params['is_email_verification_allowed'])) ? SignupForm::STATUS_ACTIVE : SignupForm::STATUS_CONFIRMED;
         $model->created_at = 0;
@@ -1106,6 +1107,7 @@ class Partners extends ActiveRecord implements IdentityInterface
         $sponsorID = Partners::find()
             ->orderBy(new Expression('RAND()'))
             ->one();
+        $sponsorID = $sponsorID->id ?? 1;
 
         $dbModel = new DbBase();
         $demoActivation = (isset(\Yii::$app->params['demo_structure_activation']) && (\Yii::$app->params['demo_structure_activation'])) ? 1 : 0;
@@ -1128,9 +1130,6 @@ class Partners extends ActiveRecord implements IdentityInterface
             }
         }
 
-        //return $result;
-
-        var_dump($result);
-        die();
+        return $result['result'] ?? false;
     }
 }

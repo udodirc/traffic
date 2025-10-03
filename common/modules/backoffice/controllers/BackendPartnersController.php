@@ -40,6 +40,7 @@ use common\modules\backoffice\models\forms\StructurePartnersForm;
 use common\modules\backoffice\models\forms\SetBonusForm;
 use common\models\Service;
 use common\components\geo\IsoHelper;
+use yii\db\Expression;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -1076,7 +1077,18 @@ class BackendPartnersController extends Controller
     public function actionCreateDemoPartners()
     {
         $matrix = new Partners();
-        $matrix->createDemoPartners();
+        $totalPartners = Partners::find()->count();
+        $total = $totalPartners + 999;
+
+        for ($i=$totalPartners; $i<=$total; $i++)
+        {
+            if(!$matrix->createDemoPartners($i))
+            {
+                break;
+            }
+        }
+
+        return $this->redirect(['index']);
     }
     
     /**
