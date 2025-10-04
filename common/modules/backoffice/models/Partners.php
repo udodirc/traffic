@@ -859,7 +859,8 @@ class Partners extends ActiveRecord implements IdentityInterface
 						'attribute' => 'demo_total_amount_'.$number, 
 						'label' => Yii::t('form', 'Всего заработано за выплаты по матрицам - структура '.$number.' - DEMO ЗАРАБОТОК'),
 						'format'=>'raw',//raw, html
-						'value'=>Html::encode($demoMatrixPayments[$number]).' - '.Html::a(Yii::t('form', 'Смотреть'), \Yii::$app->request->BaseUrl.'/'.$url.'/matrix-payments-list?structure='.$number.'&id='.$partnerData['id'].'&demo=1', ['target'=>'blank']),
+                        'value'=>Html::encode($demoMatrixPayments[$number])
+						//'value'=>Html::encode($demoMatrixPayments[$number]).' - '.Html::a(Yii::t('form', 'Смотреть'), \Yii::$app->request->BaseUrl.'/'.$url.'/matrix-payments-list?structure='.$number.'&id='.$partnerData['id'].'&demo=1', ['target'=>'blank']),
 					];
 				}
 				
@@ -879,7 +880,8 @@ class Partners extends ActiveRecord implements IdentityInterface
 						'attribute' => 'total_balls_'.$number, 
 						'label' => Yii::t('form', 'Всего заработано баллов по структуре'). '&nbsp;'.$number.' - '.Yii::t('form', 'РЕАЛЬНЫЙ ЗАРАБОТОК'),
 						'format'=>'raw',//raw, html
-						'value'=>Html::encode($partnerData['total_balls_'.$number]).' - '.Html::a(Yii::t('form', 'Смотреть'), \Yii::$app->request->BaseUrl.'/'.$url.'/balls-list?structure='.$number.'&id='.$partnerData['id'].'&demo=0', ['target'=>'blank']),
+                        'value'=>Html::encode($partnerData['total_balls_'.$number])
+						//'value'=>Html::encode($partnerData['total_balls_'.$number]).' - '.Html::a(Yii::t('form', 'Смотреть'), \Yii::$app->request->BaseUrl.'/'.$url.'/balls-list?structure='.$number.'&id='.$partnerData['id'].'&demo=0', ['target'=>'blank']),
 					];
 				}
 				
