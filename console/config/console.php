@@ -5,6 +5,10 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'console\controllers',
     'components' => [
+        'db' => require(__DIR__ . '/../../common/config/db.php'),
+        'errorHandler' => [
+            'class' => yii\console\ErrorHandler::class,
+        ],
         'log' => [
             'targets' => [
                 [
