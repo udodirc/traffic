@@ -72,6 +72,7 @@ return [
 		    'TextAdvertRepository' => ['class' => 'common\modules\advertisement\repositories\TextAdvertRepository'],
 		    'TextAdvertBallsRepository' => ['class' => 'common\modules\advertisement\repositories\TextAdvertBallsRepository'],
 		    'TextAdvertRequestService' => ['class' => 'common\modules\advertisement\services\TextAdvertRequestService'],
+		    'PaymentRepository' => ['class' => 'common\modules\api\repositories\PaymentRepository'],
 	    ],
     ],
 ];
